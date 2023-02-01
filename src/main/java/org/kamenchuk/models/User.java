@@ -1,15 +1,28 @@
 package org.kamenchuk.models;
 
-import lombok.Data;
+import lombok.*;
 
 import java.sql.Date;
 
-@Data
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class User {
-    private long id;
+    private Long id;
     private String login;
     private String password;
-    private int role;
-    private String idPassport;//=idExtraUsersData
+    private Role role;
+
+    private Long idExtraUsersData;
+    private String name;
+    private String lastname;
+    private Date dateOfBirth;
+    private String drivingLicense;
+    private String phone;
+    private Date registerDate;
 }
 

@@ -1,14 +1,19 @@
 package org.kamenchuk.models;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Car {
-    private int id;
+    private Integer id;
     private String carNumber;
-    private int price;
+    private Integer price;
     private String limitations;
-    private int idImage;
-    private String mark;
-    private String model;
+    private Integer idImage;
+    private Model model;
 }

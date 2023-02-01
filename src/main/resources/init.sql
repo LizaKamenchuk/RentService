@@ -5,7 +5,8 @@ CREATE TABLE IF NOT EXISTS roles
 );
 CREATE TABLE IF NOT EXISTS extraUsersData
 (
-    idPassport     VARCHAR(20) PRIMARY KEY,
+    id             BIGSERIAL PRIMARY KEY,
+    idPassport     VARCHAR(20),
     name           VARCHAR(45),
     lastname       VARCHAR(45),
     dateOfBirth    DATE,
@@ -22,7 +23,7 @@ CREATE TABLE IF NOT EXISTS users
     role             INT         not null,
     idExtraUsersData BIGINT,
     FOREIGN KEY (role) REFERENCES roles (id),
-    FOREIGN KEY (idExtraUsersData) REFERENCES extraUsersData (idPassport)
+    FOREIGN KEY (idExtraUsersData) REFERENCES extraUsersData (id)
 );
 CREATE TABLE IF NOT EXISTS carsMarks
 (
@@ -47,25 +48,18 @@ CREATE TABLE IF NOT EXISTS cars
     idModel     INT         not null,
     FOREIGN KEY (idModel) REFERENCES carsModels (id)
 );
-CREATE TABLE IF NOT EXISTS requests
+CREATE TABLE IF NOT EXISTS orders
 (
     id           BIGSERIAL PRIMARY KEY,
     startDate    DATE    not null,
     endDate      DATE    not null,
     status       BOOLEAN not null,
     idCar        INT     not null,
-    idUser       BIGINT     not null,
+    idUser       BIGINT  not null,
     refuseReason VARCHAR(200),
+    adminsLogin  VARCHAR(45),
     FOREIGN KEY (idCar) REFERENCES cars (id),
     FOREIGN KEY (idUser) REFERENCES users (id)
-);
-CREATE TABLE IF NOT EXISTS orders
-(
-    id        BIGSERIAL PRIMARY KEY,
-    idRequest BIGINT not null,
-    idAdmin   BIGINT not null,
-    FOREIGN KEY (idRequest) REFERENCES requests (id),
-    FOREIGN KEY (idAdmin) REFERENCES users (id)
 );
 
 INSERT INTO roles(role)
@@ -74,3 +68,16 @@ VALUES ('admin'),
 INSERT INTO users (login, password, role)
 VALUES ('admin', 'admin1', 1),
        ('user', 'user1', 2);
+INSERT INTO carsMarks(mark)
+VALUES ('BMW'),
+       ('Mercedes'),
+       ('Audi');
+INSERT INTO carsModels(model, idMark)
+VALUES ('X5',1),
+       ('GLE',2),
+       ('Q8',3);
+INSERT INTO cars (carNumber, price, limitations, idImage, idModel)
+VALUES ('1515FD',200,'',1,1),
+       ('2223KL',300,'',2,2),
+       ('6655PL',320,'',3,3);
+
