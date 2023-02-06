@@ -33,7 +33,7 @@ public class ModelDaoImpl implements ModelDao<Model> {
     public Model get(Long id)  {
         try (ConnectionProxy connection = ConnectionPool.INSTANCE.getConnection();
              PreparedStatement ps = connection.prepareStatement(GET_BY_ID);
-             ResultSet rs = ps.executeQuery(GET_BY_ID)) {
+             ResultSet rs = ps.executeQuery()) {
             ps.setLong(1,id);
             Model model = buildModel(rs);
             return model;
@@ -46,7 +46,7 @@ public class ModelDaoImpl implements ModelDao<Model> {
     public List<Model> getAll() {
         try (ConnectionProxy connection = ConnectionPool.INSTANCE.getConnection();
              PreparedStatement ps = connection.prepareStatement(GET_ALL);
-             ResultSet rs = ps.executeQuery(GET_ALL)) {
+             ResultSet rs = ps.executeQuery()) {
            while (rs.next()){
                models.add(buildModel(rs));
            }
@@ -57,7 +57,7 @@ public class ModelDaoImpl implements ModelDao<Model> {
     }
 
     @Override
-    public void update(Model entity, String[] params) throws SQLException {
+    public void update(Model entity) throws SQLException {
 
     }
 
@@ -65,7 +65,7 @@ public class ModelDaoImpl implements ModelDao<Model> {
     public void delete(Model model) throws SQLException {
         try (ConnectionProxy connection = ConnectionPool.INSTANCE.getConnection();
              PreparedStatement ps = connection.prepareStatement(GET_BY_ID);
-             ResultSet rs = ps.executeQuery(GET_BY_ID)) {
+             ResultSet rs = ps.executeQuery()) {
             ps.setLong(1,model.getIdModel());
         } catch (SQLException e) {
             throw new RuntimeException(e);

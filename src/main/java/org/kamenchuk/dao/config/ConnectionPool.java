@@ -1,7 +1,6 @@
 package org.kamenchuk.dao.config;
 
 
-import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -21,6 +20,14 @@ public enum ConnectionPool {
     ConnectionPool() {
         connectionPool = new ArrayList<>(POOL_SIZE);
         usedConnections = new ArrayList<>(POOL_SIZE);
+        try {
+            Class.forName(DRIVER);
+            createPool();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void createPool() throws SQLException {
@@ -30,10 +37,13 @@ public enum ConnectionPool {
     }
 
     public synchronized ConnectionProxy getConnection() throws SQLException {
-        ConnectionProxy connection = connectionPool.get(connectionPool.size() - 1);
-        connectionPool.remove(connection);
-        usedConnections.add(connection);
-        return connection;
+        if(connectionPool.size()>0) {
+            ConnectionProxy connection = connectionPool.get(connectionPool.size() - 1);
+            connectionPool.remove(connection);
+            usedConnections.add(connection);
+            return connection;
+        }
+        else return null;
     }
 
     public synchronized void returnConnection(ConnectionProxy connection) {

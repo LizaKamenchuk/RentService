@@ -1,24 +1,21 @@
-package org.kamenchuk.models;
+package org.kamenchuk.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.sql.Date;
 
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
-public class User {
+public class UserDto {
     private Long id;
     private String login;
-    private String password;
-    private Role role;
-
-    private Long idExtraUsersData;
-    private String idPassport;
+    private String role;
+    private String passportIDN;
     private String name;
     private String lastname;
     private Date dateOfBirth;
@@ -26,4 +23,3 @@ public class User {
     private String phone;
     private Date registerDate;
 }
-

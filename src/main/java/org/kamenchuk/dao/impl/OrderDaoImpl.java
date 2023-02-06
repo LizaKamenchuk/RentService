@@ -38,7 +38,7 @@ public class OrderDaoImpl implements OrdersDao<Order> {
     public Order get(Long id) {
         try (ConnectionProxy connection = ConnectionPool.INSTANCE.getConnection();
              PreparedStatement ps = connection.prepareStatement(GET_BY_ID);
-             ResultSet rs = ps.executeQuery(GET_BY_ID)) {
+             ResultSet rs = ps.executeQuery()) {
             ps.setLong(1, id);
             Order order = buildOrder(rs);
             return order;
@@ -51,7 +51,7 @@ public class OrderDaoImpl implements OrdersDao<Order> {
     public List<Order> getAll() {
         try (ConnectionProxy connection = ConnectionPool.INSTANCE.getConnection();
              PreparedStatement ps = connection.prepareStatement(GET_ALL);
-             ResultSet rs = ps.executeQuery(GET_ALL)) {
+             ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
                 orders.add(buildOrder(rs));
             }
@@ -62,10 +62,10 @@ public class OrderDaoImpl implements OrdersDao<Order> {
     }
 
     @Override
-    public void update(Order order, String[] params) {
+    public void update(Order order) {
         try (ConnectionProxy connection = ConnectionPool.INSTANCE.getConnection();
              PreparedStatement ps = connection.prepareStatement(UPDATE);
-             ResultSet rs = ps.executeQuery(UPDATE)) {
+             ResultSet rs = ps.executeQuery()) {
             ps.setDate(1, Date.valueOf(order.getStartDate()));
             ps.setDate(2,Date.valueOf(order.getFinishDate()));
             ps.setInt(3,order.getCar().getId());
@@ -79,7 +79,7 @@ public class OrderDaoImpl implements OrdersDao<Order> {
     public void updateForAdmin(Order order) throws SQLException {
         try (ConnectionProxy connection = ConnectionPool.INSTANCE.getConnection();
              PreparedStatement ps = connection.prepareStatement(UPDATE_FOR_ADMIN);
-             ResultSet rs = ps.executeQuery(UPDATE_FOR_ADMIN)) {
+             ResultSet rs = ps.executeQuery()) {
            ps.setBoolean(1,order.getStatus());
             ps.setLong(3,order.getId());
         } catch (SQLException e) {
@@ -91,7 +91,7 @@ public class OrderDaoImpl implements OrdersDao<Order> {
     public void delete(Order order) {
         try (ConnectionProxy connection = ConnectionPool.INSTANCE.getConnection();
              PreparedStatement ps = connection.prepareStatement(DELETE);
-             ResultSet rs = ps.executeQuery(DELETE)) {
+             ResultSet rs = ps.executeQuery()) {
             ps.setLong(1, order.getId());
         } catch (SQLException e) {
             throw new RuntimeException(e);

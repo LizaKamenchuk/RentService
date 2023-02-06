@@ -47,7 +47,7 @@ public class CarDaoImpl implements org.kamenchuk.dao.CarDao<Car> {
     public Car get(Long id){
         try(ConnectionProxy connection = ConnectionPool.INSTANCE.getConnection();
             PreparedStatement ps = connection.prepareStatement(GET_BY_ID);
-            ResultSet rs = ps.executeQuery(GET_BY_ID)){
+            ResultSet rs = ps.executeQuery()){
             car = buildCar(rs);
             return car;
         } catch (SQLException e) {
@@ -70,10 +70,10 @@ public class CarDaoImpl implements org.kamenchuk.dao.CarDao<Car> {
     }
 
     @Override
-    public void update(Car car, String[] params) {
+    public void update(Car car) {
         try(ConnectionProxy connection = ConnectionPool.INSTANCE.getConnection();
             PreparedStatement ps = connection.prepareStatement(UPDATE);
-            ResultSet rs = ps.executeQuery(UPDATE)){
+            ResultSet rs = ps.executeQuery()){
             ps.setString(1,car.getCarNumber());
             ps.setInt(2,car.getPrice());
             ps.setString(3,car.getLimitations());
@@ -88,7 +88,7 @@ public class CarDaoImpl implements org.kamenchuk.dao.CarDao<Car> {
     public void delete(Car car){
         try(ConnectionProxy connection = ConnectionPool.INSTANCE.getConnection();
             PreparedStatement ps = connection.prepareStatement(DELETE);
-            ResultSet rs = ps.executeQuery(DELETE)){
+            ResultSet rs = ps.executeQuery()){
             ps.setInt(1,car.getId());
         } catch (SQLException e) {
             throw new RuntimeException(e);
