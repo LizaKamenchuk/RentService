@@ -20,14 +20,14 @@ public class UserDaoImpl implements UserDao<User> {
     @Override
     public List<User> getAll() {
         List<User> users = (List<User>)HibernateSessionFactoryUtil.SESSION_FACTORY
-                .getSessionFactory().openSession().createQuery("From User").list();
+                .getSessionFactory().getCurrentSession().createQuery("From User").list();
         return users;
     }
 
     @Override
     public void update(UCUserDto user) {
         Session session = HibernateSessionFactoryUtil.SESSION_FACTORY
-                .getSessionFactory().openSession();
+                .getSessionFactory().getCurrentSession();
         Transaction tx1 = session.beginTransaction();
         session.merge(user);
         tx1.commit();
@@ -37,7 +37,7 @@ public class UserDaoImpl implements UserDao<User> {
     @Override
     public void delete(User user) {
         Session session = HibernateSessionFactoryUtil.SESSION_FACTORY
-                .getSessionFactory().openSession();
+                .getSessionFactory().getCurrentSession();
         Transaction tx1 = session.beginTransaction();
         session.remove(user);
         tx1.commit();
@@ -47,7 +47,7 @@ public class UserDaoImpl implements UserDao<User> {
     @Override
     public void save(UCUserDto user) {
         Session session = HibernateSessionFactoryUtil.SESSION_FACTORY
-                .getSessionFactory().openSession();
+                .getSessionFactory().getCurrentSession();
         Transaction tx1 = session.beginTransaction();
         session.persist(user);
         tx1.commit();
