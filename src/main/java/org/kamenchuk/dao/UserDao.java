@@ -1,11 +1,9 @@
 package org.kamenchuk.dao;
 
-import org.kamenchuk.dto.CreateUserDto;
+import org.kamenchuk.dto.UCUserDto;
 
-import java.sql.SQLException;
+public interface UserDao<User> extends Dao<User> {
 
-public interface UserDao<UserDto> extends Dao<UserDto> {
-
-    void insert(CreateUserDto user) throws SQLException;
-    void update(CreateUserDto user);
+    void save(UCUserDto user);
+    void update(UCUserDto user);
 }

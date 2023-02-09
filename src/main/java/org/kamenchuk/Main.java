@@ -1,32 +1,17 @@
 package org.kamenchuk;
 
-import org.kamenchuk.dao.config.ConnectionPool;
 import org.kamenchuk.dao.factories.DaoFactory;
-import org.kamenchuk.dto.UserDto;
-import org.kamenchuk.mapper.UserMapper;
+import org.kamenchuk.models.User;
 
 import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
-        ConnectionPool.INSTANCE.createPool();
-
-        UserMapper userMapper = new UserMapper();
-
-//        Role role = new Role(1,"admin");
-//        CreateUserDto user = userMapper.toCreateUserDto(User.builder()
-//                .login("newAdmin4")
-//                .password("11111")
-//                .role(role)
-//                .build());
-//
-//        DaoFactory.INSTANCE.getUserDao().insert(user);
-
-        List<UserDto> users = DaoFactory.INSTANCE.getUserDao().getAll();
-        users.stream()
-               // .map(userMapper::toUserDto)
-                .forEach(System.out::println);
+        List<User> users = DaoFactory.INSTANCE.getUserDao().getAll();
+        users.stream().forEach(System.out::println);
+        Long id = Long.valueOf(4);
+        System.out.println(DaoFactory.INSTANCE.getUserDao().getById(id));
    }
 }

@@ -11,10 +11,8 @@ import java.sql.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UserDto {
+public class ExtraUsersDataDto {
     private Long id;
-    private String login;
-    private String role;
     private String passportIDN;
     private String name;
     private String lastname;

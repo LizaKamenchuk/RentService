@@ -2,7 +2,7 @@ package org.kamenchuk.servlets;
 
 import lombok.SneakyThrows;
 import org.kamenchuk.dao.factories.DaoFactory;
-import org.kamenchuk.dto.CreateUserDto;
+import org.kamenchuk.dto.UCUserDto;
 import org.kamenchuk.models.Role;
 
 import javax.servlet.ServletException;
@@ -31,12 +31,12 @@ public class LoginServlet extends HttpServlet {
         PrintWriter printWriter = response.getWriter();
         String htmlResponse = "<html>"+"<h2>Your email is: "+email+"</h2></html>";
 
-        CreateUserDto userDto = CreateUserDto.builder()
+        UCUserDto userDto = UCUserDto.builder()
                 .login(email)
                 .password(password)
                 .role(role)
                 .build();
-        DaoFactory.INSTANCE.getUserDao().insert(userDto);
+        DaoFactory.INSTANCE.getUserDao().save(userDto);
 
         printWriter.print(htmlResponse);
         printWriter.flush();
