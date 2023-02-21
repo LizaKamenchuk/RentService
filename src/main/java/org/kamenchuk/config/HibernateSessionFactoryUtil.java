@@ -1,42 +1,45 @@
-package org.kamenchuk.dao.config;
+package org.kamenchuk.config;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
+import org.hibernate.context.spi.CurrentSessionContext;
+import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.hibernate.service.ServiceRegistry;
 import org.kamenchuk.models.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Scope;
 
 import java.util.Properties;
 
-
-public enum HibernateSessionFactoryUtil {
-    SESSION_FACTORY;
+@org.springframework.context.annotation.Configuration
+public class HibernateSessionFactoryUtil {
     private SessionFactory sessionFactory;
     private final String DRIVER = "org.postgresql.Driver",
             URL = "jdbc:postgresql://localhost:5432/rent_service",
             USER = "postgres",
             PASSWORD = "toor";
 
-    HibernateSessionFactoryUtil() {
-    }
-
+    @Bean
+    @Scope("singleton")
     public SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
             try {
                 Configuration configuration = new Configuration();
+                Properties properties = new Properties();
 
-                Properties settings = new Properties();
-                settings.put(Environment.DRIVER, DRIVER);
-                settings.put(Environment.URL, URL);
-                settings.put(Environment.USER, USER);
-                settings.put(Environment.PASS, PASSWORD);
-                settings.put(Environment.DIALECT, "org.hibernate.dialect.PostgreSQLDialect");
-                settings.put(Environment.SHOW_SQL, "true");
-                settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
+                properties.put(Environment.DRIVER, DRIVER);
+                properties.put(Environment.URL, URL);
+                properties.put(Environment.USER, USER);
+                properties.put(Environment.PASS, PASSWORD);
+                properties.put(Environment.DIALECT, "org.hibernate.dialect.PostgreSQLDialect");
+                properties.put(Environment.SHOW_SQL, "true");
+                properties.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 
 
-                configuration.setProperties(settings);
+                configuration.setProperties(properties);
+
 
                 configuration.addAnnotatedClass(Car.class);
                 configuration.addAnnotatedClass(ExtraUsersData.class);
@@ -45,16 +48,20 @@ public enum HibernateSessionFactoryUtil {
                 configuration.addAnnotatedClass(Order.class);
                 configuration.addAnnotatedClass(Role.class);
                 configuration.addAnnotatedClass(User.class);
+                configuration.addAnnotatedClass(CurrentSessionContext.class);
+                configuration.addAnnotatedClass(HibernatePersistenceProvider.class);
+
 
 
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties()).build();
 
-                sessionFactory = configuration.addProperties(settings).buildSessionFactory(serviceRegistry);
+                sessionFactory = configuration.addProperties(properties).buildSessionFactory(serviceRegistry);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         return sessionFactory;
     }
+
 }

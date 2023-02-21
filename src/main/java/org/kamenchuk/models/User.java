@@ -34,7 +34,8 @@ public class User {
     @JoinColumn(name = "idExtraUsersData")
     private ExtraUsersData extraUsersData;
 
-    @OneToMany(mappedBy = "client",cascade = CascadeType.ALL)
+    //TODO fetch убрать , когда перепишу getAll c dto
+    @OneToMany(mappedBy = "client",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<Order> order;
 
 }

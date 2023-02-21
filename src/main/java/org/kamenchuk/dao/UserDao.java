@@ -1,9 +1,9 @@
 package org.kamenchuk.dao;
 
-import org.kamenchuk.dto.UCUserDto;
+import org.kamenchuk.models.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface UserDao<User> extends Dao<User> {
-
-    void save(UCUserDto user);
-    void update(UCUserDto user);
+@Repository
+public interface UserDao extends JpaRepository<User,Long> {
 }

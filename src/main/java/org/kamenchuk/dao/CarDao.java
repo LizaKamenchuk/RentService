@@ -1,12 +1,10 @@
 package org.kamenchuk.dao;
 
-import org.kamenchuk.dto.CUCarDto;
+import org.kamenchuk.models.Car;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.sql.SQLException;
-
-public interface CarDao<Car> extends Dao<Car> {
-
-    void save(CUCarDto entity) throws SQLException;
-    void update(CUCarDto entity) throws SQLException;
+@Repository
+public interface CarDao extends JpaRepository<Car, Integer> {
 
 }

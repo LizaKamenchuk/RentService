@@ -36,12 +36,12 @@ public class Order {
     private String refuseReason;
 
     @EqualsAndHashCode.Exclude
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name = "idUser",nullable = false)
     private User client;
 
     @EqualsAndHashCode.Exclude
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name = "idCar",nullable = false)
     private Car car;
 }

@@ -1,13 +1,10 @@
 package org.kamenchuk.dao;
 
-import org.kamenchuk.dto.UForAdminOrderDto;
-import org.kamenchuk.dto.UForUserOrderDto;
+import org.kamenchuk.models.Order;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.sql.SQLException;
+@Repository
+public interface OrdersDao extends JpaRepository<Order,Long> {
 
-public interface OrdersDao<Order> extends Dao<Order> {
-
-    void updateForAdmin(UForAdminOrderDto entity) throws SQLException;
-    void save(Order entity) throws SQLException;
-    void updateForUser(UForUserOrderDto entity) throws SQLException;
 }

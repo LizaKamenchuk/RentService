@@ -1,8 +1,10 @@
 package org.kamenchuk.dao;
 
-import java.sql.SQLException;
+import org.kamenchuk.models.Model;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface ModelDao<Model> extends Dao<Model> {
-    void save(Model entity) throws SQLException;
-    void update(Model entity) throws SQLException;
+@Repository
+public interface ModelDao extends JpaRepository<Model, Integer> {
+
 }

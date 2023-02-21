@@ -9,6 +9,3 @@ services:
       - POSTGRES_DB=rent_service
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=toor
-      //volume for postgre//
-      // JDBC
-      //connection pull//
