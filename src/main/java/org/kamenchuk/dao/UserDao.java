@@ -1,11 +1,9 @@
 package org.kamenchuk.dao;
 
-import org.kamenchuk.dto.CreateUserDto;
+import org.kamenchuk.models.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.sql.SQLException;
-
-public interface UserDao<UserDto> extends Dao<UserDto> {
-
-    void insert(CreateUserDto user) throws SQLException;
-    void update(CreateUserDto user);
+@Repository
+public interface UserDao extends JpaRepository<User,Long> {
 }

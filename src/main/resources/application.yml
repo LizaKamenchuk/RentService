@@ -1,0 +1,8 @@
+db:
+  username: '${postgres}'
+  password: '${toor}'
+  pool.size: '${20}'
+  driver: '${PostgresDriver}'
+  url: '${}'
+  host: '${localhost}'
+
