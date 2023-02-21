@@ -22,8 +22,4 @@ public class LoginController {
     public List<User> getAllUser(){
         return userService.getAllUsers();
     }
-//    @GetMapping(value = "/p")
-//    public String getPage(){
-//        return userService.getPage();
-//    }
 }

@@ -23,10 +23,6 @@ public class UserServiceImpl implements UserService {
         return userDao.findAll();
     }
 
-    @Override
-    public String getPage() {
-        return "page";
-    }
 
 }
 
