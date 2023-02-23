@@ -1,9 +1,11 @@
 package org.kamenchuk.config;
 
-import org.hibernate.cfg.Environment;
+import jakarta.annotation.Resource;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -20,13 +22,13 @@ import java.util.Properties;
 @Configuration
 @EnableJpaRepositories("org.kamenchuk")
 @EnableTransactionManagement
-@PropertySource("classpath:application.yml")
+@PropertySource("classpath:application.properties")
+@ComponentScan("org.kamenchuk")
 public class JpaConfiguration {
 
-    private final static String DRIVER = "org.postgresql.Driver",
-            URL = "jdbc:postgresql://localhost:5432/rent_service",
-            USER = "postgres",
-            PASSWORD = "toor";
+    @Resource
+    private Environment environment;
+
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean emf
@@ -43,18 +45,19 @@ public class JpaConfiguration {
     @Bean
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(DRIVER);
-        dataSource.setUrl(URL);
-        dataSource.setUsername(USER);
-        dataSource.setPassword(PASSWORD);
+        dataSource.setDriverClassName(environment.getRequiredProperty("db.driver"));
+        dataSource.setUrl(environment.getRequiredProperty("db.url"));
+        dataSource.setUsername(environment.getRequiredProperty("db.username"));
+        dataSource.setPassword(environment.getRequiredProperty("db.password"));
+
         return dataSource;
     }
 
     Properties additionalProperties() {
         Properties properties = new Properties();
-        properties.put(Environment.DIALECT, "org.hibernate.dialect.PostgreSQLDialect");
-        properties.put(Environment.SHOW_SQL, "true");
-        properties.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
+        properties.put("db.hibernate.dialect", environment.getRequiredProperty("db.hibernate.dialect"));
+        properties.put("db.hibernate.show_sql", environment.getRequiredProperty("db.hibernate.show_sql"));
+        //properties.put(Environment.CURRENT_SESSION_CONTEXT_CLASS,environment.getRequiredProperty("password"));
         return properties;
     }
 

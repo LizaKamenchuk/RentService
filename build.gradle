@@ -21,6 +21,7 @@ dependencies {
     implementation "com.fasterxml.jackson.core:jackson-databind:${jackson_version}"
     implementation 'org.springframework.data:spring-data-jpa:3.0.0'
     implementation 'jstl:jstl:1.2'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.14.2'
 
 
     compileOnly "org.projectlombok:lombok:${lombok_version}"
@@ -33,10 +34,7 @@ dependencies {
 
     compileOnly 'javax.servlet:javax.servlet-api:3.1.0'
 
-
-    implementation "org.hibernate:hibernate-core:${hibernate_version}.Final"
-
-
+    implementation "org.hibernate:hibernate-core:${hibernate_version}"
 }
 
 test {

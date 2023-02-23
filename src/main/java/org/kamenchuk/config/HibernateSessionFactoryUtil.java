@@ -14,9 +14,10 @@ import org.springframework.context.annotation.Scope;
 import java.util.Properties;
 
 @org.springframework.context.annotation.Configuration
+
 public class HibernateSessionFactoryUtil {
     private SessionFactory sessionFactory;
-    private final String DRIVER = "org.postgresql.Driver",
+    private final static String DRIVER = "org.postgresql.Driver",
             URL = "jdbc:postgresql://localhost:5432/rent_service",
             USER = "postgres",
             PASSWORD = "toor";

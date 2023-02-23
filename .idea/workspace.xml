@@ -10,10 +10,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" name="Changes" comment="implements Spring">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/RentService_Web_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/RentService_Web_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c047513a-1392-4cbc-a771-46235a094494.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c047513a-1392-4cbc-a771-46235a094494/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c047513a-1392-4cbc-a771-46235a094494/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c047513a-1392-4cbc-a771-46235a094494/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/config/HibernateSessionFactoryUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/config/HibernateSessionFactoryUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/config/JpaConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/config/JpaConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +86,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="implement_hibernate" />
+        <entry key="$PROJECT_DIR$" value="implement_spring" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -115,9 +124,9 @@
     &quot;database.data.extractors.current.id&quot;: &quot;SQL Inserts&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/Internship/Programs/RentService/src/main/resources&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.24712643&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.42068964&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.smartKeys&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;05fc16b7a1697b147739b432e5f5c5cf&quot;
   },
@@ -133,11 +142,11 @@
       <recent name="D:\Internship\Programs\RentService" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Internship\Programs\RentService\src\main\resources" />
+      <recent name="D:\Internship\Programs\RentService\src\main\java\org\kamenchuk\config" />
       <recent name="D:\Internship\Programs\RentService\src\main\webapp" />
       <recent name="D:\Internship\Programs\RentService\src\main\webapp\WEB-INF" />
       <recent name="D:\Internship\Programs\RentService\src\main" />
-      <recent name="D:\Internship\Programs\RentService\src" />
-      <recent name="D:\Internship\Programs\RentService\src\main\web\WEB-INF" />
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="org.kamenchuk.dao.impl" />
@@ -442,10 +451,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.RentService [dependencies]" />
-        <item itemvalue="HTTP Request.generated-requests | #1" />
         <item itemvalue="Gradle.RentService [build]" />
         <item itemvalue="Gradle.RentService [clean]" />
+        <item itemvalue="Gradle.RentService [dependencies]" />
+        <item itemvalue="HTTP Request.generated-requests | #1" />
         <item itemvalue="Gradle.RentService [classes]" />
       </list>
     </recent_temporary>
@@ -511,7 +520,11 @@
       <workItem from="1676874170243" duration="7037000" />
       <workItem from="1676884531738" duration="3385000" />
       <workItem from="1676966918873" duration="4350000" />
-      <workItem from="1676974956655" duration="5804000" />
+      <workItem from="1676974956655" duration="11359000" />
+      <workItem from="1677046702477" duration="7877000" />
+      <workItem from="1677065076554" duration="3010000" />
+      <workItem from="1677144007153" duration="5291000" />
+      <workItem from="1677157054059" duration="2078000" />
     </task>
     <task id="LOCAL-00001" summary="RentService">
       <created>1674217605430</created>
@@ -555,7 +568,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676983373868</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="implements Spring">
+      <created>1676984653826</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1676984653826</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -581,6 +601,9 @@
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
+      <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
+        <watch expression="((StandardServletEnvironment)environment).defaultProfiles" custom="org.springframework.web.context.support.StandardServletEnvironment" />
+      </configuration>
       <configuration name="GradleRunConfiguration">
         <watch expression="settings" />
       </configuration>
