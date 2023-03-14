@@ -1,8 +1,12 @@
 package org.kamenchuk.dao;
 
-import java.sql.SQLException;
+import org.kamenchuk.models.Order;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface OrdersDao<Order> extends Dao<Order> {
+import java.util.List;
 
-    void updateForAdmin(Order entity) throws SQLException;
+@Repository
+public interface OrdersDao extends JpaRepository<Order,Long> {
+    List<Order> findOrdersByClient_Id(Long idClient);
 }
