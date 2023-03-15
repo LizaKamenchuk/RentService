@@ -2,7 +2,7 @@ package org.kamenchuk.service.impl;
 
 import org.kamenchuk.dao.RoleDao;
 import org.kamenchuk.dto.mapper.RoleMapper;
-import org.kamenchuk.dto.roleDTO.RoleResponse;
+import org.kamenchuk.models.roleDTO.RoleResponse;
 import org.kamenchuk.models.Role;
 import org.kamenchuk.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;

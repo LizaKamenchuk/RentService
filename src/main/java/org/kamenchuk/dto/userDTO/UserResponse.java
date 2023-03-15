@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.kamenchuk.dto.roleDTO.RoleResponse;
+import org.kamenchuk.models.roleDTO.RoleResponse;
 
 @Data
 @NoArgsConstructor

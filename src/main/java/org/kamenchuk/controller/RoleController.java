@@ -1,13 +1,10 @@
 package org.kamenchuk.controller;
 
-import org.kamenchuk.dto.roleDTO.RoleResponse;
+import org.kamenchuk.models.roleDTO.RoleResponse;
 import org.kamenchuk.service.RoleService;
 import org.kamenchuk.service.impl.RoleServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class RoleController {

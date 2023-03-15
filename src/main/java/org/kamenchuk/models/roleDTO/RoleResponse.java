@@ -1,4 +1,4 @@
-package org.kamenchuk.dto.roleDTO;
+package org.kamenchuk.models.roleDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

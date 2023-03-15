@@ -1,6 +1,6 @@
 package org.kamenchuk.service;
 
-import org.kamenchuk.dto.roleDTO.RoleResponse;
+import org.kamenchuk.models.roleDTO.RoleResponse;
 
 public interface RoleService {
     void delete(Integer id);

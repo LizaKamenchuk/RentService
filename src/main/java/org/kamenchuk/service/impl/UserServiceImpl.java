@@ -82,6 +82,7 @@ public class UserServiceImpl implements UserService {
     public AllUsersDataResponse addExtraData(ExtraUsersData extraUsersData, Long id) {
         return userDao.findById(id)
                 .map(user-> setExtraData(extraUsersData,user))
+                .map(userDao::saveAndFlush)
                 .map(userMapper::toAllDto)
                 .orElseThrow(()->new RuntimeException("ExtraUsersData are not added"));
     }
