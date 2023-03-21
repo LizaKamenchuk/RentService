@@ -4,7 +4,7 @@ import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -32,7 +32,7 @@ public class ExtraUsersData {
     private String lastname;
 
     @Column(name = "date_of_birth")
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
 
     @Column(name = "driving_license",unique = true)
     private String drivingLicense;
@@ -41,7 +41,7 @@ public class ExtraUsersData {
     private String phone;
 
     @Column(name = "register_date")
-    private Date registerDate;
+    private LocalDate registerDate;
 
     @ToString.Exclude
     @OneToOne(mappedBy = "extraUsersData")

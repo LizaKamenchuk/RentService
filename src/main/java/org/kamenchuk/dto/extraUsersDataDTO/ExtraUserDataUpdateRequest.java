@@ -5,15 +5,17 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class ExtraUserDataUpdateRequest {
-    private Long id;
     private String idPassport;
     private String name;
     private String lastname;
     private String drivingLicense;
+    private LocalDate dateOfBirth;
     private String phone;
 }

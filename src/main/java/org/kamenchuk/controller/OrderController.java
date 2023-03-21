@@ -2,6 +2,8 @@ package org.kamenchuk.controller;
 
 
 import org.kamenchuk.dto.orderDTO.*;
+import org.kamenchuk.exceptions.CreationException;
+import org.kamenchuk.exceptions.UpdatingException;
 import org.kamenchuk.service.OrderService;
 import org.kamenchuk.service.impl.OrderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/order")
 public class OrderController {
     private final OrderService orderService;
 
@@ -19,7 +22,7 @@ public class OrderController {
     }
 
     @PostMapping(value = "/create")
-    public OrderCreateResponse create(@RequestParam Long idUser, @RequestBody OrderCreateRequest request) {
+    public OrderCreateResponse create(@RequestParam Long idUser, @RequestBody OrderCreateRequest request) throws CreationException {
         return orderService.create(idUser, request);
     }
 
@@ -29,13 +32,13 @@ public class OrderController {
     }
 
     @PatchMapping(value = "/updateAdmin")
-    public OrderResponse updateAdmin(@RequestBody OrderUpdateAdminRequest request, @RequestParam Long idAdmin) {
+    public OrderResponse updateAdmin(@RequestBody OrderUpdateAdminRequest request, @RequestParam Long idAdmin) throws UpdatingException {
         return orderService.updateAdmin(request, idAdmin);
     }
 
     @PatchMapping(value = "/updateClient")
-    public OrderResponse updateClient(@RequestBody OrderUpdateClientRequest request) {
-        return orderService.updateClient(request);
+    public OrderResponse updateClient(@RequestBody OrderUpdateClientRequest request, @RequestParam Long idOrder) throws UpdatingException {
+        return orderService.updateClient(request,idOrder);
     }
 
     @GetMapping(value = "/getOrderByClientId/{id}")

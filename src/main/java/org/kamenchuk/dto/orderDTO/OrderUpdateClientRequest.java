@@ -12,7 +12,6 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 public class OrderUpdateClientRequest {
-    private Long id;
     private LocalDate startDate;
     private LocalDate finishDate;
     private Integer idCar;

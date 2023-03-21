@@ -1,18 +1,23 @@
 package org.kamenchuk.service.impl;
 
+import lombok.extern.slf4j.Slf4j;
 import org.kamenchuk.dao.ExtraUsersDao;
+import org.kamenchuk.dao.UserDao;
 import org.kamenchuk.dto.extraUsersDataDTO.ExtraUserDataUpdateRequest;
-import org.kamenchuk.dto.extraUsersDataDTO.ExtraUsersDataCreateRequest;
 import org.kamenchuk.dto.mapper.ExtraUsersDataMapper;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.models.ExtraUsersData;
+import org.kamenchuk.models.User;
 import org.kamenchuk.service.ExtraUsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Slf4j
 public class ExtraUsersServiceImpl implements ExtraUsersService {
     private ExtraUsersDao extraUsersDao;
+    private UserDao userDao;
     private ExtraUsersDataMapper extraDataMapper;
 
     @Autowired
@@ -21,34 +26,45 @@ public class ExtraUsersServiceImpl implements ExtraUsersService {
         this.extraDataMapper = extraDataMapper;
     }
 
+
     @Override
-    public ExtraUserDataUpdateRequest getExtraDataById(Long id) {
+    @Transactional
+    public ExtraUserDataUpdateRequest getExtraDataById(Long id) throws ResourceNotFoundException {
         return extraUsersDao.findById(id)
                 .map(extraDataMapper::toDto)
-                .orElseThrow(() -> new ResourceNotFoundException("Data not found"));
+                .orElseThrow(() -> {
+                    log.error("getExtraDataById(). Data isn`t found");
+                    return new ResourceNotFoundException("Data is not found");
+                });
     }
 
     @Override
-    public ExtraUserDataUpdateRequest updateExtraData(ExtraUserDataUpdateRequest request) {
-        return extraUsersDao.findById(request.getId())
+    @Transactional
+    public ExtraUserDataUpdateRequest updateExtraData(ExtraUserDataUpdateRequest request,Long idUser) {
+        User u = userDao.findById(idUser).get();
+        Long idED = u.getExtraUsersData().getId();
+        return extraUsersDao.findById(idED)
                 .map(user -> setChangedData(request, user))
                 .map(extraUsersDao::save)
                 .map(extraDataMapper::toDto)
-                .orElseThrow(() -> new RuntimeException("Updates are not save, try again"));
+                .orElseThrow(() -> {
+                    log.error("updateExtraData(). Updates are not save");
+                    return new RuntimeException("Updates are not save");
+                });
     }
 
-    @Override
-    public ExtraUsersData createExtra(ExtraUsersDataCreateRequest create) {
-        return extraUsersDao.save(extraDataMapper.toUser(create));
-
-    }
 
     private ExtraUsersData setChangedData(ExtraUserDataUpdateRequest request, ExtraUsersData extraUsersData) {
-        if (request.getName() != null) extraUsersData.setName(request.getName());
-        if (request.getLastname() != null) extraUsersData.setLastname(request.getLastname());
-        if (request.getIdPassport() != null) extraUsersData.setIdPassport(request.getIdPassport());
-        if (request.getDrivingLicense() != null) extraUsersData.setDrivingLicense(request.getDrivingLicense());
-        if (request.getPhone() != null) extraUsersData.setPhone(request.getPhone());
-        return extraUsersData;
+       return ExtraUsersData.builder()
+               .id(extraUsersData.getId())
+               .idPassport(request.getIdPassport().isEmpty() ? extraUsersData.getIdPassport() : request.getIdPassport())
+               .name(request.getName().isEmpty() ? extraUsersData.getName() : request.getName())
+               .lastname(request.getLastname().isEmpty() ? extraUsersData.getLastname() : request.getLastname())
+               .phone(request.getPhone().isEmpty() ? extraUsersData.getPhone() : request.getPhone())
+               .dateOfBirth(request.getDateOfBirth() == null
+                       ? extraUsersData.getDateOfBirth() : request.getDateOfBirth())
+               .drivingLicense(request.getDrivingLicense().isEmpty()
+                       ? extraUsersData.getDrivingLicense() : request.getDrivingLicense())
+               .build();
     }
 }

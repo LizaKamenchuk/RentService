@@ -4,12 +4,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.kamenchuk.dao.RoleDao;
 import org.kamenchuk.dao.UserDao;
-import org.kamenchuk.dto.extraUsersDataDTO.ExtraUserDataUpdateRequest;
 import org.kamenchuk.dto.mapper.UserMapper;
-import org.kamenchuk.dto.userDTO.AllUsersDataResponse;
-import org.kamenchuk.dto.userDTO.UserChangeLoginRequest;
 import org.kamenchuk.dto.userDTO.UserCreateRequest;
 import org.kamenchuk.dto.userDTO.UserResponse;
+import org.kamenchuk.exceptions.CreationException;
+import org.kamenchuk.exceptions.UpdatingException;
 import org.kamenchuk.models.ExtraUsersData;
 import org.kamenchuk.models.Role;
 import org.kamenchuk.models.User;
@@ -20,6 +19,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -96,7 +96,7 @@ class UserServiceTest {
     }
 
     @Test
-    void createUserSuccess() {
+    void createUserSuccess() throws CreationException {
         UserCreateRequest createRequest = getUserCreateRequest();
         User user = getUser(getExtraUsersData());
         UserResponse response = getUserResponse();
@@ -121,54 +121,22 @@ class UserServiceTest {
     }
 
     @Test
-    void updateLoginSuccessTest() {
+    void updateLoginSuccessTest() throws UpdatingException {
         User user = getUser(getExtraUsersData());
-        UserChangeLoginRequest change = getUCLR();
+        String login = "newLogin";
+        Long id = 1L;
         UserResponse response = getUserResponse();
-        response.setLogin(change.getLogin());
-        when(userDao.findById(change.getId())).thenReturn(Optional.ofNullable(user));
-        user.setLogin(change.getLogin());
+        response.setLogin(login);
+        when(userDao.findById(id)).thenReturn(Optional.ofNullable(user));
+        user.setLogin(login);
         when(userDao.saveAndFlush(user)).thenReturn(user);
         when(userMapper.toDto(user)).thenReturn(response);
 
-        UserResponse result = userService.updateLogin(change);
+        UserResponse result = userService.updateLogin(login,id);
 
         assertAll(() -> {
             assertNotNull(result);
             assertEquals(result, response);
-        });
-        verify(userDao).saveAndFlush(user);
-    }
-
-    @Test
-    void addExtraDataSuccessDataTest() {
-        ExtraUsersData oldData = getExtraUsersData();
-        User user = getUser(oldData);
-        ExtraUsersData newData = oldData;
-        newData.setPhone("+375332105654");
-        AllUsersDataResponse all = AllUsersDataResponse.builder()
-                .id(user.getId())
-                .login(user.getLogin())
-                .roleResponse(new RoleResponse(user.getRole().getRole()))
-                .extraRequest(ExtraUserDataUpdateRequest.builder()
-                        .id(newData.getId())
-                        .idPassport(newData.getIdPassport())
-                        .name(newData.getName())
-                        .lastname(newData.getLastname())
-                        .drivingLicense(newData.getDrivingLicense())
-                        .phone(newData.getPhone())
-                        .build())
-                .build();
-        when(userDao.findById(user.getId())).thenReturn(Optional.of(user));
-        user.setExtraUsersData(newData);
-        when(userDao.saveAndFlush(user)).thenReturn(user);
-        when(userMapper.toAllDto(user)).thenReturn(all);
-
-        AllUsersDataResponse result = userService.addExtraData(newData,user.getId());
-
-        assertAll(()->{
-            assertNotNull(result);
-            assertEquals(all,result);
         });
         verify(userDao).saveAndFlush(user);
     }
@@ -184,8 +152,7 @@ class UserServiceTest {
     }
 
     private static ExtraUsersData getExtraUsersData() {
-        java.util.Date date = new java.util.Date();
-        java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+
         return ExtraUsersData.builder()
                 .id(1L)
                 .idPassport(null)
@@ -194,7 +161,7 @@ class UserServiceTest {
                 .dateOfBirth(null)
                 .drivingLicense(null)
                 .phone(null)
-                .registerDate(sqlDate)
+                .registerDate(LocalDate.now())
                 .build();
     }
 
@@ -215,10 +182,4 @@ class UserServiceTest {
                 .build();
     }
 
-    private static UserChangeLoginRequest getUCLR() {
-        return UserChangeLoginRequest.builder()
-                .id(1L)
-                .login("newLogin")
-                .build();
-    }
 }

@@ -1,8 +1,9 @@
 package org.kamenchuk.controller;
 
-import org.kamenchuk.dto.userDTO.UserChangeLoginRequest;
 import org.kamenchuk.dto.userDTO.UserCreateRequest;
 import org.kamenchuk.dto.userDTO.UserResponse;
+import org.kamenchuk.exceptions.CreationException;
+import org.kamenchuk.exceptions.UpdatingException;
 import org.kamenchuk.service.UserService;
 import org.kamenchuk.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class UserController {
     }
 
     @PostMapping(value = "/create")
-    public UserResponse create(@RequestBody UserCreateRequest userDto) {
+    public UserResponse create(@RequestBody UserCreateRequest userDto) throws CreationException {
         return userService.createUser(userDto);
     }
 
@@ -42,8 +43,8 @@ public class UserController {
     }
 
     @PatchMapping("/updateLogin")
-    public UserResponse updateLogin(@RequestBody UserChangeLoginRequest requestedUser) {
-        return userService.updateLogin(requestedUser);
+    public UserResponse updateLogin(@RequestParam String newLogin, @RequestParam Long id) throws UpdatingException {
+        return userService.updateLogin(newLogin,id);
     }
 
 }

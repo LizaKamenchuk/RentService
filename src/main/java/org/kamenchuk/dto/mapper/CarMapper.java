@@ -2,6 +2,7 @@ package org.kamenchuk.dto.mapper;
 
 import org.kamenchuk.dto.carDTO.CarCreateRequest;
 import org.kamenchuk.dto.carDTO.CarResponse;
+import org.kamenchuk.dto.carDTO.CarUpdateRequest;
 import org.kamenchuk.models.Car;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -19,4 +20,8 @@ public interface CarMapper {
     @Mapping(source = "model", target = "model.model")
     @Mapping(source = "mark", target = "model.mark.mark")
     Car toCar(CarResponse request);
+
+    @Mapping(source = "model", target = "model.model")
+    @Mapping(source = "mark", target = "model.mark.mark")
+    Car toCar(CarUpdateRequest request);
 }

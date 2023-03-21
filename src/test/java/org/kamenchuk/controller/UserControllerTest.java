@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.kamenchuk.dto.userDTO.UserCreateRequest;
 import org.kamenchuk.dto.userDTO.UserResponse;
+import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.models.roleDTO.RoleResponse;
 import org.kamenchuk.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,7 +77,7 @@ public class UserControllerTest {
     }
 
     @Test
-    void createSuccessTest(){
+    void createSuccessTest() throws CreationException {
         UserCreateRequest request = getUserCreateRequest();
         UserResponse response = getUserResponse();
 

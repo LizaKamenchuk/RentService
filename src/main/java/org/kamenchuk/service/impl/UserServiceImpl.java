@@ -1,13 +1,15 @@
 package org.kamenchuk.service.impl;
 
+import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.kamenchuk.dao.RoleDao;
 import org.kamenchuk.dao.UserDao;
 import org.kamenchuk.dto.mapper.UserMapper;
-import org.kamenchuk.dto.userDTO.AllUsersDataResponse;
-import org.kamenchuk.dto.userDTO.UserChangeLoginRequest;
 import org.kamenchuk.dto.userDTO.UserCreateRequest;
 import org.kamenchuk.dto.userDTO.UserResponse;
+import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
+import org.kamenchuk.exceptions.UpdatingException;
 import org.kamenchuk.models.ExtraUsersData;
 import org.kamenchuk.models.Role;
 import org.kamenchuk.models.User;
@@ -16,12 +18,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 public class UserServiceImpl implements UserService {
     private final UserDao userDao;
     private final RoleDao roleDao;
@@ -44,23 +47,30 @@ public class UserServiceImpl implements UserService {
                 .collect(Collectors.toList());
     }
 
+    @SneakyThrows
     @Override
     public UserResponse findById(Long id) {
         return userDao.findById(id)
                 .map(userMapper::toDto)
-                .orElseThrow(() -> new ResourceNotFoundException("User with id = " + id + " is not found"));
+                .orElseThrow(() -> {
+                    log.error("findById(). User isn`t found");
+                    return new ResourceNotFoundException("User with id = " + id + " is not found");
+                });
     }
 
     @Transactional
     @Override
-    public UserResponse createUser(UserCreateRequest requestedUser) {
+    public UserResponse createUser(UserCreateRequest requestedUser) throws CreationException {
         return Optional.ofNullable(requestedUser)
                 .map(userMapper::save)
                 .map(this::setUserRole)
                 .map(this::setUserED)
                 .map(userDao::save)
                 .map(userMapper::toDto)
-                .orElseThrow(() -> new RuntimeException("Can not save user"));
+                .orElseThrow(() -> {
+                    log.error("createUser(). Can not create user");
+                    return new CreationException("Can not save user");
+                });
     }
 
     @Override
@@ -70,23 +80,16 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public UserResponse updateLogin(UserChangeLoginRequest requestedUser) {
-        return userDao.findById(requestedUser.getId())
-                .map(user -> setUserLogin(user, requestedUser.getLogin()))
+    public UserResponse updateLogin(String newLogin,Long id) throws UpdatingException {
+        return userDao.findById(id)
+                .map(user -> setUserLogin(user, newLogin))
                 .map(userDao::saveAndFlush)
                 .map(userMapper::toDto)
-                .orElseThrow(() -> new RuntimeException("Update not succeed"));
+                .orElseThrow(() -> {
+                    log.error("updateLogin(). Login update isn`t succeed");
+                    return new UpdatingException("Update not succeed");
+                });
     }
-
-    @Override
-    public AllUsersDataResponse addExtraData(ExtraUsersData extraUsersData, Long id) {
-        return userDao.findById(id)
-                .map(user-> setExtraData(extraUsersData,user))
-                .map(userDao::saveAndFlush)
-                .map(userMapper::toAllDto)
-                .orElseThrow(()->new RuntimeException("ExtraUsersData are not added"));
-    }
-
 
     private User setUserRole(User user) {
         String usersRole ="user";
@@ -97,16 +100,15 @@ public class UserServiceImpl implements UserService {
     }
 
     private User setUserED(User user) {
-        Date date = new Date();
-        java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+        LocalDate date = LocalDate.now();
         ExtraUsersData extraUsersData = user.getExtraUsersData();
-        extraUsersData.setRegisterDate(sqlDate);
+        extraUsersData.setRegisterDate(date);
         user.setExtraUsersData(extraUsersData);
         return user;
     }
 
     private User setUserLogin(User user, String login) {
-        user.setLogin(login);
+        if(!login.isEmpty()) user.setLogin(login);
         return user;
     }
 

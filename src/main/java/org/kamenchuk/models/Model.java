@@ -21,7 +21,7 @@ public class Model {
     @GenericGenerator(name = "cars_models_id_seq", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator")
     private Integer idModel;
 
-    @Column(name = "model",nullable = false, unique = true)
+    @Column(name = "model",nullable = false)
     private String model;
 
     @ManyToOne

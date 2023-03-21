@@ -1,11 +1,14 @@
 package org.kamenchuk.service.impl;
 
+import lombok.extern.slf4j.Slf4j;
 import org.kamenchuk.dao.CarDao;
 import org.kamenchuk.dao.ModelDao;
 import org.kamenchuk.dao.OrdersDao;
 import org.kamenchuk.dao.UserDao;
 import org.kamenchuk.dto.mapper.OrderMapper;
 import org.kamenchuk.dto.orderDTO.*;
+import org.kamenchuk.exceptions.CreationException;
+import org.kamenchuk.exceptions.UpdatingException;
 import org.kamenchuk.models.Car;
 import org.kamenchuk.models.Order;
 import org.kamenchuk.models.User;
@@ -20,6 +23,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 public class OrderServiceImpl implements OrderService {
     private final OrdersDao ordersDao;
     private final UserDao userDao;
@@ -42,42 +46,59 @@ public class OrderServiceImpl implements OrderService {
 
     @Transactional
     @Override
-    public OrderCreateResponse create(Long idUser, OrderCreateRequest request) {
+    public OrderCreateResponse create(Long idUser, OrderCreateRequest request) throws CreationException {
         return Optional.ofNullable(request)
                 .map(orderMapper::toOrder)
                 .map(order -> setUserStatusCar(idUser,order,request))
                 .map(ordersDao::save)
                 .map(orderMapper::toDto)
                 .map(response -> setPrice(response,request.getIdCar()))
-                .orElseThrow(() -> new RuntimeException("It does not save"));
+                .orElseThrow(() -> {
+                    log.error("create(). Order isn`t created");
+                    return new CreationException("Order isn`t created");
+                });
     }
 
     @Override
+    @Transactional
     public void deleteById(Long id) {
         ordersDao.deleteById(id);
     }
 
     @Override
-    public OrderResponse updateAdmin(OrderUpdateAdminRequest request, Long idAdmin) {
-        Order order = ordersDao.findById(request.getId()).get();
-        order = setAdminsUpdates(request, order, idAdmin);
-        Integer idCar = order.getCar().getId();
-        OrderResponse response = orderMapper.toOrderResponse(order);
-        response = setPrice(response, idCar);
-        return response;
+    @Transactional
+    public OrderResponse updateAdmin(OrderUpdateAdminRequest request, Long idAdmin) throws UpdatingException {
+        try {
+            Order order = ordersDao.findById(request.getId()).get();
+            order = setAdminsUpdates(request, order, idAdmin);
+            Integer idCar = order.getCar().getId();
+            OrderResponse response = orderMapper.toOrderResponse(order);
+            response = setPrice(response, idCar);
+            return response;
+        }catch (Exception e){
+            log.error("updateAdmin(). Order isn`t updated by admin");
+            throw new UpdatingException("Order isn`t updated");
+        }
+
+
     }
 
     @Override
-    public OrderResponse updateClient(OrderUpdateClientRequest request) {
-        return ordersDao.findById(request.getId())
+    @Transactional
+    public OrderResponse updateClient(OrderUpdateClientRequest request,Long idOrder) throws UpdatingException {
+        return ordersDao.findById(idOrder)
                 .map(order -> setClientsUpdates(request, order))
                 .map(ordersDao::save)
                 .map(orderMapper::toOrderResponse)
                 .map(orderResponse -> setPrice(orderResponse, request.getIdCar()))
-                .orElseThrow(() -> new RuntimeException("It does not update"));
+                .orElseThrow(() -> {
+                    log.error("updateClient(). Order isn`t updated by client");
+                    return new UpdatingException("It does not update");
+                });
     }
 
     @Override
+    @Transactional
     public List<OrderResponse> getByClientId(Long id) {
         return ordersDao.findOrdersByClient_Id(id).stream()
                 .map(this::setPriceForOrdersList)
@@ -85,6 +106,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Transactional
     public List<OrderResponse> getAll() {
         return ordersDao.findAll().stream()
                 .map(this::setPriceForOrdersList)

@@ -37,9 +37,5 @@ public class User {
     @JoinColumn(name = "id_extra_users_data", referencedColumnName = "id")
     private ExtraUsersData extraUsersData;
 
-//    //TODO fetch убрать , когда перепишу getAll c dto
-//    @OneToMany(mappedBy = "client",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-//    private List<Order> order;
-
 }
 

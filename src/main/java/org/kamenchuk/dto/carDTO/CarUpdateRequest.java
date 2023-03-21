@@ -1,26 +1,20 @@
 package org.kamenchuk.dto.carDTO;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotNull;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CarCreateRequest {
-    @NotNull
+public class CarUpdateRequest {
     private String carNumber;
-    @NotNull
     private String mark;
-    @NotNull
     private String model;
-    @NotNull
     private String limitations;
-    @NotNull
     private Integer price;
     private Integer idImage;
 }

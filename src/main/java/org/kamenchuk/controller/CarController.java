@@ -2,15 +2,21 @@ package org.kamenchuk.controller;
 
 import org.kamenchuk.dto.carDTO.CarCreateRequest;
 import org.kamenchuk.dto.carDTO.CarResponse;
+import org.kamenchuk.dto.carDTO.CarUpdateRequest;
+import org.kamenchuk.exceptions.CreationException;
+import org.kamenchuk.exceptions.ResourceNotFoundException;
+import org.kamenchuk.exceptions.UpdatingException;
 import org.kamenchuk.service.CarService;
 import org.kamenchuk.service.impl.CarServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/carController")
+@RequestMapping("/car")
 public class CarController {
     private final CarService carService;
 
@@ -25,12 +31,12 @@ public class CarController {
     }
 
     @GetMapping(value = "/getByCarNumber/{carNumber}")
-    public CarResponse getByCarNumber(@PathVariable String carNumber){
+    public CarResponse getByCarNumber(@PathVariable String carNumber) throws ResourceNotFoundException {
         return carService.getCarByNumber(carNumber);
     }
 
     @PostMapping (value = "/create")
-    public CarResponse create(@RequestBody CarCreateRequest request){
+    public CarResponse create(@Valid @RequestBody CarCreateRequest request) throws CreationException {
         return carService.create(request);
     }
 
@@ -45,7 +51,7 @@ public class CarController {
     }
 
     @PatchMapping(value = "/update")
-    public CarResponse update(CarResponse request){
-        return carService.update(request);
+    public CarResponse update(@Valid @RequestBody CarUpdateRequest request, @RequestParam Integer idCar) throws UpdatingException {
+        return carService.update(request,idCar);
     }
 }
