@@ -15,8 +15,8 @@ public interface ExtraUsersService {
     /**
      * Updates extraUsersData
      * @param request - ExtraUserDataUpdateRequest entity
-     * @param idED - extraUsersData id from DB
-     * @return
+     * @param idUser - extraUsersData id from DB
+     * @return ExtraUserDataUpdateRequest
      */
     ExtraUserDataUpdateRequest updateExtraData(ExtraUserDataUpdateRequest request,Long idUser);
 
