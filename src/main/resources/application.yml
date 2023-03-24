@@ -1,0 +1,10 @@
+
+server:
+  port: ${PORT:8081}
+spring:
+  application:
+    name: simple-app
+  datasource:
+    username: ${MONGO_INITDB_ROOT_USERNAME:admin}
+    password: ${MONGO_INITDB_ROOT_PASSWORD:mongo}
+    url: jdbc:mongodb://${DB_HOST:localhost}:${DB_PORT:27017}/${DATABASE:photos}
