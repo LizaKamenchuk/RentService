@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+//TODO см CarServiceImpl
 @Service
 @Slf4j
 public class ExtraUsersServiceImpl implements ExtraUsersService {

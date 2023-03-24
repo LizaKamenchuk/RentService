@@ -1,5 +1,6 @@
 package org.kamenchuk.service.impl;
 
+import lombok.extern.slf4j.Slf4j;
 import org.kamenchuk.dao.CarDao;
 import org.kamenchuk.dao.MarkDao;
 import org.kamenchuk.dao.ModelDao;
@@ -22,6 +23,12 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+//TODO где логирование? @Slf4j
+/**
+ * Class implements CarService interface
+ * @author Liza Kamenchuk
+ */
+@Slf4j
 @Service
 public class CarServiceImpl implements CarService {
     private final CarDao carDao;
@@ -49,13 +56,17 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public CarResponse create(CarCreateRequest request) {
+    @Transactional
+    public CarResponse create(CarCreateRequest request) throws CreationException {
         return Optional.ofNullable(request)
                 .map(carMapper::toCar)
-                .map(car -> setModelForCreate(request.getModel(),request.getMark(), car))
+                .map(car -> setModel(setModelForCreate(request.getModel(), request.getMark(),car),car))
                 .map(carDao::save)
                 .map(carMapper::toDto)
-                .orElseThrow(() -> new RuntimeException("Car is not created"));
+                .orElseThrow(() -> {
+                    log.error("create(). Can not create car!");
+                    return new CreationException("Car isn`t created");
+                });
     }
 
     @Override
@@ -126,13 +137,17 @@ public class CarServiceImpl implements CarService {
         return model;
     }
 
-    private Car setUpdates(CarResponse request, Car car) {
-        if (request.getMark() != null) car.getModel().getMark().setMark(request.getMark());
-        if (request.getModel() != null) car.getModel().setModel(request.getModel());
-        if (request.getCarNumber() != null) car.setCarNumber(request.getCarNumber());
-        if(request.getLimitations() != null) car.setLimitations(request.getLimitations());
-        if(request.getPrice() != null) car.setPrice(request.getPrice());
-        if(request.getIdImage() != null) car.setIdImage(request.getIdImage());
-        return car;
+    private Car setUpdates(
+            CarUpdateRequest request,
+            Car car
+    ) {
+        return Car.builder()
+                .id(car.getId())
+                .model(setModelForCreate(request.getModel(), request.getMark(),car))
+                .carNumber(request.getCarNumber().isEmpty() ? car.getCarNumber() : request.getCarNumber())
+                .price(request.getPrice() == null ? car.getPrice() : request.getPrice())
+                .idImage(request.getIdImage() == null ? car.getIdImage() : request.getIdImage())
+                .limitations(request.getLimitations().isEmpty() ? car.getLimitations() : request.getLimitations())
+                .build();
     }
 }

@@ -10,48 +10,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" name="Changes" comment="implements Controller Advice">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/ControllerAdvicer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/carDTO/CarUpdateRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/exceptions/CreationException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/exceptions/UpdatingException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/rent_service.r3-6VA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/rent_service.r3-6VA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/CarsPhotoLoader_Web_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CarsPhotoLoader/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CarsPhotoLoader/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CarsPhotoLoader/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CarsPhotoLoader/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CarsPhotoLoader/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CarsPhotoLoader/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/CarsPhotoLoaderApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/controller/PhotoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/dto/PhotoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/dto/PhotoResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/model/File.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/model/Photo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/repository/PhotoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/service/PhotoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/service/PhotoServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/test/java/com/kamenchuk/CarsPhotoLoaderApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/RentService.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/RentService.CarPhotoLoader.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RentService.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/CarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/CarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/ExtraUsersDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/ExtraUsersDataController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/RoleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/carDTO/CarCreateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/carDTO/CarCreateRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/extraUsersDataDTO/ExtraUserDataUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/extraUsersDataDTO/ExtraUserDataUpdateRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/mapper/CarMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/mapper/CarMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/orderDTO/OrderUpdateClientRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/orderDTO/OrderUpdateClientRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/userDTO/UserChangeLoginRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/exceptions/ResourceNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/exceptions/ResourceNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/mapper/ExtraUserDataMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/mapper/RoleMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/models/ExtraUsersData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/models/ExtraUsersData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/models/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/models/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/CarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/CarService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/ExtraUsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/ExtraUsersService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/RoleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/ExtraUsersServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/ExtraUsersServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/OrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/RoleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/tables1/cars-table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/tables1/cars-table.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/tables1/carsMarks-table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/tables1/carsMarks-table.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/tables1/extra_users_data-table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/tables1/extra_users_data-table.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/tables1/roles-table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/tables1/roles-table.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/tables1/users-table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/tables1/users-table.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/controllerTests/UserControllerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/kamenchuk/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/kamenchuk/controller/UserControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/UserServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/UserServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/tables1/cars-table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/version1/cars-table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/tables1/carsMarks-table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/version1/carsMarks-table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/tables1/carsModels-table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/version1/carsModels-table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/tables1/extra_users_data-table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/version1/extra_users_data-table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/tables1/orders-table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/version1/orders-table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/tables1/roles-table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/version1/roles-table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/tables1/users-table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/version1/users-table.sql" afterDir="false" />
     </list>
     <list id="da30dbad-d88c-4968-aaa8-a566c9f99ec1" name="ChangesForTests" comment="ChangesForTests">
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
@@ -61,10 +60,6 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/ExtraUsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/ExtraUsersService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/OrderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/RoleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/ExtraUsersServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/ExtraUsersServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/RoleServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.yaml" afterDir="false" />
@@ -79,6 +74,17 @@
   </component>
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="DockerExecCommands">
+    <ExecCommand>
+      <option name="command" value="mongo" />
+    </ExecCommand>
+    <ExecCommand>
+      <option name="command" value="rentcervice-db_mongo-1" />
+    </ExecCommand>
+    <ExecCommand>
+      <option name="command" value="mongosh" />
+    </ExecCommand>
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -119,11 +125,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="HTML File" />
         <option value="JUnit5 Test Class" />
         <option value="Enum" />
         <option value="AnnotationType" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -134,174 +140,16 @@
         <entry key="$PROJECT_DIR$" value="temp" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/CarsPhotoLoader" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/ModelDao.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/RoleService.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="3" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="4" end1="4" start2="5" end2="9" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
-        <range start1="5" end1="5" start2="10" end2="14" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="7" end1="8" start2="16" end2="22" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="3" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
-        <range start1="7" end1="7" start2="8" end2="9" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="8" end1="8" start2="10" end2="13" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="14" end1="14" start2="19" end2="20" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="19" end1="19" start2="25" end2="31" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
-        <range start1="26" end1="27" start2="38" end2="38" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="39" end1="39" start2="50" end2="51" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="46" end1="47" start2="58" end2="60" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
-        <range start1="49" end1="50" start2="62" end2="63" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
-        <range start1="52" end1="53" start2="65" end2="69" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
-        <range start1="56" end1="58" start2="72" end2="77" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="60" end1="61" start2="79" end2="83" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="64" end1="64" start2="86" end2="87" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="69" end1="69" start2="92" end2="93" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="74" end1="79" start2="98" end2="102" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="81" end1="82" start2="104" end2="108" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="84" end1="91" start2="110" end2="118" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="92" end1="102" start2="119" end2="137" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="104" end1="112" start2="139" end2="151" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/RoleServiceImpl.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="3" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="4" end1="4" start2="5" end2="6" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="9" end1="9" start2="11" end2="12" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
-        <range start1="10" end1="10" start2="13" end2="14" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
-        <range start1="11" end1="11" start2="15" end2="16" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="22" end1="22" start2="27" end2="28" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="29" end1="34" start2="35" end2="46" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/ExtraUsersServiceImpl.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="3" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="3" end1="3" start2="4" end2="5" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="4" end1="5" start2="6" end2="6" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="8" end1="8" start2="9" end2="10" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="11" end1="11" start2="13" end2="14" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="12" end1="12" start2="15" end2="16" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
-        <range start1="13" end1="13" start2="17" end2="18" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="15" end1="15" start2="20" end2="21" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="23" end1="23" start2="29" end2="30" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="24" end1="25" start2="31" end2="33" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="27" end1="28" start2="35" end2="39" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="31" end1="33" start2="42" end2="47" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="36" end1="37" start2="50" end2="54" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="39" end1="44" start2="56" end2="56" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="46" end1="52" start2="58" end2="69" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/ExtraUsersService.java">
-      <ranges>
-        <range start1="3" end1="5" start2="3" end2="4" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="6" end1="6" start2="5" end2="10" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
-        <range start1="8" end1="11" start2="12" end2="27" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/UserServiceImplTest.java">
-      <ranges>
-        <range start1="6" end1="7" start2="6" end2="6" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="8" end1="10" start2="7" end2="7" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="12" end1="12" start2="9" end2="11" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="22" end1="22" start2="21" end2="22" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="30" end1="30" start2="30" end2="31" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
-        <range start1="98" end1="99" start2="99" end2="100" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="123" end1="124" start2="124" end2="125" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="125" end1="126" start2="126" end2="128" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="127" end1="130" start2="129" end2="132" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="133" end1="134" start2="135" end2="136" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="141" end1="174" start2="143" end2="143" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="186" end1="188" start2="155" end2="156" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="196" end1="197" start2="164" end2="165" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="217" end1="223" start2="185" end2="185" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-      </ranges>
-    </file>
     <file path="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/CarController.java">
       <ranges>
-        <range start1="4" end1="4" start2="4" end2="8" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="7" end1="7" start2="11" end2="12" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="9" end1="9" start2="14" end2="15" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="11" end1="11" start2="17" end2="20" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
-        <range start1="12" end1="13" start2="21" end2="22" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="27" end1="28" start2="36" end2="37" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="32" end1="33" start2="41" end2="42" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="47" end1="49" start2="56" end2="58" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/build.gradle">
-      <ranges>
-        <range start1="2" end1="4" start2="2" end2="4" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="8" end1="9" start2="8" end2="8" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="10" end1="15" start2="9" end2="11" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="25" end1="28" start2="21" end2="24" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
-        <range start1="32" end1="34" start2="28" end2="30" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="41" end1="42" start2="37" end2="37" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="43" end1="47" start2="38" end2="38" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="48" end1="49" start2="39" end2="39" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/OrderServiceImpl.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="3" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="8" end1="8" start2="9" end2="11" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="20" end1="21" start2="23" end2="24" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
-        <range start1="22" end1="22" start2="25" end2="26" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="44" end1="45" start2="48" end2="49" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="51" end1="52" start2="55" end2="59" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="55" end1="55" start2="62" end2="63" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="60" end1="67" start2="68" end2="83" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="70" end1="72" start2="86" end2="89" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="76" end1="77" start2="93" end2="97" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="80" end1="80" start2="100" end2="101" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="87" end1="87" start2="108" end2="109" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/test/java/org/kamenchuk/controller/UserControllerTest.java">
-      <ranges>
-        <range start1="7" end1="7" start2="7" end2="8" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="21" end1="21" start2="22" end2="24" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
-        <range start1="78" end1="79" start2="81" end2="82" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/OrderService.java">
-      <ranges>
-        <range start1="4" end1="4" start2="4" end2="6" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="6" end1="6" start2="8" end2="9" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
-        <range start1="7" end1="7" start2="10" end2="14" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
-        <range start1="8" end1="9" start2="15" end2="27" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="11" end1="13" start2="29" end2="50" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="14" end1="14" start2="51" end2="56" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="4" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="5" end1="7" start2="7" end2="7" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="9" end1="9" start2="9" end2="10" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="10" end1="10" start2="11" end2="12" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="18" end1="19" start2="20" end2="21" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="22" end1="23" start2="24" end2="25" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
-        <range start1="24" end1="24" start2="26" end2="27" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="46" end1="46" start2="49" end2="50" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="50" end1="51" start2="54" end2="58" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="55" end1="56" start2="62" end2="63" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="62" end1="63" start2="69" end2="73" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="72" end1="75" start2="82" end2="85" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="77" end1="78" start2="87" end2="91" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="80" end1="90" start2="93" end2="93" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="99" end1="101" start2="102" end2="103" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="102" end1="103" start2="104" end2="105" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="108" end1="109" start2="110" end2="111" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="16" end1="16" start2="16" end2="17" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="17" end1="17" start2="18" end2="19" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
       </ranges>
     </file>
   </component>
@@ -323,50 +171,53 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;database.data.extractors.current.export.id&quot;: &quot;SQL Inserts&quot;,
-    &quot;database.data.extractors.current.id&quot;: &quot;SQL Inserts&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/IdeaProjects/PetBoxEE&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.24712643&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;fe4fed0b326cbca9bfa2c83cf8825dc0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "database.data.extractors.current.export.id": "SQL Inserts",
+    "database.data.extractors.current.id": "SQL Inserts",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "D:/Internship/Programs/RentService/CarsPhotoLoader/src/main/resources",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.24712643",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "spring.configuration.checksum": "c5693428da7cb1a718a3fee663d48eab"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;,
-      &quot;postgresql&quot;,
-      &quot;mongo&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql",
+      "postgresql",
+      "mongo"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.kamenchuk.dto.carDTO" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Internship\Programs\RentService\CarsPhotoLoader\src\main\resources" />
+      <recent name="D:\Internship\Programs\RentService\src\main\resources\db\changelog\version2" />
       <recent name="D:\Internship\Programs\RentService" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Internship\Programs\RentService\rentService.iml" />
       <recent name="D:\Internship\Programs\RentService\src\main\java\org\kamenchuk" />
       <recent name="D:\Internship\Programs\RentService\src\main\webapp" />
       <recent name="D:\Internship\Programs\RentService\src\main\webapp\WEB-INF" />
       <recent name="D:\Internship\Programs\RentService\src\main" />
-      <recent name="D:\Internship\Programs\RentService\src" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -381,130 +232,32 @@
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
-        <option value="docker-deploy" />
+        <option value="SpringBootApplicationConfigurationType" />
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.RentService [build]">
+  <component name="RunManager" selected="Spring Boot.CarsPhotoLoaderApplication">
     <configuration name="init.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/src/main/resources/init.sql" />
       <script-mode>FILE</script-mode>
       <method v="2" />
     </configuration>
-    <configuration name="RentService [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
+    <configuration name="generated-requests | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="2" requestIdentifier="#2" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="UserControllerTest.createSuccessTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;controllerTests.UserControllerTest.createSuccessTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
+    <configuration name="generated-requests | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="3" requestIdentifier="#3" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="UserServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;org.kamenchuk.service.impl.UserServiceTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="UserServiceTest.addExtraDataSuccessDataTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;org.kamenchuk.service.impl.UserServiceTest.addExtraDataSuccessDataTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="UserServiceTest.getAllUsersSuccessTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;org.kamenchuk.service.impl.UserServiceTest.getAllUsersSuccessTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
+    <configuration name="CarsPhotoLoaderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
+      <module name="CarsPhotoLoader" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.kamenchuk.CarsPhotoLoaderApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="RentServiceApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
       <module name="RentService.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.kamenchuk.RentServiceApp" />
       <method v="2">
@@ -688,24 +441,65 @@
         <option name="BuildArtifacts" enabled="true" />
       </method>
     </configuration>
+    <configuration name="docker-compose.yml.db_mongo: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="envFilePath" value="" />
+          <option name="services">
+            <list>
+              <option value="db_mongo" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.kafka: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="kafka" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.zookeeper: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="zookeeper" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Database Script.init.sql" />
-      <item itemvalue="Gradle.UserServiceTest" />
-      <item itemvalue="Gradle.UserServiceTest.getAllUsersSuccessTest" />
-      <item itemvalue="Gradle.RentService [build]" />
-      <item itemvalue="Gradle.UserControllerTest.createSuccessTest" />
-      <item itemvalue="Gradle.UserServiceTest.addExtraDataSuccessDataTest" />
+      <item itemvalue="Docker.docker-compose.yml.kafka: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose.yml.zookeeper: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose.yml.db_mongo: Compose Deployment" />
+      <item itemvalue="HTTP Request.generated-requests | #2" />
+      <item itemvalue="HTTP Request.generated-requests | #3" />
+      <item itemvalue="Spring Boot.CarsPhotoLoaderApplication" />
       <item itemvalue="Spring Boot.RentServiceApp" />
       <item itemvalue="Tomcat Server.Tomcat 10.0.27" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.71" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.RentService [build]" />
-        <item itemvalue="Gradle.UserServiceTest" />
-        <item itemvalue="Gradle.UserServiceTest.getAllUsersSuccessTest" />
-        <item itemvalue="Gradle.UserServiceTest.addExtraDataSuccessDataTest" />
-        <item itemvalue="Gradle.UserControllerTest.createSuccessTest" />
+        <item itemvalue="Docker.docker-compose.yml.kafka: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.zookeeper: Compose Deployment" />
+        <item itemvalue="HTTP Request.generated-requests | #3" />
+        <item itemvalue="HTTP Request.generated-requests | #2" />
+        <item itemvalue="Docker.docker-compose.yml.db_mongo: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -763,7 +557,13 @@
       <workItem from="1679293919628" duration="7667000" />
       <workItem from="1679306454966" duration="2235000" />
       <workItem from="1679311935748" duration="9566000" />
-      <workItem from="1679390982487" duration="999000" />
+      <workItem from="1679390982487" duration="16553000" />
+      <workItem from="1679469218099" duration="13452000" />
+      <workItem from="1679483305071" duration="2794000" />
+      <workItem from="1679497189527" duration="1177000" />
+      <workItem from="1679562654443" duration="2065000" />
+      <workItem from="1679576957878" duration="8880000" />
+      <workItem from="1679640007352" duration="9252000" />
     </task>
     <task id="LOCAL-00001" summary="RentService">
       <created>1674217605430</created>
@@ -800,7 +600,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678893214262</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="implements Controller Advice">
+      <created>1679392043394</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1679392043394</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -918,6 +725,14 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="this.h" custom="java.lang.reflect.Proxy" />
+        <watch expression="this.h" language="JAVA" custom="java.lang.reflect.Proxy" />
+        <watch expression="this.h" language="JAVA" custom="java.lang.reflect.Proxy" />
+        <watch expression="idPhoto" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
