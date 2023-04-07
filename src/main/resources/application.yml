@@ -4,7 +4,15 @@ server:
 spring:
   application:
     name: simple-app
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:29092}
+    consumer:
+      bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:29092}
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      value-deserializer: org.springframework.kafka.support.serializer.StringDeserializer
+      group-id: myGroup
+      auto-offset-reset: earliest
   datasource:
     username: ${MONGO_INITDB_ROOT_USERNAME:admin}
     password: ${MONGO_INITDB_ROOT_PASSWORD:mongo}
-    url: jdbc:mongodb://${DB_HOST:localhost}:${DB_PORT:27017}/${DATABASE:photos}
+    url: jdbc:mongodb://${DB_HOST:localhost}DB_PORT:27017}/${DATABASE:photos}

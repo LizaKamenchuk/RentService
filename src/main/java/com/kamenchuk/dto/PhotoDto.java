@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class PhotoResponse {
-    private String id;
-    private String name;
-    private byte[] bytes;
+public class PhotoDto {
+    private Integer idCar;
+    private String fileName;
+    private byte[] fileBytes;
 }
