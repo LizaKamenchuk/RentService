@@ -7,10 +7,12 @@ import org.kamenchuk.dao.ModelDao;
 import org.kamenchuk.dto.carDTO.CarCreateRequest;
 import org.kamenchuk.dto.carDTO.CarResponse;
 import org.kamenchuk.dto.carDTO.CarUpdateRequest;
+import org.kamenchuk.dto.carDTO.PhotoDto;
 import org.kamenchuk.dto.mapper.CarMapper;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.exceptions.UpdatingException;
+import org.kamenchuk.kafka.KafkaCarProducer;
 import org.kamenchuk.models.Car;
 import org.kamenchuk.models.Mark;
 import org.kamenchuk.models.Model;
@@ -18,14 +20,17 @@ import org.kamenchuk.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 //TODO где логирование? @Slf4j
+
 /**
  * Class implements CarService interface
+ *
  * @author Liza Kamenchuk
  */
 @Slf4j
@@ -35,17 +40,24 @@ public class CarServiceImpl implements CarService {
     private final ModelDao modelDao;
     private final MarkDao markDao;
     private final CarMapper carMapper;
+    private final KafkaCarProducer producer;
 
     @Autowired
     CarServiceImpl(CarDao carDao,
                    ModelDao modelDao,
                    MarkDao markDao,
-                   CarMapper carMapper) {
+                   CarMapper carMapper, KafkaCarProducer producer) {
         this.carDao = carDao;
         this.modelDao = modelDao;
         this.markDao = markDao;
         this.carMapper = carMapper;
+        this.producer = producer;
     }
+
+//    @Override
+//    public void kafkaProducer(CarCreateRequest id) {
+//        producer.sendGetPhotoTopic(id);
+//    }
 
     @Override
     @Transactional
@@ -57,16 +69,32 @@ public class CarServiceImpl implements CarService {
 
     @Override
     @Transactional
-    public CarResponse create(CarCreateRequest request) throws CreationException {
+    public CarResponse create(CarCreateRequest request, MultipartFile file) throws CreationException {
+
         return Optional.ofNullable(request)
                 .map(carMapper::toCar)
-                .map(car -> setModel(setModelForCreate(request.getModel(), request.getMark(),car),car))
+                .map(car -> setModel(setModelForCreate(request.getModel(), request.getMark(), car), car))
                 .map(carDao::save)
                 .map(carMapper::toDto)
+                .map(carRes->{ producer.sendGetPhotoTopic(toPhotoDto(carRes.getId(), file));
+                return carRes;})
                 .orElseThrow(() -> {
                     log.error("create(). Can not create car!");
                     return new CreationException("Car isn`t created");
                 });
+    }
+
+    private PhotoDto toPhotoDto(Integer idCar,MultipartFile file){
+        try{ PhotoDto photo = PhotoDto.builder()
+                .idCar(idCar)
+                .fileName(file.getName())
+                .fileBytes(file.getBytes())
+                .build();
+            return photo;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
@@ -120,11 +148,11 @@ public class CarServiceImpl implements CarService {
         Model model = Model.builder()
                 .model(modelName)
                 .build();
-        if (modelName.isEmpty() || markName.isEmpty()){
+        if (modelName.isEmpty() || markName.isEmpty()) {
             model = car.getModel();
             markNew = model.getMark();
             model.setMark(markNew);
-        }else {
+        } else {
             if (!modelDao.existsModelByModelAndMark_Mark(modelName, markName)) {
                 Mark mark = markDao.existsMarkByMark(markName)
                         ? markDao.findMarkByMark(markName).get() : markDao.save(markNew);
@@ -143,7 +171,7 @@ public class CarServiceImpl implements CarService {
     ) {
         return Car.builder()
                 .id(car.getId())
-                .model(setModelForCreate(request.getModel(), request.getMark(),car))
+                .model(setModelForCreate(request.getModel(), request.getMark(), car))
                 .carNumber(request.getCarNumber().isEmpty() ? car.getCarNumber() : request.getCarNumber())
                 .price(request.getPrice() == null ? car.getPrice() : request.getPrice())
                 .idImage(request.getIdImage() == null ? car.getIdImage() : request.getIdImage())

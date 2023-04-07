@@ -36,7 +36,7 @@ public class ControllerAdvicer {
             response = new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
         }
         else {
-            message = new ErrorMessage("Something go wrong");
+            message = new ErrorMessage("AAAAAAAAAAAAAAAA");
             response = new ResponseEntity<>(message, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return response;

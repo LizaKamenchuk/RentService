@@ -6,6 +6,7 @@ import org.kamenchuk.dto.carDTO.CarUpdateRequest;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.exceptions.UpdatingException;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -16,6 +17,8 @@ import java.util.List;
  */
 //TODO где JAVA DOC?
 public interface CarService {
+
+//   void kafkaProducer(CarCreateRequest id);
 
     /**
      * Gets all cars from DB
@@ -28,7 +31,7 @@ public interface CarService {
      * @param request - CarCreateRequest entity
      * @return CarResponse
      */
-    CarResponse create(CarCreateRequest request) throws CreationException;
+    CarResponse create(CarCreateRequest request, MultipartFile file) throws CreationException;
 
     /**
      * Gets car by number

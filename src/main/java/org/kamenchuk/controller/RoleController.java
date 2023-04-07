@@ -1,7 +1,7 @@
 package org.kamenchuk.controller;
 
 import org.kamenchuk.exceptions.CreationException;
-import org.kamenchuk.models.roleDTO.RoleResponse;
+import org.kamenchuk.dto.roleDTO.RoleResponse;
 import org.kamenchuk.service.RoleService;
 import org.kamenchuk.service.impl.RoleServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
 package org.kamenchuk.dto.mapper;
 
-import org.kamenchuk.models.roleDTO.RoleRequest;
-import org.kamenchuk.models.roleDTO.RoleResponse;
+import org.kamenchuk.dto.roleDTO.RoleRequest;
+import org.kamenchuk.dto.roleDTO.RoleResponse;
 import org.kamenchuk.models.Role;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

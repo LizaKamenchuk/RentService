@@ -12,7 +12,7 @@ import org.kamenchuk.exceptions.UpdatingException;
 import org.kamenchuk.models.ExtraUsersData;
 import org.kamenchuk.models.Role;
 import org.kamenchuk.models.User;
-import org.kamenchuk.models.roleDTO.RoleResponse;
+import org.kamenchuk.dto.roleDTO.RoleResponse;
 import org.kamenchuk.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

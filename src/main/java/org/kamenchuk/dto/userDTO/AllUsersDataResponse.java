@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.kamenchuk.dto.extraUsersDataDTO.ExtraUserDataUpdateRequest;
-import org.kamenchuk.models.roleDTO.RoleResponse;
+import org.kamenchuk.dto.roleDTO.RoleResponse;
 
 @Data
 @NoArgsConstructor

@@ -2,6 +2,7 @@ package org.kamenchuk.models;
 
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
 
@@ -15,6 +16,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "cars")
 public class Car {
+    @javax.persistence.Id
     @Id
     @Column(name = "id", nullable = false,unique = true)
     @GeneratedValue(generator = "cars_id_seq")
@@ -36,4 +38,5 @@ public class Car {
     @ManyToOne
     @JoinColumn(name = "id_model",referencedColumnName = "id")
     private Model model;
+
 }

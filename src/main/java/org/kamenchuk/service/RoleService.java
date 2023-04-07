@@ -1,7 +1,7 @@
 package org.kamenchuk.service;
 
 import org.kamenchuk.exceptions.CreationException;
-import org.kamenchuk.models.roleDTO.RoleResponse;
+import org.kamenchuk.dto.roleDTO.RoleResponse;
 
 public interface RoleService {
     /**
