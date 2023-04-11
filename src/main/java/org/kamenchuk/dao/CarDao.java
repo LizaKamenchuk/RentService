@@ -10,4 +10,6 @@ import java.util.Optional;
 public interface CarDao extends JpaRepository<Car, Integer> {
     Optional<Car> getCarByCarNumber(String carNumber);
     void deleteCarByCarNumber(String carNumber);
+    @Override
+    Optional<Car> findById(Integer integer);
 }

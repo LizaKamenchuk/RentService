@@ -9,49 +9,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" name="Changes" comment="PhotoLoader(CRUD)">
-      <change afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/dto/PhotoDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/kafka/KafkaPhotoConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/carDTO/PhotoDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/kafka/KafkaCarProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" name="Changes" comment="PhotoLoader+Kafka">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/carDTO/PhotoResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/feignClient/CarPhotoClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/rent_service.r3-6VA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/rent_service.r3-6VA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarsPhotoLoader/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CarsPhotoLoader/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/CarsPhotoLoaderApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/CarsPhotoLoaderApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/controller/PhotoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/controller/PhotoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/dto/PhotoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/dto/PhotoMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/dto/PhotoResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/dto/PhotoResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/service/PhotoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/service/PhotoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/service/PhotoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/service/PhotoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarsPhotoLoader/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/RentServiceApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/RentServiceApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/CarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/CarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/ControllerAdvicer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/ControllerAdvicer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/RoleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/mapper/RoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/mapper/RoleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/userDTO/AllUsersDataResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/userDTO/AllUsersDataResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/userDTO/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/userDTO/UserResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/CarDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/CarDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/carDTO/CarCreateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/carDTO/CarCreateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/carDTO/CarResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/carDTO/CarResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/carDTO/CarUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/carDTO/CarUpdateRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/models/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/models/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/models/roleDTO/RoleRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/roleDTO/RoleRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/models/roleDTO/RoleResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/roleDTO/RoleResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/CarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/CarService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/RoleService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/RoleServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/version1/carsMarks-table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/version1/carsMarks-table.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/kamenchuk/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/kamenchuk/controller/UserControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/UserServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/UserServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/version1/cars-table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/version1/cars-table.sql" afterDir="false" />
     </list>
     <list id="da30dbad-d88c-4968-aaa8-a566c9f99ec1" name="ChangesForTests" comment="ChangesForTests">
       <change afterPath="$PROJECT_DIR$/.idea/dataSources/13e1b09f-bafc-4bb6-bf8f-765b0f492d1e.xml" afterDir="false" />
@@ -116,12 +93,6 @@
                 <item name="RentService" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
               </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="RentService" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
             </expand>
             <select />
           </tree_state>
@@ -148,45 +119,33 @@
         <entry key="$PROJECT_DIR$/CarsPhotoLoader" value="master" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/CarsPhotoLoader" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/ModelDao.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/UserServiceImplTest.java">
-      <ranges>
-        <range start1="14" end1="15" start2="14" end2="15" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="30" end1="30" start2="30" end2="31" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/RoleService.java">
-      <ranges>
-        <range start1="3" end1="4" start2="3" end2="4" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="5" end1="5" start2="5" end2="9" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/build.gradle">
-      <ranges>
-        <range start1="21" end1="24" start2="21" end2="28" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
-        <range start1="34" end1="34" start2="38" end2="40" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-      </ranges>
-    </file>
     <file path="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/CarController.java">
       <ranges>
-        <range start1="11" end1="11" start2="11" end2="12" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="13" end1="13" start2="14" end2="15" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="18" end1="18" start2="20" end2="21" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
-        <range start1="20" end1="20" start2="23" end2="24" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="22" end1="22" start2="26" end2="27" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="38" end1="41" start2="43" end2="46" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/test/java/org/kamenchuk/controller/UserControllerTest.java">
-      <ranges>
-        <range start1="8" end1="9" start2="8" end2="9" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="22" end1="22" start2="22" end2="24" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
+        <range start1="2" end1="2" start2="2" end2="3" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="5" end1="5" start2="6" end2="7" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="8" end1="8" start2="10" end2="11" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="11" end1="12" start2="14" end2="15" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="15" end1="15" start2="18" end2="20" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="20" end1="20" start2="25" end2="26" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
+        <range start1="22" end1="23" start2="28" end2="29" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="25" end1="25" start2="31" end2="33" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="28" end1="29" start2="36" end2="38" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="30" end1="30" start2="39" end2="40" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="32" end1="32" start2="42" end2="53" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="33" end1="34" start2="54" end2="55" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="37" end1="37" start2="58" end2="69" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="42" end1="43" start2="74" end2="75" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="44" end1="45" start2="76" end2="77" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="48" end1="49" start2="80" end2="81" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="53" end1="54" start2="85" end2="86" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="59" end1="60" start2="91" end2="92" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
       </ranges>
     </file>
   </component>
@@ -244,6 +203,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.kamenchuk.feignClient" />
       <recent name="org.kamenchuk.dto.carDTO" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -283,7 +243,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.CarsPhotoLoaderApplication">
+  <component name="RunManager" selected="Spring Boot.RentServiceApp">
     <configuration name="init.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/src/main/resources/init.sql" />
       <script-mode>FILE</script-mode>
@@ -322,6 +282,27 @@
         <option name="taskNames">
           <list>
             <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="RentService [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencies" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -532,19 +513,6 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="docker-compose.yml.kafdrop: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="kafdrop" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <configuration name="docker-compose.yml.kafka: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -560,9 +528,9 @@
     </configuration>
     <list>
       <item itemvalue="Database Script.init.sql" />
-      <item itemvalue="Docker.docker-compose.yml.kafdrop: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.yml.kafka: Compose Deployment" />
+      <item itemvalue="Gradle.RentService [dependencies]" />
       <item itemvalue="Gradle.RentService [clean]" />
       <item itemvalue="Gradle.RentService [build]" />
       <item itemvalue="Spring Boot.RentServiceApp" />
@@ -572,11 +540,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.docker-compose.yml.kafka: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose.yml.kafdrop: Compose Deployment" />
+        <item itemvalue="Gradle.RentService [dependencies]" />
         <item itemvalue="Gradle.RentService [build]" />
         <item itemvalue="Gradle.RentService [clean]" />
+        <item itemvalue="Docker.docker-compose.yml.kafka: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -659,7 +627,8 @@
       <workItem from="1680773657176" duration="6224000" />
       <workItem from="1680783212676" duration="248000" />
       <workItem from="1680785803620" duration="7106000" />
-      <workItem from="1680850178049" duration="3793000" />
+      <workItem from="1680850178049" duration="9814000" />
+      <workItem from="1681198007922" duration="14877000" />
     </task>
     <task id="LOCAL-00001" summary="RentService">
       <created>1674217605430</created>
@@ -717,7 +686,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679649991068</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="PhotoLoader+Kafka">
+      <created>1680854035891</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1680854035891</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -810,7 +786,8 @@
     <MESSAGE value="implements Controller Advice" />
     <MESSAGE value="ChangesForTests" />
     <MESSAGE value="PhotoLoader(CRUD)" />
-    <option name="LAST_COMMIT_MESSAGE" value="PhotoLoader(CRUD)" />
+    <MESSAGE value="PhotoLoader+Kafka" />
+    <option name="LAST_COMMIT_MESSAGE" value="PhotoLoader+Kafka" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -819,51 +796,6 @@
           <properties class="java.net.UnknownHostException" package="java.net" />
           <option name="timeStamp" value="15" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/service/PhotoServiceImpl.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/service/PhotoServiceImpl.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/service/PhotoServiceImpl.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/service/PhotoServiceImpl.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/service/PhotoServiceImpl.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/service/PhotoServiceImpl.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/service/PhotoServiceImpl.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/service/PhotoServiceImpl.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/service/PhotoServiceImpl.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>

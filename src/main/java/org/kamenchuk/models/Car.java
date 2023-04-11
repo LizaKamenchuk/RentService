@@ -32,9 +32,6 @@ public class Car {
     @Column(name = "limitations")
     private String limitations;
 
-    @Column(name = "id_image")
-    private Integer idImage;
-
     @ManyToOne
     @JoinColumn(name = "id_model",referencedColumnName = "id")
     private Model model;

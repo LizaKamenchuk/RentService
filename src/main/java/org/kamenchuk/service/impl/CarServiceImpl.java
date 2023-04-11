@@ -4,10 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.kamenchuk.dao.CarDao;
 import org.kamenchuk.dao.MarkDao;
 import org.kamenchuk.dao.ModelDao;
-import org.kamenchuk.dto.carDTO.CarCreateRequest;
-import org.kamenchuk.dto.carDTO.CarResponse;
-import org.kamenchuk.dto.carDTO.CarUpdateRequest;
-import org.kamenchuk.dto.carDTO.PhotoDto;
+import org.kamenchuk.dto.carDTO.*;
 import org.kamenchuk.dto.mapper.CarMapper;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
@@ -26,7 +23,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-//TODO где логирование? @Slf4j
 
 /**
  * Class implements CarService interface
@@ -35,7 +31,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Service
-public class CarServiceImpl implements CarService {
+public class CarServiceImpl implements CarService{
     private final CarDao carDao;
     private final ModelDao modelDao;
     private final MarkDao markDao;
@@ -54,10 +50,6 @@ public class CarServiceImpl implements CarService {
         this.producer = producer;
     }
 
-//    @Override
-//    public void kafkaProducer(CarCreateRequest id) {
-//        producer.sendGetPhotoTopic(id);
-//    }
 
     @Override
     @Transactional
@@ -136,6 +128,20 @@ public class CarServiceImpl implements CarService {
                 });
     }
 
+    @Override
+    public CarResponse getCarById(Integer idCar, List<PhotoResponse> photos) throws UpdatingException {
+        Car car = carDao.findById(idCar).get();
+        CarResponse response = carMapper.toDto(car);
+        response.setPhotos(photos);
+        return response;
+//        return carDao.findById(idCar)
+//                .map(carMapper::toDto)
+//                .orElseThrow(() -> {
+//                    log.error("update(). Car isn`t updated");
+//                    return new UpdatingException("Car isn`t updated");
+//                });
+    }
+
     private Car setModel(Model model, Car car) {
         car.setModel(model);
         return car;
@@ -174,8 +180,9 @@ public class CarServiceImpl implements CarService {
                 .model(setModelForCreate(request.getModel(), request.getMark(), car))
                 .carNumber(request.getCarNumber().isEmpty() ? car.getCarNumber() : request.getCarNumber())
                 .price(request.getPrice() == null ? car.getPrice() : request.getPrice())
-                .idImage(request.getIdImage() == null ? car.getIdImage() : request.getIdImage())
                 .limitations(request.getLimitations().isEmpty() ? car.getLimitations() : request.getLimitations())
                 .build();
     }
+
+
 }

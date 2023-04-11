@@ -16,5 +16,4 @@ public class CarUpdateRequest {
     private String model;
     private String limitations;
     private Integer price;
-    private Integer idImage;
 }

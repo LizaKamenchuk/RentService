@@ -22,5 +22,4 @@ public class CarCreateRequest {
     private String limitations;
     @NotNull
     private Integer price;
-    private Integer idImage;
 }
