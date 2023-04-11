@@ -29,7 +29,7 @@ public class PhotoController {
     public void deletePhotoById(@PathVariable String idPhoto){
         service.deletePhotoById(idPhoto);
     }
-    @GetMapping("/get/{idCar}")
+    @GetMapping("/getPhotos/{idCar}")
     public List<PhotoResponse> getPhoto(@PathVariable Integer idCar){
       List<PhotoResponse> photos= service.getPhoto(idCar);
       photos.forEach(System.out::println);
