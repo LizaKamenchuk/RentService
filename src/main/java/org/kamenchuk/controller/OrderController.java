@@ -31,12 +31,12 @@ public class OrderController {
         orderService.deleteById(id);
     }
 
-    @PatchMapping(value = "/updateAdmin")
+    @PatchMapping(value = "/admin/update")
     public OrderResponse updateAdmin(@RequestBody OrderUpdateAdminRequest request, @RequestParam Long idAdmin) throws UpdatingException {
         return orderService.updateAdmin(request, idAdmin);
     }
 
-    @PatchMapping(value = "/updateClient")
+    @PatchMapping(value = "/update")
     public OrderResponse updateClient(@RequestBody OrderUpdateClientRequest request, @RequestParam Long idOrder) throws UpdatingException {
         return orderService.updateClient(request,idOrder);
     }
@@ -46,7 +46,7 @@ public class OrderController {
         return orderService.getByClientId(idClient);
     }
 
-    @GetMapping(value = "/getAll")
+    @GetMapping(value = "/admin/getAll")
     public List<OrderResponse> getAll() {
         return orderService.getAll();
     }

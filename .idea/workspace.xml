@@ -9,32 +9,69 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" name="Changes" comment="PhotoLoader+Kafka">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/carDTO/PhotoResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/feignClient/CarPhotoClient.java" afterDir="false" />
+    <list default="true" id="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" name="Changes" comment="get photos with Feign and Web Client">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Authefication_main_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/GateWayModule_main_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Authefication/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Authefication/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Authefication/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Authefication/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Authefication/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Authefication/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Authefication/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Authefication/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/authefication/AuthenticationApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/authefication/controller/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/authefication/dto/LoginCredentials.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/authefication/models/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/authefication/models/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/authefication/repository/RoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/authefication/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/authefication/security/config/SpringSecurityConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/authefication/security/jwt/JwtFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/authefication/security/jwt/JwtUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/authefication/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/authefication/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Authefication/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Authefication/src/test/java/com/kamenchuk/authefication/AuthenticationApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GateWayModule/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GateWayModule/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GateWayModule/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GateWayModule/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GateWayModule/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GateWayModule/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GateWayModule/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/com/kamenchuk/gatewaymodule/GateWayModuleApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/com/kamenchuk/gatewaymodule/authModule/controller/AuthModuleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/com/kamenchuk/gatewaymodule/authModule/feignClient/AuthJwtClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/com/kamenchuk/gatewaymodule/authModule/feignClient/dto/LoginCredentials.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/com/kamenchuk/gatewaymodule/config/GatewayConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GateWayModule/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GateWayModule/src/test/java/com/kamenchuk/gatewaymodule/GateWayModuleApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/rent_service.r3-6VA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/rent_service.r3-6VA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/controller/PhotoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/controller/PhotoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/dto/PhotoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/dto/PhotoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/dto/PhotoResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/dto/PhotoResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/RentServiceApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/RentServiceApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarsPhotoLoader/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/CarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/CarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/CarDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/CarDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/carDTO/CarCreateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/carDTO/CarCreateRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/carDTO/CarResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/carDTO/CarResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/carDTO/CarUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/carDTO/CarUpdateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/RoleDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/RoleDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/UserDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/models/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/models/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/CarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/CarService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/version1/cars-table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/version1/cars-table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/models/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/models/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/UserServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/UserServiceImplTest.java" afterDir="false" />
     </list>
     <list id="da30dbad-d88c-4968-aaa8-a566c9f99ec1" name="ChangesForTests" comment="ChangesForTests">
       <change afterPath="$PROJECT_DIR$/.idea/dataSources/13e1b09f-bafc-4bb6-bf8f-765b0f492d1e.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/ab2b5ef8-3c8f-4a02-b956-eac0f2001a05.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/ab2b5ef8-3c8f-4a02-b956-eac0f2001a05/storage_v2/_src_/schema/mongo.9CA0Bg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/ab2b5ef8-3c8f-4a02-b956-eac0f2001a05/storage_v2/_src_/schema/photos.gYgMxQ.meta" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2023-03-23T163325.500.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/httpRequests/http-client.cookies" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
@@ -74,6 +111,18 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+    <projectState path="$PROJECT_DIR$/AuthController">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/Authefecation">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/Authefication">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/GateWayModule">
+      <ProjectState />
+    </projectState>
   </component>
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
@@ -81,17 +130,29 @@
         <task path="$PROJECT_DIR$">
           <activation />
         </task>
+        <task path="$PROJECT_DIR$/Authefication">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/GateWayModule">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="RentService" type="f1a62948:ProjectNode" />
+                <item name="GateWayModule" type="f1a62948:ProjectNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="RentService" type="f1a62948:ProjectNode" />
+                <item name="GateWayModule" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="GateWayModule" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -105,9 +166,9 @@
       <list>
         <option value="HTML File" />
         <option value="JUnit5 Test Class" />
-        <option value="Enum" />
         <option value="AnnotationType" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -115,37 +176,45 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="temp" />
+        <entry key="$PROJECT_DIR$" value="temp_patch" />
         <entry key="$PROJECT_DIR$/CarsPhotoLoader" value="master" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/GateWayModule" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/ModelDao.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/UserServiceImplTest.java">
+      <ranges>
+        <range start1="30" end1="30" start2="30" end2="31" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
+        <range start1="148" end1="149" start2="149" end2="150" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="180" end1="181" start2="181" end2="182" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java">
+      <ranges>
+        <range start1="24" end1="25" start2="24" end2="25" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
+        <range start1="82" end1="83" start2="82" end2="83" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="94" end1="95" start2="94" end2="95" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="110" end1="111" start2="110" end2="111" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="114" end1="115" start2="114" end2="115" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+      </ranges>
+    </file>
     <file path="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/CarController.java">
       <ranges>
-        <range start1="2" end1="2" start2="2" end2="3" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="5" end1="5" start2="6" end2="7" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="8" end1="8" start2="10" end2="11" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="11" end1="12" start2="14" end2="15" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="15" end1="15" start2="18" end2="20" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="20" end1="20" start2="25" end2="26" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
-        <range start1="22" end1="23" start2="28" end2="29" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="25" end1="25" start2="31" end2="33" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="28" end1="29" start2="36" end2="38" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="30" end1="30" start2="39" end2="40" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="32" end1="32" start2="42" end2="53" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="33" end1="34" start2="54" end2="55" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="37" end1="37" start2="58" end2="69" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="42" end1="43" start2="74" end2="75" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="44" end1="45" start2="76" end2="77" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="48" end1="49" start2="80" end2="81" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="53" end1="54" start2="85" end2="86" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
-        <range start1="59" end1="60" start2="91" end2="92" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="14" end1="15" start2="14" end2="14" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="18" end1="20" start2="17" end2="17" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="25" end1="25" start2="22" end2="23" changelist="da30dbad-d88c-4968-aaa8-a566c9f99ec1" />
+        <range start1="41" end1="51" start2="39" end2="49" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="59" end1="59" start2="57" end2="59" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="62" end1="65" start2="62" end2="65" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="73" end1="74" start2="73" end2="74" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="78" end1="79" start2="78" end2="79" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="83" end1="84" start2="83" end2="84" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
+        <range start1="88" end1="89" start2="88" end2="89" changelist="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" />
       </ranges>
     </file>
   </component>
@@ -169,6 +238,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
@@ -185,13 +255,13 @@
     &quot;database.data.extractors.current.export.id&quot;: &quot;SQL Inserts&quot;,
     &quot;database.data.extractors.current.id&quot;: &quot;SQL Inserts&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Internship/Programs/RentService/CarsPhotoLoader/src/main/resources&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Internship/Programs/RentService/src/main/java/org/kamenchuk/security&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.24712643&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;c5693428da7cb1a718a3fee663d48eab&quot;
+    &quot;spring.configuration.checksum&quot;: &quot;d3a302bc3f62b22824fb56af32806239&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
@@ -207,6 +277,8 @@
       <recent name="org.kamenchuk.dto.carDTO" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Internship\Programs\RentService\src\main\java\org\kamenchuk\security" />
+      <recent name="D:\Internship\Programs\RentService\src\main\java\org\kamenchuk\security\" />
       <recent name="D:\Internship\Programs\RentService\CarsPhotoLoader\src\main\resources" />
       <recent name="D:\Internship\Programs\RentService\src\main\resources\db\changelog\version2" />
       <recent name="D:\Internship\Programs\RentService" />
@@ -228,7 +300,11 @@
       <recent name="org.kamenchuk.controller" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="org.kamenchuk.dto.carDTO" />
+      <recent name="com.kamenchuk.gatewaymodule.feignClient.dto" />
+      <recent name="org.kamenchuk.security.securityService" />
+      <recent name="org.kamenchuk.security.securityDto" />
+      <recent name="org.kamenchuk.security.securityController" />
+      <recent name="org.kamenchuk.controller" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -243,16 +319,16 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.RentServiceApp">
+  <component name="RunManager" selected="Gradle.GateWayModule [build]">
     <configuration name="init.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/src/main/resources/init.sql" />
       <script-mode>FILE</script-mode>
       <method v="2" />
     </configuration>
-    <configuration name="RentService [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Authefication [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Authefication" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
@@ -270,10 +346,10 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="RentService [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Authefication [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Authefication" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
@@ -291,10 +367,52 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="RentService [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GateWayModule [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/GateWayModule" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="GateWayModule [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/GateWayModule" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="GateWayModule [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/GateWayModule" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
@@ -312,10 +430,26 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="AutheficationApplication " type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
+      <module name="Authefication.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.kamenchuk.authefication.AuthenticationApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CarsPhotoLoaderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <option name="ACTIVE_PROFILES" />
       <module name="CarsPhotoLoader" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.kamenchuk.CarsPhotoLoaderApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GateWayModuleApplication " type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
+      <module name="GateWayModule.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.kamenchuk.gatewaymodule.GateWayModuleApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -505,34 +639,15 @@
         <option name="BuildArtifacts" enabled="true" />
       </method>
     </configuration>
-    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="docker-compose.yml.kafka: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="kafka" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Database Script.init.sql" />
-      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-      <item itemvalue="Docker.docker-compose.yml.kafka: Compose Deployment" />
-      <item itemvalue="Gradle.RentService [dependencies]" />
-      <item itemvalue="Gradle.RentService [clean]" />
-      <item itemvalue="Gradle.RentService [build]" />
+      <item itemvalue="Gradle.GateWayModule [build]" />
+      <item itemvalue="Gradle.GateWayModule [clean]" />
+      <item itemvalue="Gradle.GateWayModule [dependencies]" />
+      <item itemvalue="Gradle.Authefication [build]" />
+      <item itemvalue="Gradle.Authefication [clean]" />
+      <item itemvalue="Spring Boot.GateWayModuleApplication " />
+      <item itemvalue="Spring Boot.AutheficationApplication " />
       <item itemvalue="Spring Boot.RentServiceApp" />
       <item itemvalue="Spring Boot.CarsPhotoLoaderApplication" />
       <item itemvalue="Tomcat Server.Tomcat 10.0.27" />
@@ -540,11 +655,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.RentService [dependencies]" />
-        <item itemvalue="Gradle.RentService [build]" />
-        <item itemvalue="Gradle.RentService [clean]" />
-        <item itemvalue="Docker.docker-compose.yml.kafka: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+        <item itemvalue="Gradle.GateWayModule [build]" />
+        <item itemvalue="Gradle.GateWayModule [clean]" />
+        <item itemvalue="Gradle.Authefication [build]" />
+        <item itemvalue="Gradle.Authefication [clean]" />
+        <item itemvalue="Gradle.GateWayModule [dependencies]" />
       </list>
     </recent_temporary>
   </component>
@@ -628,7 +743,21 @@
       <workItem from="1680783212676" duration="248000" />
       <workItem from="1680785803620" duration="7106000" />
       <workItem from="1680850178049" duration="9814000" />
-      <workItem from="1681198007922" duration="14877000" />
+      <workItem from="1681198007922" duration="16975000" />
+      <workItem from="1681286977964" duration="6620000" />
+      <workItem from="1681393940021" duration="8000" />
+      <workItem from="1681460313724" duration="5537000" />
+      <workItem from="1681715391175" duration="9363000" />
+      <workItem from="1681729098657" duration="14577000" />
+      <workItem from="1681760647344" duration="840000" />
+      <workItem from="1681803369454" duration="22050000" />
+      <workItem from="1681832209455" duration="4093000" />
+      <workItem from="1681887758195" duration="16235000" />
+      <workItem from="1681982907923" duration="4422000" />
+      <workItem from="1681988829876" duration="3818000" />
+      <workItem from="1681994771744" duration="5669000" />
+      <workItem from="1682059051695" duration="10437000" />
+      <workItem from="1682321020049" duration="5610000" />
     </task>
     <task id="LOCAL-00001" summary="RentService">
       <created>1674217605430</created>
@@ -693,7 +822,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680854035891</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="get photos with Feign and Web Client">
+      <created>1681218253351</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1681218253351</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -787,7 +923,8 @@
     <MESSAGE value="ChangesForTests" />
     <MESSAGE value="PhotoLoader(CRUD)" />
     <MESSAGE value="PhotoLoader+Kafka" />
-    <option name="LAST_COMMIT_MESSAGE" value="PhotoLoader+Kafka" />
+    <MESSAGE value="get photos with Feign and Web Client" />
+    <option name="LAST_COMMIT_MESSAGE" value="get photos with Feign and Web Client" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -798,11 +935,6 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="SpringBootApplicationConfigurationType">
-        <watch expression="idPhoto" />
-      </configuration>
-    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

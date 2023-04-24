@@ -21,12 +21,12 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping(value = "/all")
+    @GetMapping(value = "/admin/all")
     public List<UserResponse> getAllUser() {
         return userService.getAllUsers();
     }
 
-    @GetMapping(value = "/findById/{id}")
+    @GetMapping(value = "/admin/findById/{id}")
     public UserResponse findById(@PathVariable Long id) {
         return userService.findById(id);
     }

@@ -80,7 +80,7 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public UserResponse updateLogin(String newLogin,Long id) throws UpdatingException {
+    public UserResponse updateLogin(String newLogin, Long id) throws UpdatingException {
         return userDao.findById(id)
                 .map(user -> setUserLogin(user, newLogin))
                 .map(userDao::saveAndFlush)
@@ -92,7 +92,7 @@ public class UserServiceImpl implements UserService {
     }
 
     private User setUserRole(User user) {
-        String usersRole ="user";
+        String usersRole = "ROLE_USER";
         //TODO isPresent
         Role role = roleDao.findFirstByRole(usersRole).get();
         user.setRole(role);
@@ -108,11 +108,11 @@ public class UserServiceImpl implements UserService {
     }
 
     private User setUserLogin(User user, String login) {
-        if(!login.isEmpty()) user.setLogin(login);
+        if (!login.isEmpty()) user.setLogin(login);
         return user;
     }
 
-    private User setExtraData(ExtraUsersData extraUsersData, User user){
+    private User setExtraData(ExtraUsersData extraUsersData, User user) {
         user.setExtraUsersData(extraUsersData);
         return user;
     }

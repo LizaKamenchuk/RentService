@@ -12,6 +12,24 @@
           </set>
         </option>
       </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Authefication" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/Authefication" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/GateWayModule" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/GateWayModule" />
+          </set>
+        </option>
+      </GradleProjectSettings>
     </option>
   </component>
 </project>

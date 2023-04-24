@@ -8,13 +8,6 @@
       <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="mongo@localhost" uuid="ab2b5ef8-3c8f-4a02-b956-eac0f2001a05">
-      <driver-ref>mongo</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.dbschema.MongoJdbcDriver</jdbc-driver>
-      <jdbc-url>mongodb://localhost:27017/mongo</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
     <data-source source="LOCAL" name="photos@localhost" uuid="13e1b09f-bafc-4bb6-bf8f-765b0f492d1e">
       <driver-ref>mongo</driver-ref>
       <synchronize>true</synchronize>
