@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+import javax.management.relation.RoleNotFoundException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -39,7 +41,7 @@ class RoleServiceImplIntegrationTest extends PostgresContainer{
 
     @Order(2)
     @Test
-    public void delete() {
+    public void delete() throws RoleNotFoundException {
         Integer id = 1;
         assertNotNull(roleDao.getRoleById(id));
         roleService.delete(id);

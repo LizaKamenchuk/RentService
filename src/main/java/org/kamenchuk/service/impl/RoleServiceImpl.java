@@ -4,12 +4,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.kamenchuk.dao.RoleDao;
 import org.kamenchuk.dto.roleDTO.RoleResponse;
 import org.kamenchuk.exceptions.CreationException;
+import org.kamenchuk.exceptions.RoleNotFoundException;
 import org.kamenchuk.mapper.RoleMapper;
 import org.kamenchuk.models.Role;
 import org.kamenchuk.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 
 //TODO см CarServiceImpl
 @Service
@@ -27,7 +29,9 @@ public class RoleServiceImpl implements RoleService {
     @Override
     @Transactional
     public void delete(Integer id) {
-        //TODO isPresent
+        if(roleDao.findById(id).isEmpty()){
+            throw new RoleNotFoundException("Role with this id is not found");
+        }
         Role role = roleDao.findById(id).get();
         roleDao.delete(role);
     }
