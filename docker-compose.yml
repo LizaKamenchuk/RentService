@@ -1,14 +1,7 @@
 version: '3'
 
 services:
-  db_postgres:
-    image: postgres
-    ports:
-      - "5432:5432"
-    environment:
-      - POSTGRES_DB=rent_service
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=toor
+
   db_mongo:
     image: mongo
     container_name: mongo
@@ -17,14 +10,13 @@ services:
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
     environment:
-        ZOOKEEPER_CLIENT_PORT: 2181
-        ZOOKEEPER_TICK_TIME: 2000
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
     ports:
       - "22181:2181"
+
   kafka:
     image: confluentinc/cp-kafka:latest
-    depends_on:
-      - zookeeper
     ports:
       - "29092:29092"
     environment:
@@ -34,15 +26,47 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    depends_on:
+      - zookeeper
+
   kafdrop:
     image: obsidiandynamics/kafdrop:latest
-    depends_on:
-      - kafka
     ports:
-        - "19000:9000"
+      - "19000:9000"
     environment:
       KAFKA_BROKERCONNECT: 127.0.0.1:9092
+    depends_on:
+      - kafka
 
+  db-postgres:
+    image: postgres:15.1
+    container_name: db-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: rent_service
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: toor
+    networks:
+      - db-postgres
 
+  rent-module:
+    build: ./
+    ports:
+      - "8080:8080"
+    restart: always
+    environment:
+      POSTGRESQL_DB: rent_service
+#      POSTGRES_URL: jdbc:postgresql://db-postgres:5432/rent_service
+      POSTGRESQL_HOST: db-postgres
+      POSTGRESQL_PORT: 5432
+      POSTGRESQL_USERNAME: postgres
+      POSTGRESQL_PASSWORD: toor
+    depends_on:
+      - db-postgres
+    networks:
+      - db-postgres
 
+networks:
+  db-postgres:
 

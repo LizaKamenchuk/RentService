@@ -1,0 +1,82 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rentmodule-deployment
+spec:
+  selector:
+    matchLabels:
+      app: rent-module
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: rent-module
+    spec:
+      containers:
+        - name: rent-module
+          image: lizaaa/rentservice_image:1.2
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+#            - name: POSTGRES_URL
+#              value: jdbc:postgresql://postgres-svc:5432/rent_service
+            - name: POSTGRES_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: rent-module-secret-config
+                  key: pstg-host
+            - name: POSTGRES_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: rent-module-secret-config
+                  key: pstg-port
+            - name: POSTGRES_DB
+              valueFrom:
+                secretKeyRef:
+                  name: rent-module-secret-config
+                  key: pstg-db
+            - name: POSTGRES_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: rent-module-secret-config
+                  key: pstg-username
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: rent-module-secret-config
+                  key: pstg-password
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rent-module-svc
+spec:
+  selector:
+    app: rent-module
+  ports:
+    - protocol: TCP
+      port: 8080
+#  type: LoadBalancer
+  type: NodePort
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: rent-module-secret-config
+type: Opaque
+data:
+  pstg-host: cG9zdGdyZXMtc3Zj
+##  bG9jYWxob3N0 - localhost
+##  ZGItcG9zdGdyZXM= - db-postgres
+##  cG9zdGdyZXMtc3Zj - postgres-svc
+  pstg-port: NTQzMg==
+##  NTQzMw== - 5433
+##  NTQzMg== - 5432
+##  NTg3ODg= -58788
+  pstg-db: cmVudF9zZXJ2aWNl
+  pstg-username: cG9zdGdyZXM=
+  pstg-password: dG9vcg==
+---
