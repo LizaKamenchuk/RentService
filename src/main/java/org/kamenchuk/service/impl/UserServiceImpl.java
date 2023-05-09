@@ -4,12 +4,12 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.kamenchuk.dao.RoleDao;
 import org.kamenchuk.dao.UserDao;
-import org.kamenchuk.dto.mapper.UserMapper;
 import org.kamenchuk.dto.userDTO.UserCreateRequest;
 import org.kamenchuk.dto.userDTO.UserResponse;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.exceptions.UpdatingException;
+import org.kamenchuk.mapper.UserMapper;
 import org.kamenchuk.models.ExtraUsersData;
 import org.kamenchuk.models.Role;
 import org.kamenchuk.models.User;
@@ -22,7 +22,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
+//TODO см CarServiceImpl
 @Service
 @Slf4j
 public class UserServiceImpl implements UserService {

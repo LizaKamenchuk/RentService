@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/role")
+@RequestMapping("/rent_module/role")
 public class RoleController {
 
     private final RoleService roleService;
@@ -18,12 +18,12 @@ public class RoleController {
         this.roleService = roleService;
     }
 
-    @DeleteMapping("/deleteRole/{id}")
+    @DeleteMapping("/admin/deleteRole/{id}")
     public void deleteRole(@PathVariable Integer id){
         roleService.delete(id);
     }
 
-    @PostMapping("/createRole/{role}")
+    @PostMapping("/admin/createRole/{role}")
     public RoleResponse createRole(@PathVariable String role) throws CreationException {
         return roleService.create(role);
     }

@@ -6,7 +6,12 @@ import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.UpdatingException;
 
 import java.util.List;
+//TODO где JAVA DOC?
 
+/**
+ * Interface OrderService for work with Orders
+ * @author Lisa Kamechuk
+ */
 public interface OrderService {
     /**
      * Creates order

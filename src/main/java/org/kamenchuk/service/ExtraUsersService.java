@@ -3,6 +3,11 @@ package org.kamenchuk.service;
 import org.kamenchuk.dto.extraUsersDataDTO.ExtraUserDataUpdateRequest;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
 
+
+/**
+ * Interface for work with ExtraUsersData
+ * @author Lisa Kamechuk
+ */
 public interface ExtraUsersService {
 
     /**

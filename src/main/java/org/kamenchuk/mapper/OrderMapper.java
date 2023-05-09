@@ -1,4 +1,4 @@
-package org.kamenchuk.dto.mapper;
+package org.kamenchuk.mapper;
 
 import org.kamenchuk.dto.orderDTO.*;
 import org.kamenchuk.models.Order;

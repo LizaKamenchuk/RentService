@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/user")
+@RequestMapping(path = "/rent_module/user")
 public class UserController {
     private final UserService userService;
 
@@ -25,6 +25,11 @@ public class UserController {
     public List<UserResponse> getAllUser() {
         return userService.getAllUsers();
     }
+
+//    @GetMapping(value = "/admin/all")
+//    public String getAllUser() {
+//        return userService.getAllUsers().toString();
+//    }
 
     @GetMapping(value = "/admin/findById/{id}")
     public UserResponse findById(@PathVariable Long id) {

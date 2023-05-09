@@ -20,8 +20,9 @@ import javax.validation.Valid;
 import java.util.List;
 
 
+@Validated
 @RestController
-@RequestMapping("/car")
+@RequestMapping("/rent_module/car")
 @Slf4j
 public class CarController {
     private final CarService carService;

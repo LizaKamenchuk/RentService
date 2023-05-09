@@ -4,15 +4,15 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.kamenchuk.dao.RoleDao;
 import org.kamenchuk.dao.UserDao;
-import org.kamenchuk.dto.mapper.UserMapper;
+import org.kamenchuk.dto.roleDTO.RoleResponse;
 import org.kamenchuk.dto.userDTO.UserCreateRequest;
 import org.kamenchuk.dto.userDTO.UserResponse;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.UpdatingException;
+import org.kamenchuk.mapper.UserMapper;
 import org.kamenchuk.models.ExtraUsersData;
 import org.kamenchuk.models.Role;
 import org.kamenchuk.models.User;
-import org.kamenchuk.dto.roleDTO.RoleResponse;
 import org.kamenchuk.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,6 +28,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+//TODO почему названеи клсса и файла отличаются?
 /**
  * Test for {@link UserService}
  */
