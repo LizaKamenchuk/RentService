@@ -17,14 +17,16 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Slf4j
 public class ExtraUsersServiceImpl implements ExtraUsersService {
-    private ExtraUsersDao extraUsersDao;
-    private UserDao userDao;
-    private ExtraUsersDataMapper extraDataMapper;
+    private final ExtraUsersDao extraUsersDao;
+    private final UserDao userDao;
+    private final ExtraUsersDataMapper extraDataMapper;
 
     @Autowired
-    ExtraUsersServiceImpl(ExtraUsersDao extraUsersDao, ExtraUsersDataMapper extraDataMapper) {
+    ExtraUsersServiceImpl(ExtraUsersDao extraUsersDao, UserDao userDao, ExtraUsersDataMapper extraDataMapper) {
         this.extraUsersDao = extraUsersDao;
+        this.userDao = userDao;
         this.extraDataMapper = extraDataMapper;
+
     }
 
 
@@ -41,12 +43,14 @@ public class ExtraUsersServiceImpl implements ExtraUsersService {
 
     @Override
     @Transactional
-    public ExtraUserDataUpdateRequest updateExtraData(ExtraUserDataUpdateRequest request,Long idUser) {
+    public ExtraUserDataUpdateRequest updateExtraData(ExtraUserDataUpdateRequest request, Long idUser) {
         User u = userDao.findById(idUser).get();
         Long idED = u.getExtraUsersData().getId();
         return extraUsersDao.findById(idED)
                 .map(user -> setChangedData(request, user))
                 .map(extraUsersDao::save)
+                //TODO how to test map
+                .map(it->it)
                 .map(extraDataMapper::toDto)
                 .orElseThrow(() -> {
                     log.error("updateExtraData(). Updates are not save");
@@ -56,16 +60,17 @@ public class ExtraUsersServiceImpl implements ExtraUsersService {
 
 
     private ExtraUsersData setChangedData(ExtraUserDataUpdateRequest request, ExtraUsersData extraUsersData) {
-       return ExtraUsersData.builder()
-               .id(extraUsersData.getId())
-               .idPassport(request.getIdPassport().isEmpty() ? extraUsersData.getIdPassport() : request.getIdPassport())
-               .name(request.getName().isEmpty() ? extraUsersData.getName() : request.getName())
-               .lastname(request.getLastname().isEmpty() ? extraUsersData.getLastname() : request.getLastname())
-               .phone(request.getPhone().isEmpty() ? extraUsersData.getPhone() : request.getPhone())
-               .dateOfBirth(request.getDateOfBirth() == null
-                       ? extraUsersData.getDateOfBirth() : request.getDateOfBirth())
-               .drivingLicense(request.getDrivingLicense().isEmpty()
-                       ? extraUsersData.getDrivingLicense() : request.getDrivingLicense())
-               .build();
+        return ExtraUsersData.builder()
+                .id(extraUsersData.getId())
+                .idPassport((request.getIdPassport() == null || request.getIdPassport().isEmpty()) ? extraUsersData.getIdPassport() : request.getIdPassport())
+                .name((request.getName() == null || request.getName().isEmpty()) ? extraUsersData.getName() : request.getName())
+                .lastname((request.getLastname() == null || request.getLastname().isEmpty()) ? extraUsersData.getLastname() : request.getLastname())
+                .phone((request.getPhone() == null || request.getPhone().isEmpty()) ? extraUsersData.getPhone() : request.getPhone())
+                .dateOfBirth(request.getDateOfBirth() == null
+                        ? extraUsersData.getDateOfBirth() : request.getDateOfBirth())
+                .drivingLicense((request.getDrivingLicense() == null || request.getDrivingLicense().isEmpty())
+                        ? extraUsersData.getDrivingLicense() : request.getDrivingLicense())
+                .registerDate(extraUsersData.getRegisterDate())
+                .build();
     }
 }

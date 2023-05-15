@@ -17,7 +17,6 @@ public class CarCreateRequest {
     private String mark;
     @NotNull
     private String model;
-    @NotNull
     private String limitations;
     @NotNull
     private Integer price;

@@ -9,117 +9,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" name="Changes" comment="gateway with feignClient">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/GateWayModule_main_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/13e1b09f-bafc-4bb6-bf8f-765b0f492d1e.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2023-03-23T163325.500.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/http-client.cookies" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/Authentication/RentService.Authentication.test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/CommonDtos/RentService.CommonDtos.test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommonDtos/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommonDtos/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommonDtos/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GateWayModule/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GateWayModule/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GateWayModule/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GateWayModule/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GateWayModule/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GateWayModule/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/GateWayModuleApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/authModule/feignClient/AuthJwtClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/authModule/feignClient/dto/LoginCredentials.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/models/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/models/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/CarController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/ExtraDataController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/OrderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/RoleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/rentModule/feinClient/FeignCarClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/rentModule/feinClient/FeignExtraDataClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/rentModule/feinClient/FeignOrderClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/rentModule/feinClient/FeignRoleClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/security/jwt/JwtFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/security/jwt/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/security/jwt/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/security/jwt/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GateWayModule/src/test/java/org/kamenchuk/GateWayModuleApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/code_review_17_03_2023.patch" afterDir="false" />
+    <list default="true" id="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" name="Changes" comment="gateway all controllers from RentService">
+      <change afterPath="$PROJECT_DIR$/Authefication/src/test/java/org/kamenchuk/authefication/controller/AuthControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Authefication/src/test/java/org/kamenchuk/authefication/service/impl/UserServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GateWayModule/src/test/java/org/kamenchuk/authModule/controller/AuthModuleControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GateWayModule/src/test/java/org/kamenchuk/rentModule/controllers/CarControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GateWayModule/src/test/java/org/kamenchuk/rentModule/controllers/ExtraDataControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GateWayModule/src/test/java/org/kamenchuk/rentModule/controllers/OrderControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GateWayModule/src/test/java/org/kamenchuk/rentModule/controllers/RoleControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GateWayModule/src/test/java/org/kamenchuk/rentModule/controllers/UserControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/kamenchuk/controller/CarControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/kamenchuk/controller/ExtraUsersDataControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/kamenchuk/controller/OrderControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/kamenchuk/controller/RoleControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/CarServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/ExtraUsersServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/OrderServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/RoleServiceImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Authefication/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Authefication/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Authefication/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Authefication/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/authefication/AuthenticationApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/authefication/controller/AuthController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/authefication/dto/LoginCredentials.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/authefication/models/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/authefication/models/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/authefication/repository/RoleRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/authefication/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/authefication/security/config/SpringSecurityConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/authefication/security/jwt/JwtFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/authefication/security/jwt/JwtUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/authefication/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/authefication/service/impl/UserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Authefication/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/src/test/java/com/kamenchuk/authefication/AuthenticationApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarsPhotoLoader/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GateWayModule/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/GateWayModule/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GateWayModule/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/GateWayModule/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GateWayModule/src/main/java/com/kamenchuk/gatewaymodule/authModule/controller/AuthModuleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/authModule/controller/AuthModuleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GateWayModule/src/main/java/com/kamenchuk/gatewaymodule/authModule/feignClient/AuthJwtClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GateWayModule/src/main/java/com/kamenchuk/gatewaymodule/config/GatewayConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GateWayModule/src/main/java/com/kamenchuk/gatewaymodule/config/filter/AuthenticationFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GateWayModule/src/main/java/com/kamenchuk/gatewaymodule/rentModule/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GateWayModule/src/main/java/com/kamenchuk/gatewaymodule/rentModule/feinClient/FeignUserClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/rentModule/feinClient/FeignUserClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GateWayModule/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/GateWayModule/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/carDTO/CarCreateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/carDTO/CarCreateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/extraUsersDataDTO/ExtraUserDataUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/extraUsersDataDTO/ExtraUserDataUpdateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/authModule/controller/AuthModuleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/authModule/controller/AuthModuleController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/CarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/CarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/ExtraUsersDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/ExtraUsersDataController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/RoleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/carDTO/CarCreateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/carDTO/CarCreateRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/carDTO/CarResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/carDTO/CarResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/carDTO/CarUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/carDTO/CarUpdateRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/carDTO/PhotoDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/carDTO/PhotoDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/carDTO/PhotoResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/carDTO/PhotoResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/extraUsersDataDTO/ExtraUserDataUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/extraUsersDataDTO/ExtraUserDataUpdateRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/extraUsersDataDTO/ExtraUsersDataCreateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/extraUsersDataDTO/ExtraUsersDataCreateRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/mapper/CarMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/mapper/CarMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/mapper/ExtraUsersDataMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/mapper/ExtraUsersDataMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/mapper/OrderMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/mapper/RoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/mapper/RoleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/orderDTO/OrderCreateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/orderDTO/OrderCreateRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/orderDTO/OrderCreateResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/orderDTO/OrderCreateResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/orderDTO/OrderResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/orderDTO/OrderResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/orderDTO/OrderUpdateAdminRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/orderDTO/OrderUpdateAdminRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/orderDTO/OrderUpdateClientRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/orderDTO/OrderUpdateClientRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/roleDTO/RoleRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/roleDTO/RoleRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/roleDTO/RoleResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/roleDTO/RoleResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/userDTO/AllUsersDataResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/userDTO/AllUsersDataResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/userDTO/UserCreateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/userDTO/UserCreateRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/userDTO/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/userDTO/UserResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/userDTO/clientDTO/ClientResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/userDTO/clientDTO/ClientResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/ExtraUsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/ExtraUsersService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/RoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/models/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/models/Role.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/ExtraUsersServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/ExtraUsersServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/RoleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/kamenchuk/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/kamenchuk/controller/UserControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/UserServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/UserServiceImplTest.java" afterDir="false" />
     </list>
@@ -188,11 +104,11 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="JUnit5 Test Class" />
         <option value="AnnotationType" />
         <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -229,41 +145,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelOrder2": "2",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RequestMappingsPanelWidth2": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "database.data.extractors.current.export.id": "SQL Inserts",
-    "database.data.extractors.current.id": "SQL Inserts",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "D:/Internship/Programs/RentService/CommonDtos",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.24712643",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "spring.configuration.checksum": "6ebbe7b8f4eda5f26c85bccc9dca66bf"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelOrder2&quot;: &quot;2&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth2&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;SQL Inserts&quot;,
+    &quot;database.data.extractors.current.id&quot;: &quot;SQL Inserts&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Internship/Programs/RentService/CommonDtos&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.24712643&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;0a812c03930b1d9d49c9290799e9d257&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql",
-      "postgresql",
-      "mongo"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;,
+      &quot;postgresql&quot;,
+      &quot;mongo&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -294,6 +210,10 @@
       <recent name="org.kamenchuk.models" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.kamenchuk.rentModule.controllers" />
+      <recent name="org.kamenchuk.authModule.controller" />
+      <recent name="org.kamenchuk.authefication.service.impl" />
+      <recent name="org.kamenchuk.service.impl" />
       <recent name="org.kamenchuk.controller" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -316,16 +236,16 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.GateWayModule">
+  <component name="RunManager" selected="Gradle.UserControllerTest">
     <configuration name="init.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/src/main/resources/init.sql" />
       <script-mode>FILE</script-mode>
       <method v="2" />
     </configuration>
-    <configuration name="Authefication [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ExtraDataControllerTest.getById" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/Authefication" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/GateWayModule" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
@@ -333,96 +253,106 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="build" />
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.kamenchuk.rentModule.controllers.ExtraDataControllerTest.getById&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="GateWayModule [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ExtraDataControllerTest.update" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/GateWayModule" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="buildDependents" />
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.kamenchuk.rentModule.controllers.ExtraDataControllerTest.update&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="GateWayModule [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="RoleControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/GateWayModule" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="build" />
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.kamenchuk.rentModule.controllers.RoleControllerTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="GateWayModule [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="UserControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/GateWayModule" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="dependencies" />
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.kamenchuk.rentModule.controllers.UserControllerTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="RentService [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="UserControllerTest.getAllUser" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/GateWayModule" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="dependencies" />
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.kamenchuk.rentModule.controllers.UserControllerTest.getAllUser&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
@@ -430,6 +360,13 @@
     <configuration name="Authefication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <option name="ACTIVE_PROFILES" />
       <module name="Authefication.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.kamenchuk.authefication.AuthenticationApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthenticationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="RentService.Authefication.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.kamenchuk.authefication.AuthenticationApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -445,6 +382,13 @@
     <configuration name="GateWayModule" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <option name="ACTIVE_PROFILES" />
       <module name="GateWayModule.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.kamenchuk.GateWayModuleApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GateWayModuleApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="RentService.GateWayModule.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.kamenchuk.GateWayModuleApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -637,11 +581,13 @@
     </configuration>
     <list>
       <item itemvalue="Database Script.init.sql" />
-      <item itemvalue="Gradle.Authefication [build]" />
-      <item itemvalue="Gradle.GateWayModule [buildDependents]" />
-      <item itemvalue="Gradle.GateWayModule [dependencies]" />
-      <item itemvalue="Gradle.RentService [dependencies]" />
-      <item itemvalue="Gradle.GateWayModule [build]" />
+      <item itemvalue="Gradle.ExtraDataControllerTest.getById" />
+      <item itemvalue="Gradle.ExtraDataControllerTest.update" />
+      <item itemvalue="Gradle.RoleControllerTest" />
+      <item itemvalue="Gradle.UserControllerTest" />
+      <item itemvalue="Gradle.UserControllerTest.getAllUser" />
+      <item itemvalue="Spring Boot.AuthenticationApplication" />
+      <item itemvalue="Spring Boot.GateWayModuleApplication" />
       <item itemvalue="Spring Boot.Authefication" />
       <item itemvalue="Spring Boot.GateWayModule" />
       <item itemvalue="Spring Boot.RentServiceApp" />
@@ -651,11 +597,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Authefication [build]" />
-        <item itemvalue="Gradle.GateWayModule [build]" />
-        <item itemvalue="Gradle.GateWayModule [buildDependents]" />
-        <item itemvalue="Gradle.GateWayModule [dependencies]" />
-        <item itemvalue="Gradle.RentService [dependencies]" />
+        <item itemvalue="Gradle.UserControllerTest" />
+        <item itemvalue="Gradle.UserControllerTest.getAllUser" />
+        <item itemvalue="Gradle.RoleControllerTest" />
+        <item itemvalue="Gradle.ExtraDataControllerTest.update" />
+        <item itemvalue="Gradle.ExtraDataControllerTest.getById" />
       </list>
     </recent_temporary>
   </component>
@@ -773,7 +719,14 @@
       <workItem from="1683471057902" duration="2665000" />
       <workItem from="1683473769959" duration="554000" />
       <workItem from="1683531693548" duration="23450000" />
-      <workItem from="1683618456752" duration="6477000" />
+      <workItem from="1683618456752" duration="19335000" />
+      <workItem from="1683703982523" duration="11324000" />
+      <workItem from="1683724979949" duration="659000" />
+      <workItem from="1683876750000" duration="417000" />
+      <workItem from="1683896915496" duration="5046000" />
+      <workItem from="1684136198782" duration="2471000" />
+      <workItem from="1684146372586" duration="4098000" />
+      <workItem from="1684151775415" duration="9674000" />
     </task>
     <task id="LOCAL-00001" summary="RentService">
       <created>1674217605430</created>
@@ -859,7 +812,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682409940996</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="gateway all controllers from RentService">
+      <created>1683624978425</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1683624978425</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -959,7 +919,8 @@
     <MESSAGE value="get photos with Feign and Web Client" />
     <MESSAGE value="Authenfication" />
     <MESSAGE value="gateway with feignClient" />
-    <option name="LAST_COMMIT_MESSAGE" value="gateway with feignClient" />
+    <MESSAGE value="gateway all controllers from RentService" />
+    <option name="LAST_COMMIT_MESSAGE" value="gateway all controllers from RentService" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -968,6 +929,36 @@
           <properties class="java.net.UnknownHostException" package="java.net" />
           <option name="timeStamp" value="15" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/kamenchuk/controller/UserControllerTest.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/ExtraUsersServiceImplTest.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/ExtraUsersServiceImplTest.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/ExtraUsersServiceImplTest.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/ExtraUsersServiceImplTest.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/ExtraUsersServiceImplTest.java</url>
+          <line>79</line>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

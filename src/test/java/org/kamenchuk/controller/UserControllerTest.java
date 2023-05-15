@@ -31,7 +31,7 @@ public class UserControllerTest {
     @MockBean
     private UserServiceImpl usersService;
     @Autowired
-    UserController userController;
+    private UserController userController;
 
     @Before("setUp")
     public void setUpData() {

@@ -147,7 +147,7 @@ class UserServiceTest {
                 .id(1L)
                 .login("login")
                 .password("password")
-                .role(new Role(2, "ROLE_USER"))
+                .role(new Role(2, "USER"))
                 .extraUsersData(extraUsersData)
                 .build();
     }

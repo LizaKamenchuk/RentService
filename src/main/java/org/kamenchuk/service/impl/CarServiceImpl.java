@@ -175,6 +175,7 @@ public class CarServiceImpl implements CarService{
             CarUpdateRequest request,
             Car car
     ) {
+       if(car.getLimitations().isEmpty() && request.getLimitations().isEmpty()) car.setLimitations("");
         return Car.builder()
                 .id(car.getId())
                 .model(setModelForCreate(request.getModel(), request.getMark(), car))

@@ -13,6 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "roles")
+@Builder
 public class Role {
     @Id
     @Column(name = "id",nullable = false,unique = true)
