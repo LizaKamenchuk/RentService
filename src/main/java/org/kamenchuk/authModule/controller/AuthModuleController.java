@@ -2,7 +2,6 @@ package org.kamenchuk.authModule.controller;
 
 import org.kamenchuk.authModule.feignClient.AuthJwtClient;
 import org.kamenchuk.authModule.feignClient.dto.LoginCredentials;
-import org.kamenchuk.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,9 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/auth_module")
 public class AuthModuleController {
     private final AuthJwtClient jwtClient;
-    public static String TOKEN = null;
-
-    private User user ;
 
     @Autowired
     public AuthModuleController(AuthJwtClient jwtClient) {
