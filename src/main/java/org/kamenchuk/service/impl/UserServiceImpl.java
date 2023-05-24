@@ -41,16 +41,20 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public List<UserResponse> getAllUsers() {
         return userDao.findAll().stream()
+                .map(it->it)
                 .map(userMapper::toDto)
                 .collect(Collectors.toList());
     }
 
     @SneakyThrows
+    @Transactional
     @Override
     public UserResponse findById(Long id) {
         return userDao.findById(id)
+                .map(it->it)
                 .map(userMapper::toDto)
                 .orElseThrow(() -> {
                     log.error("findById(). User isn`t found");
@@ -66,6 +70,7 @@ public class UserServiceImpl implements UserService {
                 .map(this::setUserRole)
                 .map(this::setUserED)
                 .map(userDao::save)
+                .map(it->it)
                 .map(userMapper::toDto)
                 .orElseThrow(() -> {
                     log.error("createUser(). Can not create user");
@@ -74,6 +79,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void deleteById(Long id) {
         userDao.deleteById(id);
     }
@@ -82,8 +88,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserResponse updateLogin(String newLogin, Long id) throws UpdatingException {
         return userDao.findById(id)
+                .map(it->it)
                 .map(user -> setUserLogin(user, newLogin))
+                .map(it->it)
                 .map(userDao::saveAndFlush)
+                .map(it->it)
                 .map(userMapper::toDto)
                 .orElseThrow(() -> {
                     log.error("updateLogin(). Login update isn`t succeed");
@@ -92,7 +101,7 @@ public class UserServiceImpl implements UserService {
     }
 
     private User setUserRole(User user) {
-        String usersRole = "ROLE_USER";
+        String usersRole = "USER";
         //TODO isPresent
         Role role = roleDao.findFirstByRole(usersRole).get();
         user.setRole(role);

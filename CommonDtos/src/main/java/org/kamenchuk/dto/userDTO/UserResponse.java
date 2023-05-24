@@ -14,4 +14,5 @@ public class UserResponse {
     private Long id;
     private String login;
     private RoleResponse roleResponse;
+    private Long idED;
 }

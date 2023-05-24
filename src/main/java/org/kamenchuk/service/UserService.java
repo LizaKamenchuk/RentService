@@ -4,6 +4,7 @@ import org.kamenchuk.dto.userDTO.UserCreateRequest;
 import org.kamenchuk.dto.userDTO.UserResponse;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.UpdatingException;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * Interface UserService for work with User
  * @author Lisa Kamenchuk
  */
+@Transactional
 public interface UserService {
 
     /**

@@ -36,6 +36,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Authentication" options="-parameters" />
       <module name="CarsPhotoLoader" options="-parameters" />
+      <module name="RentService.CarsPhotoLoader" options="-parameters" />
     </option>
   </component>
 </project>

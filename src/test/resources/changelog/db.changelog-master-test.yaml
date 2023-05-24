@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - includeAll:
+      path: db/changelog/version1/initial
+  - include:
+      file: db/changelog/version1/initial/init_db.sql
+
+
+

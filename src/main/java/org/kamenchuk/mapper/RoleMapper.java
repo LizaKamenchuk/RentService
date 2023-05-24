@@ -15,7 +15,6 @@ public interface RoleMapper {
     @Mapping(target = "role",source = "role")
     RoleResponse toDtoResponse(Role role);
 
-
     @Mapping(target = "id",source = "id")
     Role toRoleFromRequest(RoleRequest roleRequest);
 

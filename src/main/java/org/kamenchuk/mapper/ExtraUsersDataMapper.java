@@ -8,6 +8,7 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface ExtraUsersDataMapper {
     ExtraUsersData toUser(ExtraUserDataUpdateRequest request);
+
     ExtraUserDataUpdateRequest toDto(ExtraUsersData extraUsersData);
 
     ExtraUsersData toUser(ExtraUsersDataCreateRequest create);

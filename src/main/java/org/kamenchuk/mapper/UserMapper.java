@@ -11,6 +11,7 @@ import org.mapstruct.Mapping;
 public interface UserMapper {
 
     @Mapping(target = "roleResponse.role", source = "role.role")
+    @Mapping(target = "idED",source = "extraUsersData.id")
     UserResponse toDto(User entity);
 
     @Mapping(target = "role.role", source = "roleResponse.role")
