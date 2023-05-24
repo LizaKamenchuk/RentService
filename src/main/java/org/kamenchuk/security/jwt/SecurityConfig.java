@@ -35,7 +35,7 @@ public class SecurityConfig {
                 .disable()
                 .authorizeRequests()
                 .antMatchers("/auth_module/*").permitAll()
-//                .antMatchers("/user/create/**").permitAll()
+                .antMatchers("/rent_module/user/create/**").permitAll()
                 .antMatchers("/rent_module/car/admin/**").hasRole("ADMIN")
                 .antMatchers("/rent_module/order/admin/**").hasAuthority("[ADMIN]")
                 .antMatchers("/rent_module/role/admin/**").hasAnyAuthority("[ADMIN]")
