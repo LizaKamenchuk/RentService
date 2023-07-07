@@ -44,8 +44,8 @@ public class OrderServiceImpl implements OrderService {
         this.modelDao = modelDao;
     }
 
-    @Transactional
     @Override
+    @Transactional
     public OrderCreateResponse create(Long idUser, OrderCreateRequest request) throws CreationException {
         return Optional.ofNullable(request)
                 .map(orderMapper::toOrder)
@@ -98,7 +98,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<OrderResponse> getByClientId(Long id) {
         return ordersDao.findOrdersByClient_Id(id).stream()
                 .map(this::setPriceForOrdersList)
@@ -106,7 +106,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<OrderResponse> getAll() {
         return ordersDao.findAll().stream()
                 .map(this::setPriceForOrdersList)
