@@ -94,7 +94,7 @@ public class CarServiceImpl implements CarService{
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public CarResponse getCarByNumber(String carNumber) throws ResourceNotFoundException {
         if (carNumber == null) {
             return null;
@@ -136,6 +136,7 @@ public class CarServiceImpl implements CarService{
     }
 
     @Override
+    @Transactional(readOnly = true)
     public CarResponse getCarById(Integer idCar, List<PhotoResponse> photos) throws UpdatingException {
         Car car = carDao.findById(idCar).get();
         CarResponse response = carMapper.toDto(car);
