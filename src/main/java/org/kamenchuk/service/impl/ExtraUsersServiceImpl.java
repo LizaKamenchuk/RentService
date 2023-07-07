@@ -29,9 +29,8 @@ public class ExtraUsersServiceImpl implements ExtraUsersService {
 
     }
 
-
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public ExtraUserDataUpdateRequest getExtraDataById(Long id) throws ResourceNotFoundException {
         return extraUsersDao.findById(id)
                 .map(extraDataMapper::toDto)
