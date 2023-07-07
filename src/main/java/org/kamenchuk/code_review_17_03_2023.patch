@@ -1,0 +1,515 @@
+Subject: [PATCH] code review 17.03.2023
+---
+Index: RentService/src/main/java/org/kamenchuk/service/OrderService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/RentService/src/main/java/org/kamenchuk/service/OrderService.java b/RentService/src/main/java/org/kamenchuk/service/OrderService.java
+--- a/RentService/src/main/java/org/kamenchuk/service/OrderService.java	(revision d8608654580baea2cdfc6896b81a64f959ee53c9)
++++ b/RentService/src/main/java/org/kamenchuk/service/OrderService.java	(date 1678951558534)
+@@ -4,7 +4,7 @@
+ import org.kamenchuk.dto.orderDTO.*;
+ 
+ import java.util.List;
+-
++//TODO где JAVA DOC?
+ public interface OrderService {
+     OrderCreateResponse create(Long idUser, OrderCreateRequest request);
+     void deleteById(Long id);
+Index: RentService/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/RentService/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java b/RentService/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java
+--- a/RentService/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java	(revision d8608654580baea2cdfc6896b81a64f959ee53c9)
++++ b/RentService/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java	(date 1678951558554)
+@@ -1,5 +1,9 @@
+ package org.kamenchuk.service.impl;
+ 
++import java.util.List;
++import java.util.Optional;
++import java.util.stream.Collectors;
++import lombok.extern.slf4j.Slf4j;
+ import org.kamenchuk.dao.CarDao;
+ import org.kamenchuk.dao.MarkDao;
+ import org.kamenchuk.dao.ModelDao;
+@@ -13,10 +17,8 @@
+ import org.springframework.beans.factory.annotation.Autowired;
+ import org.springframework.stereotype.Service;
+ 
+-import java.util.List;
+-import java.util.Optional;
+-import java.util.stream.Collectors;
+-
++//TODO где логирование? @Slf4j
++@Slf4j
+ @Service
+ public class CarServiceImpl implements CarService {
+     private final CarDao carDao;
+@@ -46,16 +48,23 @@
+     @Override
+     public CarResponse create(CarCreateRequest request) {
+         return Optional.ofNullable(request)
+-                .map(carMapper::toCar)
+-                .map(car -> setModelForCreate(request.getModel(),request.getMark(), car))
+-                .map(carDao::save)
+-                .map(carMapper::toDto)
+-                .orElseThrow(() -> new RuntimeException("Car is not created"));
++                       .map(carMapper::toCar)
++                       .map(car -> setModelForCreate(request.getModel(), request.getMark(), car))
++                       .map(carDao::save)
++                       .map(carMapper::toDto)
++                       //TODO здесь и далее надо бросать или свой кастомный Exception или что типа такого
++//                       .orElseThrow(() -> {
++//                           log.error("create(). Cannot create car!");
++//                           return new ResponseStatusException(HttpStatus.BAD_REQUEST, "Car is not created"));
++//                       }); иначе потом не поймешь на чем падает. + надо сохранять ошибку.
++                       .orElseThrow(() -> new RuntimeException("Car is not created"));
+     }
+ 
+     @Override
+     public CarResponse getCarByNumber(String carNumber) {
+-        if (carNumber == null) return null;
++        if (carNumber == null) {
++            return null;
++        }
+         return carDao.getCarByCarNumber(carNumber)
+                 .map(carMapper::toDto)
+                 .orElseThrow(() -> new RuntimeException("Car with this number isn`t exist"));
+@@ -102,13 +111,29 @@
+         return car;
+     }
+ 
+-    private Car setUpdates(CarResponse request, Car car) {
+-        if (request.getMark() != null) car.getModel().getMark().setMark(request.getMark());
+-        if (request.getModel() != null) car.getModel().setModel(request.getModel());
+-        if (request.getCarNumber() != null) car.setCarNumber(request.getCarNumber());
+-        if(request.getLimitations() != null) car.setLimitations(request.getLimitations());
+-        if(request.getPrice() != null) car.setPrice(request.getPrice());
+-        if(request.getIdImage() != null) car.setIdImage(request.getIdImage());
++    //TODO так читабельнее, ну и можно было использовать Builder
++    private Car setUpdates(
++        CarResponse request,
++        Car car
++    ) {
++        if (request.getMark() != null) {
++            car.getModel().getMark().setMark(request.getMark());
++        }
++        if (request.getModel() != null) {
++            car.getModel().setModel(request.getModel());
++        }
++        if (request.getCarNumber() != null) {
++            car.setCarNumber(request.getCarNumber());
++        }
++        if (request.getLimitations() != null) {
++            car.setLimitations(request.getLimitations());
++        }
++        if (request.getPrice() != null) {
++            car.setPrice(request.getPrice());
++        }
++        if (request.getIdImage() != null) {
++            car.setIdImage(request.getIdImage());
++        }
+         return car;
+     }
+ }
+Index: RentService/src/test/java/org/kamenchuk/service/impl/UserServiceImplTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/RentService/src/test/java/org/kamenchuk/service/impl/UserServiceImplTest.java b/RentService/src/test/java/org/kamenchuk/service/impl/UserServiceImplTest.java
+--- a/RentService/src/test/java/org/kamenchuk/service/impl/UserServiceImplTest.java	(revision d8608654580baea2cdfc6896b81a64f959ee53c9)
++++ b/RentService/src/test/java/org/kamenchuk/service/impl/UserServiceImplTest.java	(date 1678951558494)
+@@ -1,5 +1,14 @@
+ package org.kamenchuk.service.impl;
+ 
++import static org.junit.jupiter.api.Assertions.assertAll;
++import static org.junit.jupiter.api.Assertions.assertEquals;
++import static org.junit.jupiter.api.Assertions.assertNotNull;
++import static org.mockito.Mockito.verify;
++import static org.mockito.Mockito.when;
++
++import java.util.ArrayList;
++import java.util.List;
++import java.util.Optional;
+ import org.junit.jupiter.api.Test;
+ import org.junit.jupiter.api.extension.ExtendWith;
+ import org.kamenchuk.dao.RoleDao;
+@@ -20,14 +29,7 @@
+ import org.springframework.boot.test.mock.mockito.MockBean;
+ import org.springframework.test.context.junit.jupiter.SpringExtension;
+ 
+-import java.util.ArrayList;
+-import java.util.List;
+-import java.util.Optional;
+-
+-import static org.junit.jupiter.api.Assertions.*;
+-import static org.mockito.Mockito.verify;
+-import static org.mockito.Mockito.when;
+-
++//TODO почему названеи клсса и файла отличаются?
+ /**
+  * Test for {@link UserService}
+  */
+Index: RentService/src/main/java/org/kamenchuk/service/CarService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/RentService/src/main/java/org/kamenchuk/service/CarService.java b/RentService/src/main/java/org/kamenchuk/service/CarService.java
+--- a/RentService/src/main/java/org/kamenchuk/service/CarService.java	(revision d8608654580baea2cdfc6896b81a64f959ee53c9)
++++ b/RentService/src/main/java/org/kamenchuk/service/CarService.java	(date 1678950025725)
+@@ -5,6 +5,7 @@
+ 
+ import java.util.List;
+ 
++//TODO где JAVA DOC?
+ public interface CarService {
+ 
+     List<CarResponse> getAll();
+Index: RentService/src/main/java/org/kamenchuk/service/RoleService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/RentService/src/main/java/org/kamenchuk/service/RoleService.java b/RentService/src/main/java/org/kamenchuk/service/RoleService.java
+--- a/RentService/src/main/java/org/kamenchuk/service/RoleService.java	(revision d8608654580baea2cdfc6896b81a64f959ee53c9)
++++ b/RentService/src/main/java/org/kamenchuk/service/RoleService.java	(date 1678951558542)
+@@ -2,6 +2,7 @@
+ 
+ import org.kamenchuk.models.roleDTO.RoleResponse;
+ 
++//TODO где JAVA DOC?
+ public interface RoleService {
+     void delete(Integer id);
+ 
+Index: RentService/src/main/java/org/kamenchuk/service/ExtraUsersService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/RentService/src/main/java/org/kamenchuk/service/ExtraUsersService.java b/RentService/src/main/java/org/kamenchuk/service/ExtraUsersService.java
+--- a/RentService/src/main/java/org/kamenchuk/service/ExtraUsersService.java	(revision d8608654580baea2cdfc6896b81a64f959ee53c9)
++++ b/RentService/src/main/java/org/kamenchuk/service/ExtraUsersService.java	(date 1678951038027)
+@@ -4,6 +4,7 @@
+ import org.kamenchuk.dto.extraUsersDataDTO.ExtraUsersDataCreateRequest;
+ import org.kamenchuk.models.ExtraUsersData;
+ 
++//TODO где JAVA DOC?
+ public interface ExtraUsersService {
+ 
+     ExtraUserDataUpdateRequest getExtraDataById(Long id);
+Index: RentService/src/test/java/org/kamenchuk/controller/UserControllerTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/RentService/src/test/java/org/kamenchuk/controller/UserControllerTest.java b/RentService/src/test/java/org/kamenchuk/controller/UserControllerTest.java
+--- a/RentService/src/test/java/org/kamenchuk/controller/UserControllerTest.java	(revision d8608654580baea2cdfc6896b81a64f959ee53c9)
++++ b/RentService/src/test/java/org/kamenchuk/controller/UserControllerTest.java	(date 1678951558526)
+@@ -1,5 +1,13 @@
+ package org.kamenchuk.controller;
+ 
++import static org.junit.jupiter.api.Assertions.assertAll;
++import static org.junit.jupiter.api.Assertions.assertEquals;
++import static org.junit.jupiter.api.Assertions.assertNotNull;
++import static org.mockito.Mockito.verify;
++import static org.mockito.Mockito.when;
++
++import java.util.ArrayList;
++import java.util.List;
+ import org.aspectj.lang.annotation.Before;
+ import org.junit.jupiter.api.Test;
+ import org.junit.jupiter.api.extension.ExtendWith;
+@@ -12,13 +20,7 @@
+ import org.springframework.boot.test.mock.mockito.MockBean;
+ import org.springframework.test.context.junit.jupiter.SpringExtension;
+ 
+-import java.util.ArrayList;
+-import java.util.List;
+-
+-import static org.junit.jupiter.api.Assertions.*;
+-import static org.mockito.Mockito.verify;
+-import static org.mockito.Mockito.when;
+-
++//TODO и где Java doс?
+ /**
+  *
+  */
+Index: RentService/src/main/java/org/kamenchuk/service/UserService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/RentService/src/main/java/org/kamenchuk/service/UserService.java b/RentService/src/main/java/org/kamenchuk/service/UserService.java
+--- a/RentService/src/main/java/org/kamenchuk/service/UserService.java	(revision d8608654580baea2cdfc6896b81a64f959ee53c9)
++++ b/RentService/src/main/java/org/kamenchuk/service/UserService.java	(date 1678951558506)
+@@ -7,7 +7,7 @@
+ import org.kamenchuk.models.ExtraUsersData;
+ 
+ import java.util.List;
+-
++//TODO где JAVA DOC?
+ public interface UserService {
+     List<UserResponse> getAllUsers();
+ 
+Index: RentService/src/main/resources/application.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/RentService/src/main/resources/application.yml b/RentService/src/main/resources/application.yml
+--- a/RentService/src/main/resources/application.yml	(revision d8608654580baea2cdfc6896b81a64f959ee53c9)
++++ b/RentService/src/main/resources/application.yml	(date 1678951558590)
+@@ -1,5 +1,6 @@
+ server:
+   port: ${PORT:8080}
++#  TODO это что за закомментированный код?
+ #jpa:
+ #  hibernate:
+ #    dialect-class-name: org.hibernate.dialect.PostgreSQLDialect
+Index: RentService/src/main/resources/hibernate.cfg.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/RentService/src/main/resources/hibernate.cfg.xml b/RentService/src/main/resources/hibernate.cfg.xml
+--- a/RentService/src/main/resources/hibernate.cfg.xml	(revision d8608654580baea2cdfc6896b81a64f959ee53c9)
++++ b/RentService/src/main/resources/hibernate.cfg.xml	(date 1678951558514)
+@@ -1,3 +1,4 @@
++<!--TODO в spring Boot  этого не должнобыть. У тебя есть автоконфиги-->
+ <?xml version='1.0' encoding='utf-8'?>
+ <!DOCTYPE hibernate-configuration PUBLIC
+         "-//Hibernate/Hibernate Configuration DTD//EN"
+Index: RentService/src/main/java/org/kamenchuk/service/impl/ExtraUsersServiceImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/RentService/src/main/java/org/kamenchuk/service/impl/ExtraUsersServiceImpl.java b/RentService/src/main/java/org/kamenchuk/service/impl/ExtraUsersServiceImpl.java
+--- a/RentService/src/main/java/org/kamenchuk/service/impl/ExtraUsersServiceImpl.java	(revision d8608654580baea2cdfc6896b81a64f959ee53c9)
++++ b/RentService/src/main/java/org/kamenchuk/service/impl/ExtraUsersServiceImpl.java	(date 1678951037999)
+@@ -10,6 +10,7 @@
+ import org.springframework.beans.factory.annotation.Autowired;
+ import org.springframework.stereotype.Service;
+ 
++//TODO см CarServiceImpl
+ @Service
+ public class ExtraUsersServiceImpl implements ExtraUsersService {
+     private ExtraUsersDao extraUsersDao;
+Index: RentService/src/main/java/org/kamenchuk/service/impl/OrderServiceImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/RentService/src/main/java/org/kamenchuk/service/impl/OrderServiceImpl.java b/RentService/src/main/java/org/kamenchuk/service/impl/OrderServiceImpl.java
+--- a/RentService/src/main/java/org/kamenchuk/service/impl/OrderServiceImpl.java	(revision d8608654580baea2cdfc6896b81a64f959ee53c9)
++++ b/RentService/src/main/java/org/kamenchuk/service/impl/OrderServiceImpl.java	(date 1678951558546)
+@@ -18,7 +18,7 @@
+ import java.util.List;
+ import java.util.Optional;
+ import java.util.stream.Collectors;
+-
++//TODO см CarServiceImpl
+ @Service
+ public class OrderServiceImpl implements OrderService {
+     private final OrdersDao ordersDao;
+Index: RentService/src/main/java/org/kamenchuk/models/roleDTO/RoleRequest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/RentService/src/main/java/org/kamenchuk/models/roleDTO/RoleRequest.java b/RentService/src/main/java/org/kamenchuk/models/roleDTO/RoleRequest.java
+--- a/RentService/src/main/java/org/kamenchuk/models/roleDTO/RoleRequest.java	(revision d8608654580baea2cdfc6896b81a64f959ee53c9)
++++ b/RentService/src/main/java/org/kamenchuk/models/roleDTO/RoleRequest.java	(date 1678951558570)
+@@ -5,6 +5,7 @@
+ import lombok.Data;
+ import lombok.NoArgsConstructor;
+ 
++//TODO почему DTO в модели?
+ @Data
+ @NoArgsConstructor
+ @AllArgsConstructor
+Index: RentService/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/RentService/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java b/RentService/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java
+--- a/RentService/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java	(revision d8608654580baea2cdfc6896b81a64f959ee53c9)
++++ b/RentService/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java	(date 1678951558502)
+@@ -20,7 +20,7 @@
+ import java.util.List;
+ import java.util.Optional;
+ import java.util.stream.Collectors;
+-
++//TODO см CarServiceImpl
+ @Service
+ public class UserServiceImpl implements UserService {
+     private final UserDao userDao;
+Index: RentService/src/main/java/org/kamenchuk/service/impl/RoleServiceImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/RentService/src/main/java/org/kamenchuk/service/impl/RoleServiceImpl.java b/RentService/src/main/java/org/kamenchuk/service/impl/RoleServiceImpl.java
+--- a/RentService/src/main/java/org/kamenchuk/service/impl/RoleServiceImpl.java	(revision d8608654580baea2cdfc6896b81a64f959ee53c9)
++++ b/RentService/src/main/java/org/kamenchuk/service/impl/RoleServiceImpl.java	(date 1678951728742)
+@@ -7,7 +7,7 @@
+ import org.kamenchuk.service.RoleService;
+ import org.springframework.beans.factory.annotation.Autowired;
+ import org.springframework.stereotype.Service;
+-
++//TODO см CarServiceImpl
+ @Service
+ public class RoleServiceImpl implements RoleService {
+     private final RoleDao roleDao;
+Index: RentService/gradle.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/RentService/gradle.properties b/RentService/gradle.properties
+--- a/RentService/gradle.properties	(revision d8608654580baea2cdfc6896b81a64f959ee53c9)
++++ b/RentService/gradle.properties	(date 1678949622870)
+@@ -1,3 +1,4 @@
++#DOTO не вижу ни одного использования пропертей
+ spring_version = 5.3.25
+ lombok_version = 1.18.22
+ jackson_version = 2.14.2
+Index: RentService/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/RentService/build.gradle b/RentService/build.gradle
+--- a/RentService/build.gradle	(revision d8608654580baea2cdfc6896b81a64f959ee53c9)
++++ b/RentService/build.gradle	(date 1678949622862)
+@@ -1,4 +1,5 @@
+ plugins {
++    //TODO тут тоже можно вынести все версии в отдельный файл
+     id 'java'
+     id 'org.springframework.boot' version '2.7.9'
+     id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+@@ -6,8 +7,11 @@
+ 
+ group 'org.kamenchuk'
+ version '1.0-SNAPSHOT'
++
++//TODO обычно переобределяют еще targetCompatibility. И делай это не magic string понятными переменными. ex sourceCompatibility = JavaVersion.VERSION_17
+ sourceCompatibility = '17'
+ 
++//TODO это зачем?
+ configurations {
+     compileOnly {
+         extendsFrom annotationProcessor
+@@ -23,6 +27,7 @@
+     implementation 'org.springframework.boot:spring-boot-starter-web'
+     implementation 'org.liquibase:liquibase-core'
+ 
++    //TODO вынести все версии в отдельный файл
+     implementation 'org.springdoc:springdoc-openapi-ui:1.6.14'
+     implementation 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
+     implementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
+@@ -39,8 +44,10 @@
+ }
+ 
+ tasks.named('test') {
++    //TODO это зачем?
+     systemProperty 'spring.profiles.active', 'test'
+     useJUnitPlatform()
++    //TODO это зачем?
+     reports {
+         junitXml.enabled = true
+         html.enabled = false
+Index: RentService/src/main/resources/db/changelog/db.changelog-master.yaml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/RentService/src/main/resources/db/changelog/db.changelog-master.yaml b/RentService/src/main/resources/db/changelog/db.changelog-master.yaml
+--- a/RentService/src/main/resources/db/changelog/db.changelog-master.yaml	(revision d8608654580baea2cdfc6896b81a64f959ee53c9)
++++ b/RentService/src/main/resources/db/changelog/db.changelog-master.yaml	(date 1678951558586)
+@@ -1,5 +1,6 @@
+ databaseChangeLog:
+   - includeAll:
++#        TODO что за название tables1?
+       path: db/changelog/tables1/
+ 
+ 
+Index: RentService/src/main/java/org/kamenchuk/controller/ExtraUsersDataController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/RentService/src/main/java/org/kamenchuk/controller/ExtraUsersDataController.java b/RentService/src/main/java/org/kamenchuk/controller/ExtraUsersDataController.java
+--- a/RentService/src/main/java/org/kamenchuk/controller/ExtraUsersDataController.java	(revision d8608654580baea2cdfc6896b81a64f959ee53c9)
++++ b/RentService/src/main/java/org/kamenchuk/controller/ExtraUsersDataController.java	(date 1678951038019)
+@@ -5,6 +5,7 @@
+ import org.springframework.beans.factory.annotation.Autowired;
+ import org.springframework.web.bind.annotation.*;
+ 
++//TODO @RequestMapping() ?
+ @RestController
+ public class ExtraUsersDataController {
+ 
+Index: RentService/src/test/java/controllerTests/UserControllerTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/RentService/src/test/java/controllerTests/UserControllerTest.java b/RentService/src/test/java/controllerTests/UserControllerTest.java
+--- a/RentService/src/test/java/controllerTests/UserControllerTest.java	(revision d8608654580baea2cdfc6896b81a64f959ee53c9)
++++ b/RentService/src/test/java/controllerTests/UserControllerTest.java	(date 1678951558518)
+@@ -8,6 +8,7 @@
+ import org.springframework.test.context.junit.jupiter.SpringExtension;
+ import org.springframework.test.web.servlet.MockMvc;
+ 
++//TODO ?
+ @ExtendWith(SpringExtension.class)
+ @WebMvcTest
+ public class UserControllerTest {
+Index: RentService/src/main/java/org/kamenchuk/controller/OrderController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/RentService/src/main/java/org/kamenchuk/controller/OrderController.java b/RentService/src/main/java/org/kamenchuk/controller/OrderController.java
+--- a/RentService/src/main/java/org/kamenchuk/controller/OrderController.java	(revision d8608654580baea2cdfc6896b81a64f959ee53c9)
++++ b/RentService/src/main/java/org/kamenchuk/controller/OrderController.java	(date 1678951038035)
+@@ -9,6 +9,7 @@
+ 
+ import java.util.List;
+ 
++//TODO @RequestMapping() ?
+ @RestController
+ public class OrderController {
+     private final OrderService orderService;
+Index: RentService/src/main/java/org/kamenchuk/controller/CarController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/RentService/src/main/java/org/kamenchuk/controller/CarController.java b/RentService/src/main/java/org/kamenchuk/controller/CarController.java
+--- a/RentService/src/main/java/org/kamenchuk/controller/CarController.java	(revision d8608654580baea2cdfc6896b81a64f959ee53c9)
++++ b/RentService/src/main/java/org/kamenchuk/controller/CarController.java	(date 1678951558562)
+@@ -9,6 +9,8 @@
+ 
+ import java.util.List;
+ 
++//TODO не ипшут в маппинге слово Controller, должно быть просто /car
++//TODO для обработки ошибок заюзай @ControllerAdvice
+ @RestController
+ @RequestMapping("/carController")
+ public class CarController {
+@@ -44,6 +46,7 @@
+         carService.deleteByCarNumber(carNumber);
+     }
+ 
++    //TODO обысно при update передают ID и DTO в DTO не кладут ID. Response отдаем пользователю, принимаем request. Должно быть CarRequest request
+     @PatchMapping(value = "/update")
+     public CarResponse update(CarResponse request){
+         return carService.update(request);

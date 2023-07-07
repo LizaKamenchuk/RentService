@@ -9,36 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" name="Changes" comment="implements WebServlet logic">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/RentService_Web_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RentService.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/CreateUserDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/RoleDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dto/UserDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/mapper/ExtraUserDataMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/mapper/RoleMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/mapper/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/servlets/LoginServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/rent_service.r3-6VA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/rent_service.r3-6VA/schema/public.abK9xQ.meta" afterDir="false" />
+    <list default="true" id="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" name="Changes" comment="IT for services">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/Dao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/config/ConnectionPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/config/ConnectionPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/impl/CarDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/impl/CarDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/impl/ExtraUsersDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/impl/ExtraUsersDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/impl/ModelDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/impl/ModelDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/impl/OrderDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/impl/OrderDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/impl/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/impl/UserDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/models/User.java" afterDir="false" />
     </list>
+    <list id="da30dbad-d88c-4968-aaa8-a566c9f99ec1" name="ChangesForTests" comment="ChangesForTests" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,8 +22,28 @@
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
+  <component name="DockerExecCommands">
+    <ExecCommand>
+      <option name="command" value="mongo" />
+    </ExecCommand>
+    <ExecCommand>
+      <option name="command" value="rentcervice-db_mongo-1" />
+    </ExecCommand>
+    <ExecCommand>
+      <option name="command" value="mongosh" />
+    </ExecCommand>
+  </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/Authefication">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/CommonDtos">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/GateWayModule">
       <ProjectState />
     </projectState>
   </component>
@@ -56,6 +51,18 @@
     <system id="GRADLE">
       <state>
         <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/GateWayModule">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/CommonDtos">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/CarsPhotoLoader">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/Authefication">
           <activation />
         </task>
         <projects_view>
@@ -86,19 +93,29 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="AnnotationType" />
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="get_photos" />
+        <entry key="$PROJECT_DIR$/Authefication" value="master" />
+        <entry key="$PROJECT_DIR$/CarsPhotoLoader" value="master" />
+        <entry key="$PROJECT_DIR$/GateWayModule" value="feinClient" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/org/kamenchuk/dao/ModelDao.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -110,6 +127,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectId" id="2KXMHRUiu0nhZNsHqjFUhexdcwJ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -118,68 +138,124 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "database.data.extractors.current.export.id": "SQL Inserts",
-    "database.data.extractors.current.id": "SQL Inserts",
-    "last_opened_file_path": "D:/IdeaProjects/PetBoxEE",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.24712643",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelOrder2&quot;: &quot;2&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth2&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;SQL Inserts&quot;,
+    &quot;database.data.extractors.current.id&quot;: &quot;SQL Inserts&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Internship/Programs/RentService/src/test/resources/changelog/version1&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.24712643&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;99359c63153abdeb2ebf673cf7f17bf0&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql",
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mongo&quot;,
+      &quot;mysql&quot;,
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.kamenchuk.gatewaymodule.config.filter" />
+      <recent name="org.kamenchuk.feignClient" />
+      <recent name="org.kamenchuk.dto.carDTO" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Internship\Programs\RentService" />
+      <recent name="D:\Internship\Programs\RentService\src\test\resources\changelog\version1" />
+      <recent name="D:\Internship\Programs\RentService\src\test\resources" />
+      <recent name="D:\Internship\Programs\RentService\src\test\resources\database" />
+      <recent name="D:\Internship\Programs\RentService\src\main\java\org\kamenchuk" />
+      <recent name="D:\Internship\Programs\RentService\CommonDtos\src\main\java\org\kamenchuk" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Internship\Programs\RentService\src\main\webapp" />
-      <recent name="D:\Internship\Programs\RentService\src\main\webapp\WEB-INF" />
-      <recent name="D:\Internship\Programs\RentService\src\main" />
-      <recent name="D:\Internship\Programs\RentService\src" />
-      <recent name="D:\Internship\Programs\RentService\src\main\web\WEB-INF" />
+      <recent name="D:\Internship\Programs\RentService\src\test\resources\changelog\version1\initial" />
+      <recent name="D:\Internship\Programs\RentService\src\main\resources\db\changelog\version1\initial" />
+      <recent name="D:\Internship\Programs\RentService\src\main\resources\db\changelog\version1\ - include:           file: db/changelog/version1/init_db.sql" />
+      <recent name="D:\Internship\Programs\RentService" />
+      <recent name="D:\Internship\Programs\RentService\rentService.iml" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.kamenchuk.models" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.kamenchuk.service.impl.integration" />
+      <recent name="org.kamenchuk.service.impl" />
+      <recent name="org.kamenchuk.rentModule.controllers" />
+      <recent name="org.kamenchuk.authModule.controller" />
+      <recent name="org.kamenchuk.authefication.service.impl" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.kamenchuk.gatewaymodule.models" />
+      <recent name="com.kamenchuk.gatewaymodule.security.jwt" />
+      <recent name="security.jwt" />
+      <recent name="com.kamenchuk.authefication.models" />
+      <recent name="com.kamenchuk.gatewaymodule.feignClient.dto" />
     </key>
   </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
-        <option value="docker-deploy" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+    <option name="excludedTypes">
+      <set>
+        <option value="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" />
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.71">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.kamenchuk.Main" />
-      <module name="RentService.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.kamenchuk.factories.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Gradle.CarServiceImplIntegrationTest">
     <configuration name="init.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/src/main/resources/init.sql" />
       <script-mode>FILE</script-mode>
+      <method v="2" />
+    </configuration>
+    <configuration name="CarServiceImplIntegrationTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.kamenchuk.service.impl.integration.CarServiceImplIntegrationTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <configuration name="RentService [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -203,68 +279,123 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="RentService [classes]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Tests in 'org.kamenchuk'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="classes" />
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.kamenchuk.*&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="RentService [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Tests in 'org.kamenchuk.service.impl.integration'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="clean" />
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.kamenchuk.service.impl.integration.*&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="RentService [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="UserServiceImplIntegrationTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="dependencies" />
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.kamenchuk.service.impl.integration.UserServiceImplIntegrationTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
+    </configuration>
+    <configuration name="Authefication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
+      <module name="Authefication.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.kamenchuk.authefication.AuthenticationApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthenticationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="RentService.Authefication.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.kamenchuk.authefication.AuthenticationApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CarsPhotoLoaderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
+      <module name="RentService.CarsPhotoLoader" />
+      <selectedOptions>
+        <option name="spring.boot.profiles" visible="false" />
+      </selectedOptions>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.kamenchuk.CarsPhotoLoaderApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GateWayModule" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
+      <module name="GateWayModule.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.kamenchuk.GateWayModuleApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GateWayModuleApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="RentService.GateWayModule.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.kamenchuk.GateWayModuleApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RentServiceApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
+      <module name="RentService.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.kamenchuk.RentServiceApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Tomcat 10.0.27" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.0.27" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -354,7 +485,6 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="Gradle : org.kamenchuk : RentService-1.0-SNAPSHOT.war" />
           <artifact name="RentService:Web exploded" />
         </option>
       </method>
@@ -441,28 +571,32 @@
       </ConfigurationWrapper>
       <method v="2">
         <option name="Make" enabled="true" />
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="Gradle : org.kamenchuk : RentService-1.0-SNAPSHOT.war" />
-        </option>
+        <option name="BuildArtifacts" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
       <item itemvalue="Database Script.init.sql" />
-      <item itemvalue="Gradle.RentService [dependencies]" />
-      <item itemvalue="Gradle.RentService [classes]" />
+      <item itemvalue="Gradle.Tests in 'org.kamenchuk'" />
+      <item itemvalue="Gradle.Tests in 'org.kamenchuk.service.impl.integration'" />
+      <item itemvalue="Gradle.CarServiceImplIntegrationTest" />
       <item itemvalue="Gradle.RentService [build]" />
-      <item itemvalue="Gradle.RentService [clean]" />
+      <item itemvalue="Gradle.UserServiceImplIntegrationTest" />
+      <item itemvalue="Spring Boot.AuthenticationApplication" />
+      <item itemvalue="Spring Boot.GateWayModuleApplication" />
+      <item itemvalue="Spring Boot.Authefication" />
+      <item itemvalue="Spring Boot.GateWayModule" />
+      <item itemvalue="Spring Boot.RentServiceApp" />
+      <item itemvalue="Spring Boot.CarsPhotoLoaderApplication" />
       <item itemvalue="Tomcat Server.Tomcat 10.0.27" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.71" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.CarServiceImplIntegrationTest" />
+        <item itemvalue="Gradle.Tests in 'org.kamenchuk'" />
+        <item itemvalue="Gradle.Tests in 'org.kamenchuk.service.impl.integration'" />
         <item itemvalue="Gradle.RentService [build]" />
-        <item itemvalue="Gradle.RentService [clean]" />
-        <item itemvalue="Gradle.RentService [dependencies]" />
-        <item itemvalue="Gradle.RentService [classes]" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Gradle.UserServiceImplIntegrationTest" />
       </list>
     </recent_temporary>
   </component>
@@ -470,6 +604,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" name="Changes" comment="" />
+      <changelist id="da30dbad-d88c-4968-aaa8-a566c9f99ec1" name="ChangesForTests" comment="" />
       <created>1674116387811</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -509,6 +644,95 @@
       <workItem from="1675435823590" duration="8841000" />
       <workItem from="1675590865034" duration="5638000" />
       <workItem from="1675602442344" duration="5113000" />
+      <workItem from="1678863197578" duration="10516000" />
+      <workItem from="1678879061210" duration="3373000" />
+      <workItem from="1678891293709" duration="2503000" />
+      <workItem from="1678957570480" duration="9956000" />
+      <workItem from="1678971323145" duration="6881000" />
+      <workItem from="1679038413367" duration="1463000" />
+      <workItem from="1679047098783" duration="17102000" />
+      <workItem from="1679293919628" duration="7667000" />
+      <workItem from="1679306454966" duration="2235000" />
+      <workItem from="1679311935748" duration="9566000" />
+      <workItem from="1679390982487" duration="16553000" />
+      <workItem from="1679469218099" duration="13452000" />
+      <workItem from="1679483305071" duration="2794000" />
+      <workItem from="1679497189527" duration="1177000" />
+      <workItem from="1679562654443" duration="2065000" />
+      <workItem from="1679576957878" duration="8880000" />
+      <workItem from="1679640007352" duration="10723000" />
+      <workItem from="1679903822948" duration="499000" />
+      <workItem from="1679916781178" duration="9826000" />
+      <workItem from="1679989071699" duration="11307000" />
+      <workItem from="1680072554862" duration="16525000" />
+      <workItem from="1680095226718" duration="8456000" />
+      <workItem from="1680181092760" duration="7066000" />
+      <workItem from="1680245336775" duration="3545000" />
+      <workItem from="1680251441933" duration="1152000" />
+      <workItem from="1680254646734" duration="887000" />
+      <workItem from="1680255552995" duration="15213000" />
+      <workItem from="1680508166183" duration="10435000" />
+      <workItem from="1680532240836" duration="11555000" />
+      <workItem from="1680595821044" duration="5372000" />
+      <workItem from="1680609407876" duration="1000000" />
+      <workItem from="1680688595746" duration="17914000" />
+      <workItem from="1680773657176" duration="6224000" />
+      <workItem from="1680783212676" duration="248000" />
+      <workItem from="1680785803620" duration="7106000" />
+      <workItem from="1680850178049" duration="9814000" />
+      <workItem from="1681198007922" duration="16975000" />
+      <workItem from="1681286977964" duration="6620000" />
+      <workItem from="1681393940021" duration="8000" />
+      <workItem from="1681460313724" duration="5537000" />
+      <workItem from="1681715391175" duration="9363000" />
+      <workItem from="1681729098657" duration="14577000" />
+      <workItem from="1681760647344" duration="840000" />
+      <workItem from="1681803369454" duration="22050000" />
+      <workItem from="1681832209455" duration="4093000" />
+      <workItem from="1681887758195" duration="16235000" />
+      <workItem from="1681982907923" duration="4422000" />
+      <workItem from="1681988829876" duration="3818000" />
+      <workItem from="1681994771744" duration="5669000" />
+      <workItem from="1682059051695" duration="10437000" />
+      <workItem from="1682321020049" duration="21216000" />
+      <workItem from="1682407098356" duration="19468000" />
+      <workItem from="1682490522573" duration="18544000" />
+      <workItem from="1682588373584" duration="3398000" />
+      <workItem from="1682593138975" duration="883000" />
+      <workItem from="1682600254182" duration="4870000" />
+      <workItem from="1682928277702" duration="7149000" />
+      <workItem from="1683012083870" duration="3969000" />
+      <workItem from="1683195824859" duration="4011000" />
+      <workItem from="1683204838409" duration="7611000" />
+      <workItem from="1683269378909" duration="8598000" />
+      <workItem from="1683278093049" duration="2324000" />
+      <workItem from="1683283938121" duration="880000" />
+      <workItem from="1683376787235" duration="36000" />
+      <workItem from="1683376933989" duration="841000" />
+      <workItem from="1683386191254" duration="292000" />
+      <workItem from="1683470142918" duration="106000" />
+      <workItem from="1683471057902" duration="2665000" />
+      <workItem from="1683473769959" duration="554000" />
+      <workItem from="1683531693548" duration="23450000" />
+      <workItem from="1683618456752" duration="19335000" />
+      <workItem from="1683703982523" duration="11324000" />
+      <workItem from="1683724979949" duration="659000" />
+      <workItem from="1683876750000" duration="417000" />
+      <workItem from="1683896915496" duration="5046000" />
+      <workItem from="1684136198782" duration="2471000" />
+      <workItem from="1684146372586" duration="4098000" />
+      <workItem from="1684151775415" duration="9749000" />
+      <workItem from="1684233681712" duration="7189000" />
+      <workItem from="1684241976323" duration="6677000" />
+      <workItem from="1684304517109" duration="8249000" />
+      <workItem from="1684327858963" duration="2096000" />
+      <workItem from="1684395496027" duration="8716000" />
+      <workItem from="1684407709245" duration="4769000" />
+      <workItem from="1684414707807" duration="6330000" />
+      <workItem from="1684478493818" duration="11683000" />
+      <workItem from="1684740558061" duration="19027000" />
+      <workItem from="1684841771911" duration="990000" />
+      <workItem from="1684916089000" duration="2488000" />
     </task>
     <task id="LOCAL-00001" summary="RentService">
       <created>1674217605430</created>
@@ -531,34 +755,570 @@
       <option name="project" value="LOCAL" />
       <updated>1675235151513</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="implements all Controllers with logic">
+      <created>1678804477239</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678804477239</updated>
+    </task>
+    <task id="LOCAL-00005" summary="implements Test for UserController and UserServiceImpl">
+      <created>1678893214261</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1678893214262</updated>
+    </task>
+    <task id="LOCAL-00006" summary="implements Controller Advice">
+      <created>1679392043394</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1679392043394</updated>
+    </task>
+    <task id="LOCAL-00007" summary="PhotoLoader(CRUD)">
+      <created>1679649667381</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1679649667381</updated>
+    </task>
+    <task id="LOCAL-00008" summary="PhotoLoader(CRUD)">
+      <created>1679649991068</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1679649991068</updated>
+    </task>
+    <task id="LOCAL-00009" summary="PhotoLoader+Kafka">
+      <created>1680854035891</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1680854035891</updated>
+    </task>
+    <task id="LOCAL-00010" summary="get photos with Feign and Web Client">
+      <created>1681218253351</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1681218253351</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Authenfication">
+      <created>1682327003274</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1682327003274</updated>
+    </task>
+    <task id="LOCAL-00012" summary="gateway with feignClient">
+      <created>1682409940996</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1682409940996</updated>
+    </task>
+    <task id="LOCAL-00013" summary="gateway all controllers from RentService">
+      <created>1683624978425</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1683624978425</updated>
+    </task>
+    <task id="LOCAL-00014" summary="tests">
+      <created>1684161512416</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1684161512416</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="application.yml" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="SHOW_OTHER_BRANCHES" value="true" />
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="60cc42a9-d5b0-414e-8abf-f4d4c9f05692">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:D:/Internship/Programs/RentService/src/main/java/org/kamenchuk/dto" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
           </value>
         </entry>
+        <entry key="b3d189ed-dc62-44b7-8a37-c1c93e319ebd">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:D:/Internship/Programs/RentService/src/main/java/org/kamenchuk/models" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="60cc42a9-d5b0-414e-8abf-f4d4c9f05692" value="TOOL_WINDOW" />
+        <entry key="b3d189ed-dc62-44b7-8a37-c1c93e319ebd" value="TOOL_WINDOW" />
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="RentService" />
     <MESSAGE value="implements WebServlet logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="implements WebServlet logic" />
+    <MESSAGE value="implements all Controllers with logic" />
+    <MESSAGE value="implements Test for UserController and UserServiceImpl" />
+    <MESSAGE value="implements Controller Advice" />
+    <MESSAGE value="ChangesForTests" />
+    <MESSAGE value="PhotoLoader(CRUD)" />
+    <MESSAGE value="PhotoLoader+Kafka" />
+    <MESSAGE value="get photos with Feign and Web Client" />
+    <MESSAGE value="Authenfication" />
+    <MESSAGE value="gateway with feignClient" />
+    <MESSAGE value="gateway all controllers from RentService" />
+    <MESSAGE value="tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="tests" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.net.UnknownHostException" package="java.net" />
+          <option name="timeStamp" value="15" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/ExtraUsersServiceImplTest.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/ExtraUsersServiceImplTest.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/ExtraUsersServiceImplTest.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/ExtraUsersServiceImplTest.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/ExtraUsersServiceImplTest.java</url>
+          <line>79</line>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java</url>
+          <line>56</line>
+          <properties>
+            <option name="lambda-ordinal" value="0" />
+          </properties>
+          <option name="timeStamp" value="90" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="95" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="96" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="97" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java</url>
+          <line>72</line>
+          <properties>
+            <option name="lambda-ordinal" value="0" />
+          </properties>
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java</url>
+          <line>46</line>
+          <properties>
+            <option name="lambda-ordinal" value="0" />
+          </properties>
+          <option name="timeStamp" value="102" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>125</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="105" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>129</line>
+          <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>131</line>
+          <option name="timeStamp" value="108" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>130</line>
+          <properties>
+            <option name="lambda-ordinal" value="0" />
+          </properties>
+          <option name="timeStamp" value="109" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>128</line>
+          <properties>
+            <option name="lambda-ordinal" value="0" />
+          </properties>
+          <option name="timeStamp" value="110" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>127</line>
+          <option name="timeStamp" value="111" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>126</line>
+          <properties>
+            <option name="lambda-ordinal" value="0" />
+          </properties>
+          <option name="timeStamp" value="112" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>176</line>
+          <option name="timeStamp" value="120" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>177</line>
+          <option name="timeStamp" value="121" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>178</line>
+          <option name="timeStamp" value="122" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>179</line>
+          <option name="timeStamp" value="123" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>180</line>
+          <option name="timeStamp" value="124" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java</url>
+          <line>92</line>
+          <properties>
+            <option name="lambda-ordinal" value="0" />
+          </properties>
+          <option name="timeStamp" value="136" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="137" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java</url>
+          <line>94</line>
+          <properties>
+            <option name="lambda-ordinal" value="0" />
+          </properties>
+          <option name="timeStamp" value="138" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java</url>
+          <line>95</line>
+          <option name="timeStamp" value="139" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java</url>
+          <line>89</line>
+          <option name="timeStamp" value="140" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java</url>
+          <line>119</line>
+          <option name="timeStamp" value="141" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java</url>
+          <line>120</line>
+          <option name="timeStamp" value="142" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java</url>
+          <line>91</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="143" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java</url>
+          <line>90</line>
+          <properties>
+            <option name="lambda-ordinal" value="0" />
+          </properties>
+          <option name="timeStamp" value="144" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/integration/UserServiceImplIntegrationTest.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="147" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/integration/UserServiceImplIntegrationTest.java</url>
+          <line>77</line>
+          <properties>
+            <option name="lambda-ordinal" value="0" />
+          </properties>
+          <option name="timeStamp" value="148" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/integration/CarServiceImplIntegrationTest.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="149" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/integration/CarServiceImplIntegrationTest.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="151" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/integration/CarServiceImplIntegrationTest.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="152" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/integration/CarServiceImplIntegrationTest.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="153" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/integration/CarServiceImplIntegrationTest.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="154" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="155" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>68</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="156" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="157" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="158" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>74</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="159" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="160" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="161" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>67</line>
+          <properties>
+            <option name="lambda-ordinal" value="0" />
+          </properties>
+          <option name="timeStamp" value="168" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>65</line>
+          <properties>
+            <option name="lambda-ordinal" value="0" />
+          </properties>
+          <option name="timeStamp" value="169" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>69</line>
+          <properties>
+            <option name="lambda-ordinal" value="0" />
+          </properties>
+          <option name="timeStamp" value="170" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>71</line>
+          <properties>
+            <option name="lambda-ordinal" value="0" />
+          </properties>
+          <option name="timeStamp" value="171" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>73</line>
+          <properties>
+            <option name="lambda-ordinal" value="0" />
+          </properties>
+          <option name="timeStamp" value="172" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/integration/CarServiceImplIntegrationTest.java</url>
+          <line>94</line>
+          <option name="timeStamp" value="174" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/integration/CarServiceImplIntegrationTest.java</url>
+          <line>95</line>
+          <option name="timeStamp" value="175" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/integration/CarServiceImplIntegrationTest.java</url>
+          <line>96</line>
+          <option name="timeStamp" value="176" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/integration/CarServiceImplIntegrationTest.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="177" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/integration/CarServiceImplIntegrationTest.java</url>
+          <line>98</line>
+          <option name="timeStamp" value="178" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>124</line>
+          <option name="timeStamp" value="179" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/RentService$CarServiceImplTest.ic" NAME="CarServiceImplTest Coverage Results" MODIFIED="1684927689114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/RentService$Tests_in__org_kamenchuk_.ic" NAME="Tests in 'org.kamenchuk' Coverage Results" MODIFIED="1684927946082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/RentService$Tomcat_10_0_27.ic" NAME="Tomcat 10.0.27 Coverage Results" MODIFIED="1675508983989" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/RentService$Tomcat_9_0_71.ic" NAME="Tomcat 9.0.71 Coverage Results" MODIFIED="1675511807731" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/RentService$CarServiceImplIntegrationTest.ic" NAME="CarServiceImplIntegrationTest Coverage Results" MODIFIED="1684927666814" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/RentService$GateWayModuleApplication_.ic" NAME="GateWayModuleApplication  Coverage Results" MODIFIED="1682929651208" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/RentService$RoleControllerIntegrationTest.ic" NAME="RoleControllerIntegrationTest Coverage Results" MODIFIED="1685023187048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

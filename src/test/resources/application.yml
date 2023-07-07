@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    username: test
+    password: test
+    url: jdbc:postgresql:15.3:///test
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+  kafka:
+   producer:
+     key-serializer: org.apache.kafka.common.serialization.StringSerializer
+     bootstrap-servers:
+test:
+  topic: embedded-test-topic

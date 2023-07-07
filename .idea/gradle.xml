@@ -9,6 +9,39 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Authefication" />
+            <option value="$PROJECT_DIR$/CarsPhotoLoader" />
+            <option value="$PROJECT_DIR$/CommonDtos" />
+            <option value="$PROJECT_DIR$/GateWayModule" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Authefication" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/Authefication" />
+            <option value="$PROJECT_DIR$/CommonDtos" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/CommonDtos" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/CommonDtos" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/GateWayModule" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/CommonDtos" />
+            <option value="$PROJECT_DIR$/GateWayModule" />
           </set>
         </option>
       </GradleProjectSettings>

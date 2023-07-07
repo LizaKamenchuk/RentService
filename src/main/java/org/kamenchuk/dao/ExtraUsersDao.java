@@ -1,8 +1,10 @@
 package org.kamenchuk.dao;
 
-import java.sql.SQLException;
+import org.kamenchuk.models.ExtraUsersData;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface ExtraUsersDao<User>  {
-    void update(User entity, String[] params) throws SQLException;
-    void delete(User entity) throws SQLException;
+@Repository
+public interface ExtraUsersDao extends JpaRepository<ExtraUsersData, Long> {
+
 }

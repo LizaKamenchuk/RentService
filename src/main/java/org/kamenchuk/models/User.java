@@ -1,8 +1,10 @@
 package org.kamenchuk.models;
 
 import lombok.*;
+import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.GenericGenerator;
 
-import java.sql.Date;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -11,19 +13,29 @@ import java.sql.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class User {
+@DynamicUpdate
+@Entity
+@Table(name = "users")
+public class User  {
+    @Id
+    @Column(name = "id",nullable = false,unique = true)
+    @GeneratedValue(generator = "users_id_seq")
+    @GenericGenerator(name = "users_id_seq", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator")
     private Long id;
+
+    @Column(name = "login", length = 50, nullable = false, unique = true)
     private String login;
+
+    @Column(name = "password", nullable = false)
     private String password;
+
+    @OneToOne
+    @JoinColumn(name = "id_role",nullable = false)
     private Role role;
 
-    private Long idExtraUsersData;
-    private String idPassport;
-    private String name;
-    private String lastname;
-    private Date dateOfBirth;
-    private String drivingLicense;
-    private String phone;
-    private Date registerDate;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_extra_users_data", referencedColumnName = "id")
+    private ExtraUsersData extraUsersData;
+
 }
 

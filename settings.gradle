@@ -1,2 +1,6 @@
 rootProject.name = 'RentService'
+include 'Authefication'
+include 'CarsPhotoLoader'
+include 'GateWayModule'
+include 'CommonDtos'
 
