@@ -20,9 +20,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
 
 /**
  * Class implements CarService interface
@@ -31,7 +31,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Service
-public class CarServiceImpl implements CarService{
+public class CarServiceImpl implements CarService {
     private final CarDao carDao;
     private final ModelDao modelDao;
     private final MarkDao markDao;
@@ -63,31 +63,29 @@ public class CarServiceImpl implements CarService{
     @Transactional
     public CarResponse create(CarCreateRequest request, MultipartFile file) throws CreationException {
         return Optional.ofNullable(request)
-                .map(it->it)
                 .map(carMapper::toCar)
-                .map(it->it)
                 .map(car -> setModel(setModelForCreate(request.getModel(), request.getMark(), car), car))
-                .map(it->it)
                 .map(carDao::save)
-                .map(it->it)
                 .map(carMapper::toDto)
-                .map(it->it)
-                .map(carRes->{ producer.sendGetPhotoTopic(toPhotoDto(carRes.getId(), file));
-                return carRes;})
+                .map(carRes -> {
+                    producer.sendGetPhotoTopic(Objects.requireNonNull(toPhotoDto(carRes.getId(), file)));
+                    return carRes;
+                })
                 .orElseThrow(() -> {
                     log.error("create(). Can not create car!");
                     return new CreationException("Car isn`t created");
                 });
     }
 
-    private PhotoDto toPhotoDto(Integer idCar,MultipartFile file){
-        try{ PhotoDto photo = PhotoDto.builder()
-                .idCar(idCar)
-                .fileName(file.getName())
-                .fileBytes(file.getBytes())
-                .build();
+    private PhotoDto toPhotoDto(Integer idCar, MultipartFile file) {
+        try {
+            PhotoDto photo = PhotoDto.builder()
+                    .idCar(idCar)
+                    .fileName(file.getName())
+                    .fileBytes(file.getBytes())
+                    .build();
             return photo;
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
@@ -124,11 +122,8 @@ public class CarServiceImpl implements CarService{
     public CarResponse update(CarUpdateRequest request, Integer idCar) throws UpdatingException {
         return carDao.findById(idCar)
                 .map(car -> setUpdates(request, car))
-                .map(it->it)
                 .map(carDao::save)
-                .map(it->it)
                 .map(carMapper::toDto)
-                .map(it->it)
                 .orElseThrow(() -> {
                     log.error("update(). Car isn`t updated");
                     return new UpdatingException("Car isn`t updated");
@@ -136,11 +131,14 @@ public class CarServiceImpl implements CarService{
     }
 
     @Override
+    @Transactional(readOnly = true)
     public CarResponse getCarById(Integer idCar, List<PhotoResponse> photos) throws UpdatingException {
-        Car car = carDao.findById(idCar).get();
-        CarResponse response = carMapper.toDto(car);
-        response.setPhotos(photos);
-        return response;
+        if (carDao.findById(idCar).isPresent()) {
+            Car car = carDao.findById(idCar).get();
+            CarResponse response = carMapper.toDto(car);
+            response.setPhotos(photos);
+            return response;
+        } else throw new ResourceNotFoundException("Car with this id does not exist");
     }
 
     private Car setModel(Model model, Car car) {
@@ -155,7 +153,7 @@ public class CarServiceImpl implements CarService{
         Model model = Model.builder()
                 .model(modelName)
                 .build();
-        if ((modelName==null || modelName.isEmpty()) || ( markName == null || markName.isEmpty())) {
+        if ((modelName == null || modelName.isEmpty()) || (markName == null || markName.isEmpty())) {
             model = car.getModel();
             markNew = model.getMark();
             model.setMark(markNew);
@@ -176,9 +174,9 @@ public class CarServiceImpl implements CarService{
         return Car.builder()
                 .id(car.getId())
                 .model(setModelForCreate(request.getModel(), request.getMark(), car))
-                .carNumber((request.getCarNumber()==null || request.getCarNumber().isEmpty()) ? car.getCarNumber() : request.getCarNumber())
+                .carNumber((request.getCarNumber() == null || request.getCarNumber().isEmpty()) ? car.getCarNumber() : request.getCarNumber())
                 .price(request.getPrice() == null ? car.getPrice() : request.getPrice())
-                .limitations((request.getLimitations()==null || request.getLimitations().isEmpty()) ? car.getLimitations() : request.getLimitations())
+                .limitations((request.getLimitations() == null || request.getLimitations().isEmpty()) ? car.getLimitations() : request.getLimitations())
                 .build();
     }
 

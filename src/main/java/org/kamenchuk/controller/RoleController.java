@@ -1,10 +1,12 @@
 package org.kamenchuk.controller;
 
-import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.dto.roleDTO.RoleResponse;
+import org.kamenchuk.exceptions.CreationException;
+import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.service.RoleService;
 import org.kamenchuk.service.impl.RoleServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -19,8 +21,8 @@ public class RoleController {
     }
 
     @DeleteMapping("/admin/deleteRole/{id}")
-    public void deleteRole(@PathVariable Integer id){
-        roleService.delete(id);
+    public ResponseEntity<String> deleteRole(@PathVariable Integer id) throws ResourceNotFoundException {
+       return roleService.delete(id);
     }
 
     @PostMapping("/admin/createRole/{role}")

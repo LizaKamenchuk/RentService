@@ -7,6 +7,7 @@ import org.kamenchuk.dao.OrdersDao;
 import org.kamenchuk.dao.UserDao;
 import org.kamenchuk.dto.orderDTO.*;
 import org.kamenchuk.exceptions.CreationException;
+import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.exceptions.UpdatingException;
 import org.kamenchuk.mapper.OrderMapper;
 import org.kamenchuk.models.Car;
@@ -21,7 +22,11 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-//TODO см CarServiceImpl
+/**
+ * Class implements OrderService interface
+ *
+ * @author Liza Kamenchuk
+ */
 @Service
 @Slf4j
 public class OrderServiceImpl implements OrderService {
@@ -113,33 +118,40 @@ public class OrderServiceImpl implements OrderService {
                 .collect(Collectors.toList());
     }
 
-    private Order setUserStatusCar(Long idUser, Order order, OrderCreateRequest request) {
-        //TODO isPresent
+    private Order setUserStatusCar(Long idUser, Order order, OrderCreateRequest request) throws ResourceNotFoundException {
         Integer carId = request.getIdCar();
+        if(userDao.findById(idUser).isEmpty() || carDao.findById(carId).isEmpty()) throw new ResourceNotFoundException("User or car does not exist");
+        else {
         User user = userDao.findById(idUser).get();
         Car car = carDao.findById(carId).get();
         order.setClient(user);
         order.setCar(car);
         order.setStatus(false);
+        }
         return order;
     }
 
     private Order setAdminsUpdates(OrderUpdateAdminRequest request, Order order, Long idAdmin) {
-        //TODO isPresent
-        User admin = userDao.findById(idAdmin).get();
-        if (request.getRefuseReason() != null) order.setRefuseReason(request.getRefuseReason());
-        if (request.getStatus() != null) order.setStatus(request.getStatus());
-        order.setAdminsLogin(admin.getLogin());
+        if(userDao.findById(idAdmin).isEmpty()) throw new ResourceNotFoundException("Admin with this id does not exist");
+        else {
+            User admin = userDao.findById(idAdmin).get();
+            if (request.getRefuseReason() != null) order.setRefuseReason(request.getRefuseReason());
+            if (request.getStatus() != null) order.setStatus(request.getStatus());
+            order.setAdminsLogin(admin.getLogin());
+        }
         return order;
     }
 
-    private Order setClientsUpdates(OrderUpdateClientRequest request, Order order) {
+    private Order setClientsUpdates(OrderUpdateClientRequest request, Order order) throws ResourceNotFoundException {
         if (request.getFinishDate() != null) order.setFinishDate(request.getFinishDate());
         if (request.getStartDate() != null) order.setStartDate(request.getStartDate());
         if (request.getIdCar() != null) {
-            //TODO isPresent
-            Car newCar = carDao.findById(request.getIdCar()).get();
-            order.setCar(newCar);
+            if(carDao.findById(request.getIdCar()).isEmpty())
+                throw new ResourceNotFoundException("This car does not exist");
+            else {
+                Car newCar = carDao.findById(request.getIdCar()).get();
+                order.setCar(newCar);
+            }
         }
         return order;
     }

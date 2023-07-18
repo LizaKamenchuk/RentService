@@ -15,13 +15,13 @@ public interface UserMapper {
     UserResponse toDto(User entity);
 
     @Mapping(target = "role.role", source = "roleResponse.role")
+    @Mapping(target = "extraUsersData.id",source = "idED")
     User toUser(UserResponse dto);
 
     @Mapping(target = "extraUsersData.name",source = "name")
     @Mapping(target = "extraUsersData.lastname",source = "lastname")
     User save(UserCreateRequest entity);
 
-    //TODO QUESTION
     @Mapping(target = "roleResponse.role",source = "role.role")
     @Mapping(target = "extraRequest",source = "extraUsersData")
     AllUsersDataResponse toAllDto(User entity);

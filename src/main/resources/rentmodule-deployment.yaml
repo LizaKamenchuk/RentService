@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rentmodule-deployment
+spec:
+  selector:
+    matchLabels:
+      app: rent_module
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: rent_module
+    spec:
+      containers:
+        - name: rent-module
+          image: lizaaa/rentservice_image
+          ports:
+             - containerPort: 8080

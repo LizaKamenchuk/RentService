@@ -47,8 +47,8 @@ public class UserController {
 
     }
 
-    @PatchMapping("/updateLogin")
-    public UserResponse updateLogin(@RequestParam String newLogin, @RequestParam Long id) throws UpdatingException {
+    @PostMapping("/updateLogin/{id}")
+    public UserResponse updateLogin(@RequestParam String newLogin, @PathVariable Long id) throws UpdatingException {
         return userService.updateLogin(newLogin,id);
     }
 

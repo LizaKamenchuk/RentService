@@ -109,7 +109,7 @@ public class UserControllerTest {
         return UserResponse.builder()
                 .id(1L)
                 .login("login")
-                .roleResponse(new RoleResponse("user"))
+                .roleResponse(new RoleResponse("USER"))
                 .build();
     }
 

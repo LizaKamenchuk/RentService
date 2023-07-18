@@ -22,7 +22,11 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-//TODO см CarServiceImpl
+/**
+ * Class implements UserService interface
+ *
+ * @author Liza Kamenchuk
+ */
 @Service
 @Slf4j
 public class UserServiceImpl implements UserService {
@@ -41,20 +45,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<UserResponse> getAllUsers() {
         return userDao.findAll().stream()
-                .map(it->it)
                 .map(userMapper::toDto)
                 .collect(Collectors.toList());
     }
 
     @SneakyThrows
-    @Transactional
     @Override
+    @Transactional(readOnly = true)
     public UserResponse findById(Long id) {
         return userDao.findById(id)
-                .map(it->it)
                 .map(userMapper::toDto)
                 .orElseThrow(() -> {
                     log.error("findById(). User isn`t found");
@@ -62,15 +64,14 @@ public class UserServiceImpl implements UserService {
                 });
     }
 
-    @Transactional
     @Override
+    @Transactional
     public UserResponse createUser(UserCreateRequest requestedUser) throws CreationException {
         return Optional.ofNullable(requestedUser)
                 .map(userMapper::save)
                 .map(this::setUserRole)
                 .map(this::setUserED)
                 .map(userDao::save)
-                .map(it->it)
                 .map(userMapper::toDto)
                 .orElseThrow(() -> {
                     log.error("createUser(). Can not create user");
@@ -84,15 +85,12 @@ public class UserServiceImpl implements UserService {
         userDao.deleteById(id);
     }
 
-    @Transactional
     @Override
+    @Transactional
     public UserResponse updateLogin(String newLogin, Long id) throws UpdatingException {
         return userDao.findById(id)
-                .map(it->it)
                 .map(user -> setUserLogin(user, newLogin))
-                .map(it->it)
                 .map(userDao::saveAndFlush)
-                .map(it->it)
                 .map(userMapper::toDto)
                 .orElseThrow(() -> {
                     log.error("updateLogin(). Login update isn`t succeed");
@@ -102,7 +100,9 @@ public class UserServiceImpl implements UserService {
 
     private User setUserRole(User user) {
         String usersRole = "USER";
-        //TODO isPresent
+        if(roleDao.findFirstByRole(usersRole).isEmpty()) {
+            throw new RuntimeException("Создате роль USER");
+        }
         Role role = roleDao.findFirstByRole(usersRole).get();
         user.setRole(role);
         return user;
@@ -117,7 +117,7 @@ public class UserServiceImpl implements UserService {
     }
 
     private User setUserLogin(User user, String login) {
-        if (!login.isEmpty()) user.setLogin(login);
+        if (!login.isEmpty() && !login.isBlank()) user.setLogin(login);
         return user;
     }
 

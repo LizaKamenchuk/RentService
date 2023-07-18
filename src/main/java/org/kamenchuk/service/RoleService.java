@@ -2,6 +2,8 @@ package org.kamenchuk.service;
 
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.dto.roleDTO.RoleResponse;
+import org.kamenchuk.exceptions.ResourceNotFoundException;
+import org.springframework.http.ResponseEntity;
 
 /**
  * Interface RoleService for work with Role
@@ -12,7 +14,7 @@ public interface RoleService {
      * Deletes role by id
      * @param id - roles id
      */
-    void delete(Integer id);
+    ResponseEntity<String> delete(Integer id) throws ResourceNotFoundException;
 
     /**
      * Creates role

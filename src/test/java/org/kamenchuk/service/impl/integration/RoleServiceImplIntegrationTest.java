@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.kamenchuk.dao.RoleDao;
 import org.kamenchuk.dto.roleDTO.RoleResponse;
+import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.models.Role;
 import org.kamenchuk.service.impl.RoleServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +40,7 @@ class RoleServiceImplIntegrationTest extends PostgresContainer{
 
     @Order(2)
     @Test
-    public void delete() {
+    public void delete() throws ResourceNotFoundException {
         Integer id = 1;
         assertNotNull(roleDao.getRoleById(id));
         roleService.delete(id);
