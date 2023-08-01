@@ -1,0 +1,274 @@
+Index: GateWayModule/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/GateWayModule/build.gradle b/GateWayModule/build.gradle
+--- a/GateWayModule/build.gradle	
++++ b/GateWayModule/build.gradle	
+@@ -6,7 +6,8 @@
+ 
+ group = 'com.kamenchuk'
+ version = '0.0.1-SNAPSHOT'
+-sourceCompatibility = JavaVersion.VERSION_17
++
++sourceCompatibility = JavaVersion.VERSION_11
+ 
+ configurations {
+     compileOnly {
+@@ -21,11 +22,12 @@
+ dependencies {
+     implementation project(':CommonDtos')
+ 
+-    implementation 'org.springframework.boot:spring-boot-starter-web'
++    implementation 'org.springframework.boot:spring-boot-starter'
+     implementation "org.springdoc:springdoc-openapi-ui:${openapi_ui_version}"
+     implementation 'javax.xml.bind:jaxb-api:2.4.0-b180830.0359'
+-//    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+-    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:3.1.6'
++    implementation 'org.springframework.boot:spring-boot-starter-web'
++    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
++    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:3.1.3'
+     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+ 
+     compileOnly 'org.projectlombok:lombok'
+@@ -34,7 +36,6 @@
+     implementation "io.jsonwebtoken:jjwt:${jsonwebtoken_jjwt}"
+     implementation 'org.springframework.boot:spring-boot-starter-security'
+     implementation 'org.springframework.security:spring-security-taglibs:5.7.7'
+-//    don't change version
+     implementation 'org.springframework.security:spring-security-config:5.7.7'
+ }
+ 
+Index: GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/RoleController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/RoleController.java b/GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/RoleController.java
+--- a/GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/RoleController.java	
++++ b/GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/RoleController.java	
+@@ -1,6 +1,5 @@
+ package org.kamenchuk.rentModule.controllers;
+ 
+-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+ import org.kamenchuk.dto.roleDTO.RoleResponse;
+ import org.kamenchuk.rentModule.feinClient.FeignRoleClient;
+ import org.springframework.beans.factory.annotation.Autowired;
+@@ -8,7 +7,6 @@
+ 
+ @RestController
+ @RequestMapping("/rent_module/role")
+-@SecurityRequirement(name = "bearerToken")
+ public class RoleController {
+     private final FeignRoleClient feignRoleClient;
+ 
+Index: GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/ExtraDataController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/ExtraDataController.java b/GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/ExtraDataController.java
+--- a/GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/ExtraDataController.java	
++++ b/GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/ExtraDataController.java	
+@@ -1,13 +1,11 @@
+ package org.kamenchuk.rentModule.controllers;
+ 
+-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+ import org.kamenchuk.dto.extraUsersDataDTO.ExtraUserDataUpdateRequest;
+ import org.kamenchuk.rentModule.feinClient.FeignExtraDataClient;
+ import org.springframework.web.bind.annotation.*;
+ 
+ @RestController
+ @RequestMapping("/rest_module/extraData")
+-@SecurityRequirement(name = "bearerToken")
+ public class ExtraDataController {
+     private final FeignExtraDataClient feignExtraDataClient;
+ 
+Index: GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/UserController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/UserController.java b/GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/UserController.java
+--- a/GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/UserController.java	
++++ b/GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/UserController.java	
+@@ -1,6 +1,5 @@
+ package org.kamenchuk.rentModule.controllers;
+ 
+-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+ import org.kamenchuk.dto.userDTO.UserCreateRequest;
+ import org.kamenchuk.dto.userDTO.UserResponse;
+ import org.kamenchuk.rentModule.feinClient.FeignUserClient;
+@@ -11,19 +10,16 @@
+ 
+ @RestController
+ @RequestMapping(path = "/rent_module/user")
+-@SecurityRequirement(name = "bearerToken")
+ public class UserController {
+     private final FeignUserClient feignUserClient;
+ 
+     public UserController(FeignUserClient feignUserClient) {
+         this.feignUserClient = feignUserClient;
+     }
+-
+     @GetMapping(value = "/admin/all")
+     public List<UserResponse> getAllUser() {
+-        return feignUserClient.getAllUser();
++         return feignUserClient.getAllUser();
+     }
+-
+     @GetMapping(value = "/admin/findById/{id}")
+     public UserResponse findById(@PathVariable Long id) {
+         return feignUserClient.findById(id);
+@@ -37,11 +33,12 @@
+     @DeleteMapping(value = "/delete/{id}")
+     public void delete(@PathVariable Long id) {
+         feignUserClient.delete(id);
++
+     }
+ 
+     @PatchMapping("/updateLogin")
+     public UserResponse updateLogin(@RequestParam String newLogin, @RequestParam Long id) {
+-        return feignUserClient.updateLogin(newLogin, id);
++        return feignUserClient.updateLogin(newLogin,id);
+     }
+ 
+ }
+Index: GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/CarController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/CarController.java b/GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/CarController.java
+--- a/GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/CarController.java	
++++ b/GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/CarController.java	
+@@ -1,6 +1,5 @@
+ package org.kamenchuk.rentModule.controllers;
+ 
+-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+ import org.kamenchuk.dto.carDTO.CarCreateRequest;
+ import org.kamenchuk.dto.carDTO.CarResponse;
+ import org.kamenchuk.dto.carDTO.CarUpdateRequest;
+@@ -9,11 +8,11 @@
+ import org.springframework.web.bind.annotation.*;
+ import org.springframework.web.multipart.MultipartFile;
+ 
++import javax.validation.Valid;
+ import java.util.List;
+ 
+ @RestController
+ @RequestMapping("/rent_module/car")
+-@SecurityRequirement(name = "bearerToken")
+ public class CarController {
+     private final FeignCarClient feignCarClient;
+ 
+@@ -53,7 +52,7 @@
+     }
+ 
+     @PatchMapping(value = "/admin/update")
+-    public CarResponse update(@RequestBody CarUpdateRequest request, @RequestParam Integer idCar){
++    public CarResponse update(@Valid @RequestBody CarUpdateRequest request, @RequestParam Integer idCar){
+         return feignCarClient.update(request, idCar);
+     }
+ }
+Index: GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/OrderController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/OrderController.java b/GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/OrderController.java
+--- a/GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/OrderController.java	
++++ b/GateWayModule/src/main/java/org/kamenchuk/rentModule/controllers/OrderController.java	
+@@ -1,6 +1,5 @@
+ package org.kamenchuk.rentModule.controllers;
+ 
+-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+ import org.kamenchuk.dto.orderDTO.*;
+ import org.kamenchuk.rentModule.feinClient.FeignOrderClient;
+ import org.springframework.beans.factory.annotation.Autowired;
+@@ -10,7 +9,6 @@
+ 
+ @RestController
+ @RequestMapping("/rent_module/order")
+-@SecurityRequirement(name = "bearerToken")
+ public class OrderController {
+     private final FeignOrderClient feignOrderClient;
+ 
+Index: GateWayModule/src/main/java/org/kamenchuk/rentModule/feinClient/FeignCarClient.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/GateWayModule/src/main/java/org/kamenchuk/rentModule/feinClient/FeignCarClient.java b/GateWayModule/src/main/java/org/kamenchuk/rentModule/feinClient/FeignCarClient.java
+--- a/GateWayModule/src/main/java/org/kamenchuk/rentModule/feinClient/FeignCarClient.java	
++++ b/GateWayModule/src/main/java/org/kamenchuk/rentModule/feinClient/FeignCarClient.java	
+@@ -7,6 +7,7 @@
+ import org.springframework.web.bind.annotation.*;
+ import org.springframework.web.multipart.MultipartFile;
+ 
++import javax.validation.Valid;
+ import java.util.List;
+ 
+ @FeignClient(value = "feignCarClient", url = "http://localhost:8080/rent_module/car")
+@@ -30,5 +31,5 @@
+     void deleteByCarNumber(@PathVariable String carNumber);
+ 
+     @PatchMapping(value = "/admin/update")
+-    CarResponse update(@RequestBody CarUpdateRequest request, @RequestParam Integer idCar);
++    CarResponse update(@Valid @RequestBody CarUpdateRequest request, @RequestParam Integer idCar);
+ }
+Index: GateWayModule/src/main/java/org/kamenchuk/authModule/controller/AuthModuleController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/GateWayModule/src/main/java/org/kamenchuk/authModule/controller/AuthModuleController.java b/GateWayModule/src/main/java/org/kamenchuk/authModule/controller/AuthModuleController.java
+--- a/GateWayModule/src/main/java/org/kamenchuk/authModule/controller/AuthModuleController.java	
++++ b/GateWayModule/src/main/java/org/kamenchuk/authModule/controller/AuthModuleController.java	
+@@ -3,7 +3,6 @@
+ import org.kamenchuk.authModule.feignClient.AuthJwtClient;
+ import org.kamenchuk.authModule.feignClient.dto.LoginCredentials;
+ import org.springframework.beans.factory.annotation.Autowired;
+-import org.springframework.http.HttpStatus;
+ import org.springframework.http.ResponseEntity;
+ import org.springframework.web.bind.annotation.PostMapping;
+ import org.springframework.web.bind.annotation.RequestBody;
+@@ -14,17 +13,16 @@
+ @RequestMapping("/auth_module")
+ public class AuthModuleController {
+     private final AuthJwtClient jwtClient;
+-    public static HttpStatus STATUS = HttpStatus.UNAUTHORIZED;
+ 
+     @Autowired
+     public AuthModuleController(AuthJwtClient jwtClient) {
+         this.jwtClient = jwtClient;
+     }
+ 
+-    @PostMapping(value = "/authenticate")
+-    public ResponseEntity authenticate(@RequestBody LoginCredentials body) {
++    @PostMapping (value = "/login")
++    public  ResponseEntity<String> authenticate(@RequestBody LoginCredentials body) {
+        ResponseEntity <String> token = jwtClient.createAuthenticationToken(body);
+-       if(token.getStatusCode().equals(HttpStatus.OK)) STATUS = HttpStatus.OK;
+        return token;
+     }
++
+ }
+Index: GateWayModule/Dockerfile
+===================================================================
+diff --git a/GateWayModule/Dockerfile b/GateWayModule/Dockerfile
+new file mode 100644
+--- /dev/null	
++++ b/GateWayModule/Dockerfile	
+@@ -0,0 +1,9 @@
++FROM gradle:jdk11 AS gradleimage
++COPY --chown=gradle:gradle . /home/gradle/src
++WORKDIR /home/gradle/src
++RUN gradle clean build
++
++FROM openjdk:11
++COPY --from=gradleimage /home/gradle/src/build/libs/GateWayModule-0.0.1-SNAPSHOT.jar app/GateWayModule.jar
++WORKDIR /app
++ENTRYPOINT java -jar GateWayModule.jar
+\ No newline at end of file

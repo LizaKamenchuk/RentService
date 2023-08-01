@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+group 'org.kamenchuk'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+  
+    implementation 'org.projectlombok:lombok:1.18.26'
+    implementation 'org.jetbrains:annotations:24.0.1'
+    annotationProcessor 'org.projectlombok:lombok:1.18.26'
+    compileOnly 'org.projectlombok:lombok:1.18.26'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'org.kamenchuk'
+            artifactId = 'commonDtos'
+            version = '1.0'
+            from components.java
+        }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
