@@ -9,72 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" name="Changes" comment="rentservice check">
-      <change afterPath="$PROJECT_DIR$/Authefication/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Authefication/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Authefication/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Authefication/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Authefication/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Authefication/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Authefication/src/test/java/org/kamenchuk/authefication/controller/AuthControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CarsPhotoLoader/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/dto/PhotoDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/kafka/KafkaPhotoConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/13e1b09f-bafc-4bb6-bf8f-765b0f492d1e.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/rent_service.r3-6VA/schema/information_schema.FNRwLQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/rent_service.r3-6VA/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/rent_service.r3-6VA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/rent_service.r3-6VA/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/rent_service.r3-6VA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/rent_service.r3-6VA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+    <list default="true" id="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" name="Changes" comment="add commonDtos like a library">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Authefication/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/CarsPhotoLoaderApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/controller/PhotoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/dto/PhotoDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/dto/PhotoMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/dto/PhotoResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/kafka/KafkaPhotoConsumer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/model/File.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/model/Photo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/repository/PhotoRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/service/PhotoService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/src/main/java/com/kamenchuk/service/PhotoServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Authefication/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authefication/src/test/java/com/kamenchuk/CarsPhotoLoaderApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarsPhotoLoader/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/CarsPhotoLoader/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarsPhotoLoader/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CarsPhotoLoader/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarsPhotoLoader/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/CarsPhotoLoader/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarsPhotoLoader/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/CarsPhotoLoader/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarsPhotoLoader/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CarsPhotoLoader/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/CarsPhotoLoaderApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/CarsPhotoLoaderApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/controller/PhotoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/controller/PhotoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/dto/PhotoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/dto/PhotoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/dto/PhotoResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/dto/PhotoResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/service/PhotoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/service/PhotoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/service/PhotoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/java/com/kamenchuk/service/PhotoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarsPhotoLoader/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarsPhotoLoader/src/test/java/com/kamenchuk/CarsPhotoLoaderApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarsPhotoLoader/src/test/java/com/kamenchuk/CarsPhotoLoaderApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GateWayModule/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/GateWayModule/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/authModule/controller/AuthModuleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/authModule/controller/AuthModuleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/security/jwt/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/security/jwt/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/security/jwt/service/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/GateWayModule/src/main/java/org/kamenchuk/security/jwt/SwaggerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8s/postgres-deployment.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8s/rentmodule-deployment.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <list id="da30dbad-d88c-4968-aaa8-a566c9f99ec1" name="ChangesForTests" comment="ChangesForTests" />
     <option name="SHOW_DIALOG" value="false" />
@@ -174,7 +110,7 @@
         <entry key="$PROJECT_DIR$/GateWayModule" value="gateWayControllers" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/GateWayModule" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="HighlightingSettingsPerFile">
@@ -791,7 +727,7 @@
       <workItem from="1690444753026" duration="5566000" />
       <workItem from="1690799254711" duration="665000" />
       <workItem from="1690813831606" duration="1811000" />
-      <workItem from="1690886995941" duration="5833000" />
+      <workItem from="1690886995941" duration="7941000" />
     </task>
     <task id="LOCAL-00001" summary="RentService">
       <created>1674217605430</created>
@@ -912,7 +848,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689682510379</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="add commonDtos like a library">
+      <created>1690895505650</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1690895505650</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1029,7 +972,8 @@
     <MESSAGE value="fix" />
     <MESSAGE value="add Swagger with authorize" />
     <MESSAGE value="rentservice check" />
-    <option name="LAST_COMMIT_MESSAGE" value="rentservice check" />
+    <MESSAGE value="add commonDtos like a library" />
+    <option name="LAST_COMMIT_MESSAGE" value="add commonDtos like a library" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
