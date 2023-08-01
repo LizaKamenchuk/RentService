@@ -92,7 +92,7 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public CarResponse getCarByNumber(String carNumber) throws ResourceNotFoundException {
         if (carNumber == null) {
             return null;

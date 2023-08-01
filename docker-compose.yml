@@ -38,9 +38,45 @@ services:
     depends_on:
       - kafka
 
-  db-postgres:
-    image: postgres:15.1
-    container_name: db-postgres
+  gateway_module:
+    build: ./
+    ports:
+      - "8085:8085"
+
+  rent_module:
+    build: ./
+    ports:
+      - "8080:8080"
+    restart: always
+    environment:
+      POSTGRESQL_HOST: db_postgres
+      POSTGRESQL_PORT: 5432
+      POSTGRESQL_DB: rent_service
+      POSTGRESQL_USERNAME: postgres
+      POSTGRESQL_PASSWORD: toor
+    depends_on:
+      - db_postgres
+    networks:
+      - db_postgres
+
+  auth_module:
+    build: ./
+    ports:
+      - "8084:8084"
+    restart: always
+    environment:
+      POSTGRESQL_HOST: db_postgres
+      POSTGRESQL_PORT: 5432
+      POSTGRESQL_DB: rent_service
+      POSTGRESQL_USERNAME: postgres
+      POSTGRESQL_PASSWORD: toor
+    depends_on:
+      - db_postgres
+    networks:
+      - db_postgres
+
+  db_postgres:
+    image: postgres
     ports:
       - "5432:5432"
     environment:
@@ -48,25 +84,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: toor
     networks:
-      - db-postgres
-
-  rent-module:
-    build: ./
-    ports:
-      - "8080:8080"
-    restart: always
-    environment:
-      POSTGRESQL_DB: rent_service
-#      POSTGRES_URL: jdbc:postgresql://db-postgres:5432/rent_service
-      POSTGRESQL_HOST: db-postgres
-      POSTGRESQL_PORT: 5432
-      POSTGRESQL_USERNAME: postgres
-      POSTGRESQL_PASSWORD: toor
-    depends_on:
-      - db-postgres
-    networks:
-      - db-postgres
-
+      - db_postgres
 networks:
-  db-postgres:
+  db_postgres:
 
