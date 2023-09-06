@@ -1,12 +1,17 @@
 package org.kamenchuk.service.impl;
 
-import org.kamenchuk.repository.TransmissionRepository;
+import lombok.extern.slf4j.Slf4j;
+import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.models.Transmission;
+import org.kamenchuk.repository.TransmissionRepository;
 import org.kamenchuk.service.TransmissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
+@Slf4j
 public class TransmissionServiceImpl implements TransmissionService {
     private final TransmissionRepository transmissionRepository;
 
@@ -30,6 +35,10 @@ public class TransmissionServiceImpl implements TransmissionService {
 
     @Override
     public Transmission findByTransmissionType(String transmissionType) {
-        return transmissionRepository.findByTransmissionType(transmissionType);
+        Optional<Transmission> transmission = transmissionRepository.findByTransmissionType(transmissionType);
+        if (transmission.isEmpty()) {
+            log.info("Transmission type " + transmissionType + " does not exist");
+            throw new ResourceNotFoundException("Transmission type " + transmissionType + " does not exist");
+        } else return transmission.get();
     }
 }

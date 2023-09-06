@@ -13,6 +13,7 @@ import java.util.List;
 
 /**
  * Interface CarService for work with Car
+ *
  * @author Lisa Kamechuk
  */
 //TODO где JAVA DOC?
@@ -22,12 +23,14 @@ public interface CarService {
 
     /**
      * Gets all cars from DB
+     *
      * @return CarResponse
      */
     List<CarResponse> getAll();
 
     /**
      * Creates car
+     *
      * @param request - CarCreateRequest entity
      * @return CarResponse
      */
@@ -35,6 +38,7 @@ public interface CarService {
 
     /**
      * Gets car by number
+     *
      * @param carNumber - cars number
      * @return CarResponse
      */
@@ -42,20 +46,23 @@ public interface CarService {
 
     /**
      * Deletes car by id
+     *
      * @param idCar - cars id from DB
      */
     void deleteById(Integer idCar);
 
     /**
      * Deletes car by number
-     * @param carNumber  - cars number
+     *
+     * @param carNumber - cars number
      */
     void deleteByCarNumber(String carNumber);
 
     /**
      * Updates car
+     *
      * @param request CarUpdateRequest entity
-     * @param idCar - cars id from DB
+     * @param idCar   - cars id from DB
      * @return CarResponse
      */
     CarResponse update(CarUpdateRequest request, Integer idCar) throws UpdatingException;

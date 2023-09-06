@@ -5,9 +5,11 @@ import org.kamenchuk.models.CarClass;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface CarClassRepository extends JpaRepository<CarClass, Integer> {
     void deleteById(@NotNull Integer integer);
 
-    CarClass findByClassType(String carClassType);
+    Optional<CarClass> findByClassType(String carClassType);
 }

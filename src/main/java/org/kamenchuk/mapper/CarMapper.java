@@ -11,6 +11,12 @@ import org.mapstruct.Mapping;
 public interface CarMapper {
     @Mapping(source = "model", target = "model.model")
     @Mapping(source = "mark", target = "model.mark.mark")
+    @Mapping(source = "extraDataCarCreateRequest.fuel_consumption",target = "extraDataCar.fuel_consumption")
+    @Mapping(source = "extraDataCarCreateRequest.limitations", target = "extraDataCar.limitations")
+    @Mapping(source = "extraDataCarCreateRequest.manufacture_year",target = "extraDataCar.manufacture_year")
+    @Mapping(source = "carClassType",target = "extraDataCar.carClass.classType")
+    @Mapping(source = "fuelType",target = "extraDataCar.fuel.fuelType")
+    @Mapping(source = "transmissionType",target = "extraDataCar.transmission.transmissionType")
     Car toCar(CarCreateRequest request);
 
     @Mapping(source = "model.model",target = "model")

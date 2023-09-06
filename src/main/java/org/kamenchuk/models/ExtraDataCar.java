@@ -33,13 +33,13 @@ public class ExtraDataCar {
 
     @OneToOne
     @JoinColumn(name = "transmission_id", referencedColumnName = "id")
-    private Transmission transmission_id;
+    private Transmission transmission;
 
     @OneToOne
     @JoinColumn(name = "fuel_id", referencedColumnName = "id")
-    private Fuel fuel_id;
+    private Fuel fuel;
 
     @OneToOne
     @JoinColumn(name = "class_id", referencedColumnName = "id")
-    private CarClass class_id;
+    private CarClass carClass;
 }

@@ -1,6 +1,7 @@
 package org.kamenchuk.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
+import org.kamenchuk.models.*;
 import org.kamenchuk.repository.CarRepository;
 import org.kamenchuk.repository.MarkRepository;
 import org.kamenchuk.repository.ModelRepository;
@@ -13,10 +14,8 @@ import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.exceptions.UpdatingException;
 import org.kamenchuk.feignClient.FeignCarPhotoClient;
 import org.kamenchuk.mapper.CarMapper;
-import org.kamenchuk.models.Car;
-import org.kamenchuk.models.Mark;
-import org.kamenchuk.models.Model;
 import org.kamenchuk.service.CarService;
+import org.kamenchuk.service.ExtraDataCarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +26,7 @@ import java.util.stream.Collectors;
 
 /**
  * Class implements CarService interface
+ *
  * @author Liza Kamenchuk
  */
 @Slf4j
@@ -40,18 +40,21 @@ public class CarServiceImpl implements CarService {
     private final CarMapper carMapper;
     private final FeignCarPhotoClient feignCarPhotoClient;
 
+    private final ExtraDataCarService extraDataCarService;
 
     @Autowired
     CarServiceImpl(CarRepository carRepository,
                    ModelRepository modelRepository,
                    MarkRepository markRepository,
                    CarMapper carMapper,
-                   FeignCarPhotoClient feignCarPhotoClient) {
+                   FeignCarPhotoClient feignCarPhotoClient,
+                   ExtraDataCarService extraDataCarService) {
         this.carRepository = carRepository;
         this.modelRepository = modelRepository;
         this.markRepository = markRepository;
         this.carMapper = carMapper;
         this.feignCarPhotoClient = feignCarPhotoClient;
+        this.extraDataCarService = extraDataCarService;
     }
 
 
@@ -67,7 +70,15 @@ public class CarServiceImpl implements CarService {
     @Override
     @Transactional
     public CarResponse create(CarCreateRequest request) throws CreationException {
-        return Optional.ofNullable(request)
+        extraDataCarService.save(ExtraDataCar.builder()
+                .fuel_consumption(request.getExtraDataCarCreateRequest().getFuel_consumption())
+                .limitations(request.getExtraDataCarCreateRequest().getLimitations())
+                .manufacture_year(request.getExtraDataCarCreateRequest().getManufacture_year())
+                .fuel(Fuel.builder().fuelType(request.getFuelType()).build())
+                .carClass(CarClass.builder().classType(request.getCarClassType()).build())
+                .transmission(Transmission.builder().transmissionType(request.getTransmissionType()).build())
+                .build());
+        return Optional.of(request)
                 .map(carMapper::toCar)
                 .map(car -> setModel(setModelForCreate(request.getModel(), request.getMark(), car), car))
                 .map(carRepository::save)
@@ -88,8 +99,8 @@ public class CarServiceImpl implements CarService {
         return carRepository.getCarByCarNumber(carNumber)
                 .map(carMapper::toDto)
                 .map(carResponse -> {
-                        carResponse.setPhotos( feignCarPhotoClient.getPhotos(carResponse.getId()));
-                        return carResponse;
+                    carResponse.setPhotos(feignCarPhotoClient.getPhotos(carResponse.getId()));
+                    return carResponse;
                 })
                 .orElseThrow(() -> {
                     log.error("getCarByNumber(). Car with this number isn`t exist");

@@ -1,13 +1,18 @@
 package org.kamenchuk.service.impl;
 
+import lombok.extern.slf4j.Slf4j;
+import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.repository.CarClassRepository;
 import org.kamenchuk.models.CarClass;
 import org.kamenchuk.service.CarClassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 
 @Service
+@Slf4j
 public class CarClassServiceImpl implements CarClassService {
 
     private final CarClassRepository carClassRepository;
@@ -33,6 +38,10 @@ public class CarClassServiceImpl implements CarClassService {
 
     @Override
     public CarClass findByCarClassType(String carClassType) {
-        return carClassRepository.findByClassType(carClassType);
+        Optional<CarClass> carClass = carClassRepository.findByClassType(carClassType);
+        if (carClass.isEmpty()) {
+            log.info("Car class type " + carClassType + " does not exist");
+            throw new ResourceNotFoundException("Car class type " + carClassType + " does not exist");
+        } else return carClass.get();
     }
 }

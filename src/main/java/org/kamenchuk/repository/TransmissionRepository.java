@@ -5,8 +5,11 @@ import org.kamenchuk.models.Transmission;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
-public interface TransmissionRepository extends JpaRepository<Transmission,Integer> {
+public interface TransmissionRepository extends JpaRepository<Transmission, Integer> {
     void deleteById(@NotNull Integer integer);
-    Transmission findByTransmissionType(String transmissionType);
+
+    Optional<Transmission> findByTransmissionType(String transmissionType);
 }
