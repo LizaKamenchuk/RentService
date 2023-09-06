@@ -4,7 +4,7 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.kamenchuk.dao.RoleDao;
+import org.kamenchuk.repository.RoleRepository;
 import org.kamenchuk.dto.userDTO.UserCreateRequest;
 import org.kamenchuk.dto.userDTO.UserResponse;
 import org.kamenchuk.exceptions.CreationException;
@@ -26,7 +26,8 @@ class UserServiceImplIntegrationTest extends PostgresContainer {
     @Autowired
     private UserServiceImpl userService;
     @Autowired
-    private RoleDao roleDao;
+    private RoleRepository roleRepository;
+
 
 
     @Order(3)
@@ -54,7 +55,7 @@ class UserServiceImplIntegrationTest extends PostgresContainer {
     @Test
     void createUser() throws CreationException {
         Role role = Role.builder().role("USER").build();
-        roleDao.save(role);
+        roleRepository.save(role);
         UserCreateRequest request = UserCreateRequest.builder()
                 .login("log")
                 .name("name")
@@ -86,4 +87,5 @@ class UserServiceImplIntegrationTest extends PostgresContainer {
         assertEquals(result.getLogin(), newLogin);
         assertEquals(result.getLogin(), userService.findById(1L).getLogin());
     }
+
 }

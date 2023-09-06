@@ -2,6 +2,7 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/887db659-9e38-4b19-b585-8f91359583eb/console.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/db/changelog/changes/change_create_extra_data_car_table.sql" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/main/resources/db/changelog/version1/cars-table.sql" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/main/resources/db/changelog/version1/carsMarks-table.sql" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/main/resources/db/changelog/version1/carsModels-table.sql" dialect="GenericSQL" />

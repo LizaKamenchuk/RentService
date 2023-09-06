@@ -2,7 +2,7 @@ package org.kamenchuk.service.impl;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.kamenchuk.dao.RoleDao;
+import org.kamenchuk.repository.RoleRepository;
 import org.kamenchuk.dto.roleDTO.RoleResponse;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.mapper.RoleMapper;
@@ -23,7 +23,7 @@ class RoleServiceImplTest {
     private RoleServiceImpl roleService;
 
     @MockBean
-    private RoleDao roleDao;
+    private RoleRepository roleRepository;
     @MockBean
     private RoleMapper roleMapper;
 
@@ -38,7 +38,7 @@ class RoleServiceImplTest {
         RoleResponse response = RoleResponse.builder()
                 .role(role)
                 .build();
-        when(roleDao.save(newRole)).thenReturn(idRole);
+        when(roleRepository.save(newRole)).thenReturn(idRole);
         when(roleMapper.toDtoResponse(idRole)).thenReturn(response);
         RoleResponse result = roleService.create(role);
         assertAll(()->{

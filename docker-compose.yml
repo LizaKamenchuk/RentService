@@ -7,73 +7,53 @@ services:
     container_name: mongo
     ports:
       - "27017:27017"
-  zookeeper:
-    image: confluentinc/cp-zookeeper:latest
-    environment:
-      ZOOKEEPER_CLIENT_PORT: 2181
-      ZOOKEEPER_TICK_TIME: 2000
-    ports:
-      - "22181:2181"
 
-  kafka:
-    image: confluentinc/cp-kafka:latest
-    ports:
-      - "29092:29092"
-    environment:
-      KAFKA_BROKER_ID: 1
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
-      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-    depends_on:
-      - zookeeper
+#  zookeeper:
+#    image: confluentinc/cp-zookeeper:latest
+#    environment:
+#      ZOOKEEPER_CLIENT_PORT: 2181
+#      ZOOKEEPER_TICK_TIME: 2000
+#    ports:
+#      - "22181:2181"
+#
+#  kafka:
+#    image: confluentinc/cp-kafka:latest
+#    ports:
+#      - "29092:29092"
+#    environment:
+#      KAFKA_BROKER_ID: 1
+#      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+#      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+#      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+#      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+#      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+#    depends_on:
+#      - zookeeper
+#
+#  kafdrop:
+#    image: obsidiandynamics/kafdrop:latest
+#    ports:
+#      - "19000:9000"
+#    environment:
+#      KAFKA_BROKERCONNECT: 127.0.0.1:9092
+#    depends_on:
+#      - kafka
 
-  kafdrop:
-    image: obsidiandynamics/kafdrop:latest
-    ports:
-      - "19000:9000"
-    environment:
-      KAFKA_BROKERCONNECT: 127.0.0.1:9092
-    depends_on:
-      - kafka
-
-  gateway_module:
-    build: ./
-    ports:
-      - "8085:8085"
-
-  rent_module:
-    build: ./
-    ports:
-      - "8080:8080"
-    restart: always
-    environment:
-      POSTGRESQL_HOST: db_postgres
-      POSTGRESQL_PORT: 5432
-      POSTGRESQL_DB: rent_service
-      POSTGRESQL_USERNAME: postgres
-      POSTGRESQL_PASSWORD: toor
-    depends_on:
-      - db_postgres
-    networks:
-      - db_postgres
-
-  auth_module:
-    build: ./
-    ports:
-      - "8084:8084"
-    restart: always
-    environment:
-      POSTGRESQL_HOST: db_postgres
-      POSTGRESQL_PORT: 5432
-      POSTGRESQL_DB: rent_service
-      POSTGRESQL_USERNAME: postgres
-      POSTGRESQL_PASSWORD: toor
-    depends_on:
-      - db_postgres
-    networks:
-      - db_postgres
+#  rent_module:
+#    build: ./
+#    ports:
+#      - "8080:8080"
+#    restart: always
+#    environment:
+#      POSTGRESQL_HOST: db_postgres
+#      POSTGRESQL_PORT: 5432
+#      POSTGRESQL_DB: rent_service
+#      POSTGRESQL_USERNAME: postgres
+#      POSTGRESQL_PASSWORD: toor
+#    depends_on:
+#      - db_postgres
+#    networks:
+#      - db_postgres
 
   db_postgres:
     image: postgres

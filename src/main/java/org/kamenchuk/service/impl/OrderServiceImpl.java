@@ -1,10 +1,10 @@
 package org.kamenchuk.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
-import org.kamenchuk.dao.CarDao;
-import org.kamenchuk.dao.ModelDao;
-import org.kamenchuk.dao.OrdersDao;
-import org.kamenchuk.dao.UserDao;
+import org.kamenchuk.repository.CarRepository;
+import org.kamenchuk.repository.ModelRepository;
+import org.kamenchuk.repository.OrdersRepository;
+import org.kamenchuk.repository.UserRepository;
 import org.kamenchuk.dto.orderDTO.*;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
@@ -30,23 +30,23 @@ import java.util.stream.Collectors;
 @Service
 @Slf4j
 public class OrderServiceImpl implements OrderService {
-    private final OrdersDao ordersDao;
-    private final UserDao userDao;
-    private final ModelDao modelDao;
-    private final CarDao carDao;
+    private final OrdersRepository ordersRepository;
+    private final UserRepository userRepository;
+    private final ModelRepository modelRepository;
+    private final CarRepository carRepository;
     private final OrderMapper orderMapper;
 
     @Autowired
-    OrderServiceImpl(OrdersDao ordersDao,
-                     UserDao userDao,
+    OrderServiceImpl(OrdersRepository ordersRepository,
+                     UserRepository userRepository,
                      OrderMapper orderMapper,
-                     CarDao carDao,
-                     ModelDao modelDao) {
-        this.ordersDao = ordersDao;
-        this.carDao = carDao;
-        this.userDao = userDao;
+                     CarRepository carRepository,
+                     ModelRepository modelRepository) {
+        this.ordersRepository = ordersRepository;
+        this.carRepository = carRepository;
+        this.userRepository = userRepository;
         this.orderMapper = orderMapper;
-        this.modelDao = modelDao;
+        this.modelRepository = modelRepository;
     }
 
     @Transactional
@@ -55,7 +55,7 @@ public class OrderServiceImpl implements OrderService {
         return Optional.ofNullable(request)
                 .map(orderMapper::toOrder)
                 .map(order -> setUserStatusCar(idUser,order,request))
-                .map(ordersDao::save)
+                .map(ordersRepository::save)
                 .map(orderMapper::toDto)
                 .map(response -> setPrice(response,request.getIdCar()))
                 .orElseThrow(() -> {
@@ -67,14 +67,14 @@ public class OrderServiceImpl implements OrderService {
     @Override
     @Transactional
     public void deleteById(Long id) {
-        ordersDao.deleteById(id);
+        ordersRepository.deleteById(id);
     }
 
     @Override
     @Transactional
     public OrderResponse updateAdmin(OrderUpdateAdminRequest request, Long idAdmin) throws UpdatingException {
         try {
-            Order order = ordersDao.findById(request.getId()).get();
+            Order order = ordersRepository.findById(request.getId()).get();
             order = setAdminsUpdates(request, order, idAdmin);
             Integer idCar = order.getCar().getId();
             OrderResponse response = orderMapper.toOrderResponse(order);
@@ -91,9 +91,9 @@ public class OrderServiceImpl implements OrderService {
     @Override
     @Transactional
     public OrderResponse updateClient(OrderUpdateClientRequest request,Long idOrder) throws UpdatingException {
-        return ordersDao.findById(idOrder)
+        return ordersRepository.findById(idOrder)
                 .map(order -> setClientsUpdates(request, order))
-                .map(ordersDao::save)
+                .map(ordersRepository::save)
                 .map(orderMapper::toOrderResponse)
                 .map(orderResponse -> setPrice(orderResponse, request.getIdCar()))
                 .orElseThrow(() -> {
@@ -105,7 +105,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     @Transactional
     public List<OrderResponse> getByClientId(Long id) {
-        return ordersDao.findOrdersByClient_Id(id).stream()
+        return ordersRepository.findOrdersByClient_Id(id).stream()
                 .map(this::setPriceForOrdersList)
                 .collect(Collectors.toList());
     }
@@ -113,17 +113,17 @@ public class OrderServiceImpl implements OrderService {
     @Override
     @Transactional
     public List<OrderResponse> getAll() {
-        return ordersDao.findAll().stream()
+        return ordersRepository.findAll().stream()
                 .map(this::setPriceForOrdersList)
                 .collect(Collectors.toList());
     }
 
     private Order setUserStatusCar(Long idUser, Order order, OrderCreateRequest request) throws ResourceNotFoundException {
         Integer carId = request.getIdCar();
-        if(userDao.findById(idUser).isEmpty() || carDao.findById(carId).isEmpty()) throw new ResourceNotFoundException("User or car does not exist");
+        if(userRepository.findById(idUser).isEmpty() || carRepository.findById(carId).isEmpty()) throw new ResourceNotFoundException("User or car does not exist");
         else {
-        User user = userDao.findById(idUser).get();
-        Car car = carDao.findById(carId).get();
+        User user = userRepository.findById(idUser).get();
+        Car car = carRepository.findById(carId).get();
         order.setClient(user);
         order.setCar(car);
         order.setStatus(false);
@@ -132,9 +132,9 @@ public class OrderServiceImpl implements OrderService {
     }
 
     private Order setAdminsUpdates(OrderUpdateAdminRequest request, Order order, Long idAdmin) {
-        if(userDao.findById(idAdmin).isEmpty()) throw new ResourceNotFoundException("Admin with this id does not exist");
+        if(userRepository.findById(idAdmin).isEmpty()) throw new ResourceNotFoundException("Admin with this id does not exist");
         else {
-            User admin = userDao.findById(idAdmin).get();
+            User admin = userRepository.findById(idAdmin).get();
             if (request.getRefuseReason() != null) order.setRefuseReason(request.getRefuseReason());
             if (request.getStatus() != null) order.setStatus(request.getStatus());
             order.setAdminsLogin(admin.getLogin());
@@ -146,10 +146,10 @@ public class OrderServiceImpl implements OrderService {
         if (request.getFinishDate() != null) order.setFinishDate(request.getFinishDate());
         if (request.getStartDate() != null) order.setStartDate(request.getStartDate());
         if (request.getIdCar() != null) {
-            if(carDao.findById(request.getIdCar()).isEmpty())
+            if(carRepository.findById(request.getIdCar()).isEmpty())
                 throw new ResourceNotFoundException("This car does not exist");
             else {
-                Car newCar = carDao.findById(request.getIdCar()).get();
+                Car newCar = carRepository.findById(request.getIdCar()).get();
                 order.setCar(newCar);
             }
         }
@@ -165,7 +165,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     private OrderResponse setPrice(OrderResponse response,Integer idCar){
-        Car car = carDao.findById(idCar).get();
+        Car car = carRepository.findById(idCar).get();
         Integer price = car.getPrice();
         int days = findDayAmount(response.getStartDate(),response.getFinishDate());
         price *= days;
@@ -173,7 +173,7 @@ public class OrderServiceImpl implements OrderService {
         return response;
     }
     private OrderCreateResponse setPrice(OrderCreateResponse response,Integer idCar){
-        Car car = carDao.findById(idCar).get();
+        Car car = carRepository.findById(idCar).get();
         Integer price = car.getPrice();
         int days = findDayAmount(response.getStartDate(),response.getFinishDate());
         price *= days;

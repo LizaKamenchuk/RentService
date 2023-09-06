@@ -2,9 +2,6 @@ package org.kamenchuk.service.impl;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.kamenchuk.dao.CarDao;
-import org.kamenchuk.dao.MarkDao;
-import org.kamenchuk.dao.ModelDao;
 import org.kamenchuk.dto.carDTO.CarCreateRequest;
 import org.kamenchuk.dto.carDTO.CarResponse;
 import org.kamenchuk.dto.carDTO.PhotoResponse;
@@ -16,12 +13,13 @@ import org.kamenchuk.mapper.CarMapper;
 import org.kamenchuk.models.Car;
 import org.kamenchuk.models.Mark;
 import org.kamenchuk.models.Model;
+import org.kamenchuk.repository.CarRepository;
+import org.kamenchuk.repository.MarkRepository;
+import org.kamenchuk.repository.ModelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,11 +35,11 @@ class CarServiceImplTest {
     @Autowired
     private CarServiceImpl carService;
     @MockBean
-    private  CarDao carDao;
+    private CarRepository carRepository;
     @MockBean
-    private  ModelDao modelDao;
+    private ModelRepository modelRepository;
     @MockBean
-    private  MarkDao markDao;
+    private MarkRepository markRepository;
     @MockBean
     private  CarMapper carMapper;
     @MockBean
@@ -53,7 +51,7 @@ class CarServiceImplTest {
         Car car = new Car();
         CarResponse response = new CarResponse();
         List<CarResponse> responseList = new ArrayList<>();
-        when(carDao.findAll()).thenReturn(carList);
+        when(carRepository.findAll()).thenReturn(carList);
         when(carMapper.toDto(car)).thenReturn(response);
         List<CarResponse> resultList = carService.getAll();
         assertEquals(resultList,responseList);
@@ -61,25 +59,22 @@ class CarServiceImplTest {
 
     @Test
     void create() throws CreationException {
-        MultipartFile file = new MockMultipartFile("init_db.sql","Hello word!".getBytes());
         CarCreateRequest request = CarCreateRequest.builder()
                 .carNumber("1111MM")
                 .mark("mark")
                 .model("model")
-                .limitations(null)
                 .price(200)
                 .build();
         Car car = Car.builder()
                 .carNumber("1111MM")
                 .model(new Model(1,"model",new Mark(1,"mark")))
-                .limitations(null)
                 .price(200)
                 .build();
         CarResponse response = new CarResponse();
         when(carMapper.toCar(request)).thenReturn(car);
-        when(carDao.save(car)).thenReturn(car);
+        when(carRepository.save(car)).thenReturn(car);
         when(carMapper.toDto(car)).thenReturn(response);
-        CarResponse result = carService.create(request, file);
+        CarResponse result = carService.create(request);
         assertEquals(result,response);
     }
 
@@ -89,7 +84,7 @@ class CarServiceImplTest {
         assertNotNull(carNumber);
         Car car = new Car();
         CarResponse response = new CarResponse();
-        when(carDao.getCarByCarNumber(carNumber)).thenReturn(Optional.of(car));
+        when(carRepository.getCarByCarNumber(carNumber)).thenReturn(Optional.of(car));
         when(carMapper.toDto(car)).thenReturn(response);
         CarResponse result = carService.getCarByNumber(carNumber);
         assertEquals(result,response);
@@ -144,7 +139,7 @@ class CarServiceImplTest {
         List<PhotoResponse> photos = null;
         Car car = new Car();
         CarResponse response = new CarResponse();
-        when(carDao.findById(idCar)).thenReturn(Optional.of(car));
+        when(carRepository.findById(idCar)).thenReturn(Optional.of(car));
         when(carMapper.toDto(car)).thenReturn(response);
         response.setPhotos(photos);
         CarResponse result = carService.getCarById(idCar,photos);

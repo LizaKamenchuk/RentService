@@ -4,7 +4,7 @@ import org.kamenchuk.dto.userDTO.UserCreateRequest;
 import org.kamenchuk.dto.userDTO.UserResponse;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.UpdatingException;
-import org.springframework.transaction.annotation.Transactional;
+import org.kamenchuk.models.UserAuthResponse;
 
 import java.util.List;
 
@@ -12,7 +12,6 @@ import java.util.List;
  * Interface UserService for work with User
  * @author Lisa Kamenchuk
  */
-@Transactional
 public interface UserService {
 
     /**
@@ -48,5 +47,8 @@ public interface UserService {
      * @return UserResponse
      */
     UserResponse updateLogin(String newLogin,Long id) throws UpdatingException;
+
+    UserAuthResponse getUserByLogin(String login);
+    UserResponse changeUserRole(Long id,String role);
 
 }

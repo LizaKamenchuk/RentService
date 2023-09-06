@@ -3,6 +3,7 @@ package org.kamenchuk.service;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.dto.roleDTO.RoleResponse;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
+import org.kamenchuk.models.Role;
 import org.springframework.http.ResponseEntity;
 
 /**
@@ -22,4 +23,6 @@ public interface RoleService {
      * @return RoleResponse
      */
     RoleResponse create(String role) throws CreationException;
+    Role getRoleByRole(String role);
+
 }

@@ -1,14 +1,17 @@
 package org.kamenchuk.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
-import org.kamenchuk.dao.CarDao;
-import org.kamenchuk.dao.MarkDao;
-import org.kamenchuk.dao.ModelDao;
-import org.kamenchuk.dto.carDTO.*;
+import org.kamenchuk.repository.CarRepository;
+import org.kamenchuk.repository.MarkRepository;
+import org.kamenchuk.repository.ModelRepository;
+import org.kamenchuk.dto.carDTO.CarCreateRequest;
+import org.kamenchuk.dto.carDTO.CarResponse;
+import org.kamenchuk.dto.carDTO.CarUpdateRequest;
+import org.kamenchuk.dto.carDTO.PhotoResponse;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.exceptions.UpdatingException;
-import org.kamenchuk.kafka.KafkaCarProducer;
+import org.kamenchuk.feignClient.FeignCarPhotoClient;
 import org.kamenchuk.mapper.CarMapper;
 import org.kamenchuk.models.Car;
 import org.kamenchuk.models.Mark;
@@ -17,79 +20,64 @@ import org.kamenchuk.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
  * Class implements CarService interface
- *
  * @author Liza Kamenchuk
  */
 @Slf4j
 @Service
 public class CarServiceImpl implements CarService {
-    private final CarDao carDao;
-    private final ModelDao modelDao;
-    private final MarkDao markDao;
+    private final CarRepository carRepository;
+    //TODO create service
+    private final ModelRepository modelRepository;
+    //TODO create service
+    private final MarkRepository markRepository;
     private final CarMapper carMapper;
-    private final KafkaCarProducer producer;
+    private final FeignCarPhotoClient feignCarPhotoClient;
+
 
     @Autowired
-    CarServiceImpl(CarDao carDao,
-                   ModelDao modelDao,
-                   MarkDao markDao,
-                   CarMapper carMapper, KafkaCarProducer producer) {
-        this.carDao = carDao;
-        this.modelDao = modelDao;
-        this.markDao = markDao;
+    CarServiceImpl(CarRepository carRepository,
+                   ModelRepository modelRepository,
+                   MarkRepository markRepository,
+                   CarMapper carMapper,
+                   FeignCarPhotoClient feignCarPhotoClient) {
+        this.carRepository = carRepository;
+        this.modelRepository = modelRepository;
+        this.markRepository = markRepository;
         this.carMapper = carMapper;
-        this.producer = producer;
+        this.feignCarPhotoClient = feignCarPhotoClient;
     }
 
 
     @Override
     @Transactional
     public List<CarResponse> getAll() {
-        return carDao.findAll().stream()
+        return carRepository.findAll().stream()
                 .map(carMapper::toDto)
                 .collect(Collectors.toList());
     }
 
+
     @Override
     @Transactional
-    public CarResponse create(CarCreateRequest request, MultipartFile file) throws CreationException {
+    public CarResponse create(CarCreateRequest request) throws CreationException {
         return Optional.ofNullable(request)
                 .map(carMapper::toCar)
                 .map(car -> setModel(setModelForCreate(request.getModel(), request.getMark(), car), car))
-                .map(carDao::save)
+                .map(carRepository::save)
                 .map(carMapper::toDto)
-                .map(carRes -> {
-                    producer.sendGetPhotoTopic(Objects.requireNonNull(toPhotoDto(carRes.getId(), file)));
-                    return carRes;
-                })
                 .orElseThrow(() -> {
                     log.error("create(). Can not create car!");
                     return new CreationException("Car isn`t created");
                 });
     }
 
-    private PhotoDto toPhotoDto(Integer idCar, MultipartFile file) {
-        try {
-            PhotoDto photo = PhotoDto.builder()
-                    .idCar(idCar)
-                    .fileName(file.getName())
-                    .fileBytes(file.getBytes())
-                    .build();
-            return photo;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
 
     @Override
     @Transactional(readOnly = true)
@@ -97,8 +85,12 @@ public class CarServiceImpl implements CarService {
         if (carNumber == null) {
             return null;
         }
-        return carDao.getCarByCarNumber(carNumber)
+        return carRepository.getCarByCarNumber(carNumber)
                 .map(carMapper::toDto)
+                .map(carResponse -> {
+                        carResponse.setPhotos( feignCarPhotoClient.getPhotos(carResponse.getId()));
+                        return carResponse;
+                })
                 .orElseThrow(() -> {
                     log.error("getCarByNumber(). Car with this number isn`t exist");
                     return new ResourceNotFoundException("Car with this number isn`t exist");
@@ -108,21 +100,21 @@ public class CarServiceImpl implements CarService {
     @Override
     @Transactional
     public void deleteById(Integer idCar) {
-        carDao.deleteById(idCar);
+        carRepository.deleteById(idCar);
     }
 
     @Override
     @Transactional
     public void deleteByCarNumber(String carNumber) {
-        carDao.deleteCarByCarNumber(carNumber);
+        carRepository.deleteCarByCarNumber(carNumber);
     }
 
     @Override
     @Transactional
     public CarResponse update(CarUpdateRequest request, Integer idCar) throws UpdatingException {
-        return carDao.findById(idCar)
+        return carRepository.findById(idCar)
                 .map(car -> setUpdates(request, car))
-                .map(carDao::save)
+                .map(carRepository::save)
                 .map(carMapper::toDto)
                 .orElseThrow(() -> {
                     log.error("update(). Car isn`t updated");
@@ -133,8 +125,8 @@ public class CarServiceImpl implements CarService {
     @Override
     @Transactional(readOnly = true)
     public CarResponse getCarById(Integer idCar, List<PhotoResponse> photos) throws UpdatingException {
-        if (carDao.findById(idCar).isPresent()) {
-            Car car = carDao.findById(idCar).get();
+        if (carRepository.findById(idCar).isPresent()) {
+            Car car = carRepository.findById(idCar).get();
             CarResponse response = carMapper.toDto(car);
             response.setPhotos(photos);
             return response;
@@ -158,13 +150,13 @@ public class CarServiceImpl implements CarService {
             markNew = model.getMark();
             model.setMark(markNew);
         } else {
-            if (!modelDao.existsModelByModelAndMark_Mark(modelName, markName)) {
-                Mark mark = markDao.existsMarkByMark(markName) ?
-                        markDao.findMarkByMark(markName).get() : markDao.save(markNew);
+            if (!modelRepository.existsModelByModelAndMark_Mark(modelName, markName)) {
+                Mark mark = markRepository.existsMarkByMark(markName) ?
+                        markRepository.findMarkByMark(markName).get() : markRepository.save(markNew);
                 model.setMark(mark);
-                modelDao.save(model);
+                modelRepository.save(model);
             } else {
-                model = modelDao.findModelByModelAndMark_Mark(modelName, markName).get();
+                model = modelRepository.findModelByModelAndMark_Mark(modelName, markName).get();
             }
         }
         return model;
@@ -176,7 +168,6 @@ public class CarServiceImpl implements CarService {
                 .model(setModelForCreate(request.getModel(), request.getMark(), car))
                 .carNumber((request.getCarNumber() == null || request.getCarNumber().isEmpty()) ? car.getCarNumber() : request.getCarNumber())
                 .price(request.getPrice() == null ? car.getPrice() : request.getPrice())
-                .limitations((request.getLimitations() == null || request.getLimitations().isEmpty()) ? car.getLimitations() : request.getLimitations())
                 .build();
     }
 

@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.NotNull;
+import org.kamenchuk.dto.extraDataCarDTO.ExtraDataCarCreateRequest;
 
 @Data
 @NoArgsConstructor
@@ -17,7 +18,16 @@ public class CarCreateRequest {
     private String mark;
     @NotNull
     private String model;
-    private String limitations;
     @NotNull
     private Integer price;
+
+    @NotNull
+    private ExtraDataCarCreateRequest extraDataCarCreateRequest;
+
+    @NotNull
+    private String fuelType;
+    @NotNull
+    private String carClassType;
+    @NotNull
+    private String transmissionType;
 }

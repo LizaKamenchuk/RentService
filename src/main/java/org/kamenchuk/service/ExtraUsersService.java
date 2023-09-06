@@ -24,6 +24,4 @@ public interface ExtraUsersService {
      * @return ExtraUserDataUpdateRequest
      */
     ExtraUserDataUpdateRequest updateExtraData(ExtraUserDataUpdateRequest request,Long idUser);
-
-
 }

@@ -4,6 +4,7 @@ import org.kamenchuk.dto.userDTO.UserCreateRequest;
 import org.kamenchuk.dto.userDTO.UserResponse;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.UpdatingException;
+import org.kamenchuk.models.UserAuthResponse;
 import org.kamenchuk.service.UserService;
 import org.kamenchuk.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+//@CrossOrigin(origins="http://localhost:4200")
 @RequestMapping(path = "/rent_module/user")
 public class UserController {
     private final UserService userService;
@@ -27,10 +28,10 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-//    @GetMapping(value = "/admin/all")
-//    public String getAllUser() {
-//        return userService.getAllUsers().toString();
-//    }
+    @GetMapping(value = "/loadUser")
+    public UserAuthResponse getUserByLogin(String login) {
+        return userService.getUserByLogin(login);
+    }
 
     @GetMapping(value = "/admin/findById/{id}")
     public UserResponse findById(@PathVariable Long id) {
@@ -53,4 +54,8 @@ public class UserController {
         return userService.updateLogin(newLogin,id);
     }
 
+    @PostMapping("/admin/changeUserRole/{id}")
+    public UserResponse changeUserRole(@PathVariable Long id,@RequestParam String role){
+     return userService.changeUserRole(id,role);
+    }
 }

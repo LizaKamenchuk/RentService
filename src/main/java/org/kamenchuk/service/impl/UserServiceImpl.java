@@ -2,8 +2,8 @@ package org.kamenchuk.service.impl;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.kamenchuk.dao.RoleDao;
-import org.kamenchuk.dao.UserDao;
+import org.kamenchuk.repository.RoleRepository;
+import org.kamenchuk.repository.UserRepository;
 import org.kamenchuk.dto.userDTO.UserCreateRequest;
 import org.kamenchuk.dto.userDTO.UserResponse;
 import org.kamenchuk.exceptions.CreationException;
@@ -13,6 +13,7 @@ import org.kamenchuk.mapper.UserMapper;
 import org.kamenchuk.models.ExtraUsersData;
 import org.kamenchuk.models.Role;
 import org.kamenchuk.models.User;
+import org.kamenchuk.models.UserAuthResponse;
 import org.kamenchuk.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
 /**
  * Class implements UserService interface
  *
@@ -30,24 +32,26 @@ import java.util.stream.Collectors;
 @Service
 @Slf4j
 public class UserServiceImpl implements UserService {
-    private final UserDao userDao;
-    private final RoleDao roleDao;
+    private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
     private final UserMapper userMapper;
+    private final RoleServiceImpl roleService;
 
     @Autowired
     public UserServiceImpl(
-            UserDao userDao,
-            RoleDao roleDao,
-            UserMapper userMapper) {
-        this.userDao = userDao;
-        this.roleDao = roleDao;
+            UserRepository userRepository,
+            RoleRepository roleRepository,
+            UserMapper userMapper, RoleServiceImpl roleService) {
+        this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
         this.userMapper = userMapper;
+        this.roleService = roleService;
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<UserResponse> getAllUsers() {
-        return userDao.findAll().stream()
+        return userRepository.findAll().stream()
                 .map(userMapper::toDto)
                 .collect(Collectors.toList());
     }
@@ -56,7 +60,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional(readOnly = true)
     public UserResponse findById(Long id) {
-        return userDao.findById(id)
+        return userRepository.findById(id)
                 .map(userMapper::toDto)
                 .orElseThrow(() -> {
                     log.error("findById(). User isn`t found");
@@ -71,7 +75,7 @@ public class UserServiceImpl implements UserService {
                 .map(userMapper::save)
                 .map(this::setUserRole)
                 .map(this::setUserED)
-                .map(userDao::save)
+                .map(userRepository::save)
                 .map(userMapper::toDto)
                 .orElseThrow(() -> {
                     log.error("createUser(). Can not create user");
@@ -82,15 +86,15 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void deleteById(Long id) {
-        userDao.deleteById(id);
+        userRepository.deleteById(id);
     }
 
     @Override
     @Transactional
     public UserResponse updateLogin(String newLogin, Long id) throws UpdatingException {
-        return userDao.findById(id)
+        return userRepository.findById(id)
                 .map(user -> setUserLogin(user, newLogin))
-                .map(userDao::saveAndFlush)
+                .map(userRepository::saveAndFlush)
                 .map(userMapper::toDto)
                 .orElseThrow(() -> {
                     log.error("updateLogin(). Login update isn`t succeed");
@@ -98,12 +102,39 @@ public class UserServiceImpl implements UserService {
                 });
     }
 
+    @Override
+    public UserAuthResponse getUserByLogin(String login) {
+        return userRepository.getUserByLogin(login)
+                .map(userMapper::toAuthDto)
+                .orElseThrow(() -> {
+                    log.error("getUserByLogin(). User isn`t found");
+                    return new ResourceNotFoundException("User with login = " + login + " is not found");
+                });
+    }
+
+    @Override
+    public UserResponse changeUserRole(Long id, String role) {
+        Role newRole = roleService.getRoleByRole(role);
+        if(role.isEmpty()){
+            throw new ResourceNotFoundException("Role does not exist. Create first this role");
+        }else {
+            Optional<User> user = userRepository.findById(id);
+            user.ifPresent(value -> value.setRole(newRole));
+            return user
+                    .map(userMapper::toDto)
+                    .orElseThrow(() -> {
+                        log.info("changeUsersRole(). Role isn`t changed");
+                        return new ResourceNotFoundException("Role isn`t changed");
+                    });
+        }
+    }
+
     private User setUserRole(User user) {
         String usersRole = "USER";
-        if(roleDao.findFirstByRole(usersRole).isEmpty()) {
+        if (roleRepository.findFirstByRole(usersRole).isEmpty()) {
             throw new RuntimeException("Создате роль USER");
         }
-        Role role = roleDao.findFirstByRole(usersRole).get();
+        Role role = roleRepository.findFirstByRole(usersRole).get();
         user.setRole(role);
         return user;
     }

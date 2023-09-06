@@ -1,8 +1,8 @@
 package org.kamenchuk.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
-import org.kamenchuk.dao.ExtraUsersDao;
-import org.kamenchuk.dao.UserDao;
+import org.kamenchuk.repository.ExtraUsersRepository;
+import org.kamenchuk.repository.UserRepository;
 import org.kamenchuk.dto.extraUsersDataDTO.ExtraUserDataUpdateRequest;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.mapper.ExtraUsersDataMapper;
@@ -21,14 +21,14 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Slf4j
 public class ExtraUsersServiceImpl implements ExtraUsersService {
-    private final ExtraUsersDao extraUsersDao;
-    private final UserDao userDao;
+    private final ExtraUsersRepository extraUsersRepository;
+    private final UserRepository userRepository;
     private final ExtraUsersDataMapper extraDataMapper;
 
     @Autowired
-    ExtraUsersServiceImpl(ExtraUsersDao extraUsersDao, UserDao userDao, ExtraUsersDataMapper extraDataMapper) {
-        this.extraUsersDao = extraUsersDao;
-        this.userDao = userDao;
+    ExtraUsersServiceImpl(ExtraUsersRepository extraUsersRepository, UserRepository userRepository, ExtraUsersDataMapper extraDataMapper) {
+        this.extraUsersRepository = extraUsersRepository;
+        this.userRepository = userRepository;
         this.extraDataMapper = extraDataMapper;
 
     }
@@ -37,7 +37,7 @@ public class ExtraUsersServiceImpl implements ExtraUsersService {
     @Override
     @Transactional
     public ExtraUserDataUpdateRequest getExtraDataById(Long id) throws ResourceNotFoundException {
-        return extraUsersDao.findById(id)
+        return extraUsersRepository.findById(id)
                 .map(extraDataMapper::toDto)
                 .orElseThrow(() -> {
                     log.error("getExtraDataById(). Data isn`t found");
@@ -48,11 +48,11 @@ public class ExtraUsersServiceImpl implements ExtraUsersService {
     @Override
     @Transactional
     public ExtraUserDataUpdateRequest updateExtraData(ExtraUserDataUpdateRequest request, Long idUser) {
-        User u = userDao.findById(idUser).get();
+        User u = userRepository.findById(idUser).get();
         Long idED = u.getExtraUsersData().getId();
-        return extraUsersDao.findById(idED)
+        return extraUsersRepository.findById(idED)
                 .map(user -> setChangedData(request, user))
-                .map(extraUsersDao::save)
+                .map(extraUsersRepository::save)
                 //TODO how to test map
                 .map(it->it)
                 .map(extraDataMapper::toDto)

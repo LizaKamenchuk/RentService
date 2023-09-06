@@ -2,8 +2,8 @@ package org.kamenchuk.service.impl;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.kamenchuk.dao.RoleDao;
-import org.kamenchuk.dao.UserDao;
+import org.kamenchuk.repository.RoleRepository;
+import org.kamenchuk.repository.UserRepository;
 import org.kamenchuk.dto.roleDTO.RoleResponse;
 import org.kamenchuk.dto.userDTO.UserCreateRequest;
 import org.kamenchuk.dto.userDTO.UserResponse;
@@ -36,12 +36,14 @@ import static org.mockito.Mockito.when;
 @SpringBootTest(classes = {UserServiceImpl.class})
 class UserServiceTest {
     @MockBean
-    private UserDao userDao;
+    private UserRepository userRepository;
     @MockBean
-    private RoleDao roleDao;
+    private RoleRepository roleRepository;
     @MockBean
     private UserMapper userMapper;
 
+    @MockBean
+    private RoleServiceImpl roleService;
     @Autowired
     UserService userService;
 
@@ -55,7 +57,7 @@ class UserServiceTest {
         UserResponse userResponse2 = new UserResponse();
         List<UserResponse> userResponses = List.of(userResponse1, userResponse2);
 
-        when(userDao.findAll()).thenReturn(users);
+        when(userRepository.findAll()).thenReturn(users);
         when(userMapper.toDto(user1)).thenReturn(userResponse1);
         when(userMapper.toDto(user2)).thenReturn(userResponse2);
 
@@ -70,7 +72,7 @@ class UserServiceTest {
 
     @Test
     void getAllUsersNotFoundTest() {
-        when(userDao.findAll()).thenReturn(new ArrayList<User>());
+        when(userRepository.findAll()).thenReturn(new ArrayList<User>());
         List<UserResponse> result = userService.getAllUsers();
 
         assertAll(() -> {
@@ -85,7 +87,7 @@ class UserServiceTest {
         User user = getUser(getExtraUsersData());
         UserResponse userResponse = getUserResponse();
 
-        when(userDao.findById(1L)).thenReturn(Optional.ofNullable(user));
+        when(userRepository.findById(1L)).thenReturn(Optional.ofNullable(user));
         when(userMapper.toDto(user)).thenReturn(userResponse);
 
         UserResponse result = userService.findById(1L);
@@ -102,8 +104,8 @@ class UserServiceTest {
         User user = getUser(getExtraUsersData());
         UserResponse response = getUserResponse();
         when(userMapper.save(createRequest)).thenReturn(user);
-        when(roleDao.findFirstByRole(user.getRole().getRole())).thenReturn(Optional.ofNullable(user.getRole()));
-        when(userDao.save(user)).thenReturn(user);
+        when(roleRepository.findFirstByRole(user.getRole().getRole())).thenReturn(Optional.ofNullable(user.getRole()));
+        when(userRepository.save(user)).thenReturn(user);
         when(userMapper.toDto(user)).thenReturn(response);
 
         UserResponse result = userService.createUser(createRequest);
@@ -112,13 +114,13 @@ class UserServiceTest {
             assertNotNull(result);
             assertEquals(result, response);
         });
-        verify(userDao).save(user);
+        verify(userRepository).save(user);
     }
 
     @Test
     void deleteByIdSuccessTest() {
         userService.deleteById(1L);
-        verify(userDao).deleteById(1L);
+        verify(userRepository).deleteById(1L);
     }
 
     @Test
@@ -128,9 +130,9 @@ class UserServiceTest {
         Long id = 1L;
         UserResponse response = getUserResponse();
         response.setLogin(login);
-        when(userDao.findById(id)).thenReturn(Optional.ofNullable(user));
+        when(userRepository.findById(id)).thenReturn(Optional.ofNullable(user));
         user.setLogin(login);
-        when(userDao.saveAndFlush(user)).thenReturn(user);
+        when(userRepository.saveAndFlush(user)).thenReturn(user);
         when(userMapper.toDto(user)).thenReturn(response);
 
         UserResponse result = userService.updateLogin(login,id);
@@ -139,7 +141,7 @@ class UserServiceTest {
             assertNotNull(result);
             assertEquals(result, response);
         });
-        verify(userDao).saveAndFlush(user);
+        verify(userRepository).saveAndFlush(user);
     }
 
     private static User getUser(ExtraUsersData extraUsersData) {
@@ -179,7 +181,7 @@ class UserServiceTest {
         return UserResponse.builder()
                 .id(1L)
                 .login("login")
-                .roleResponse(new RoleResponse("ROLE_USER"))
+                .roleResponse(new RoleResponse("USER"))
                 .build();
     }
 

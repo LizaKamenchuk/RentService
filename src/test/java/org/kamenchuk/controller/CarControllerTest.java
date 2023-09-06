@@ -9,7 +9,7 @@ import org.kamenchuk.dto.carDTO.PhotoResponse;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.exceptions.UpdatingException;
-import org.kamenchuk.feignClient.CarPhotoClient;
+import org.kamenchuk.feignClient.FeignCarPhotoClient;
 import org.kamenchuk.service.impl.CarServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -31,7 +31,7 @@ class CarControllerTest {
     @MockBean
     private CarServiceImpl service;
     @MockBean
-    private CarPhotoClient carPhotoClient;
+    private FeignCarPhotoClient feignCarPhotoClient;
 
     @Test
     void getAll() {
@@ -46,7 +46,7 @@ class CarControllerTest {
         Integer idCar = 1;
         List<PhotoResponse> photos = new ArrayList<>();
         CarResponse response = new CarResponse();
-        when(carPhotoClient.getPhotos(idCar)).thenReturn(photos);
+        when(feignCarPhotoClient.getPhotos(idCar)).thenReturn(photos);
         when(service.getCarById(idCar,photos)).thenReturn(response);
         CarResponse result = controller.getCarById(idCar);
         assertEquals(result,response);
@@ -67,8 +67,8 @@ class CarControllerTest {
         MultipartFile file = null;
         CarCreateRequest request = new CarCreateRequest();
         CarResponse response = new CarResponse();
-        when(service.create(request,file)).thenReturn(response);
-        CarResponse result = controller.create(file,request);
+        when(service.create(request)).thenReturn(response);
+        CarResponse result = controller.create(request);
         assertEquals(result,response);
     }
 

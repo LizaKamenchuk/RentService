@@ -1,7 +1,7 @@
 package org.kamenchuk.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
-import org.kamenchuk.dao.RoleDao;
+import org.kamenchuk.repository.RoleRepository;
 import org.kamenchuk.dto.roleDTO.RoleResponse;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
@@ -22,12 +22,12 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Slf4j
 public class RoleServiceImpl implements RoleService {
-    private final RoleDao roleDao;
+    private final RoleRepository roleRepository;
     private final RoleMapper roleMapper;
 
     @Autowired
-    RoleServiceImpl(RoleDao roleDao, RoleMapper roleMapper){
-        this.roleDao= roleDao;
+    RoleServiceImpl(RoleRepository roleRepository, RoleMapper roleMapper) {
+        this.roleRepository = roleRepository;
         this.roleMapper = roleMapper;
     }
 
@@ -36,11 +36,10 @@ public class RoleServiceImpl implements RoleService {
     public ResponseEntity<String> delete(Integer id) throws ResourceNotFoundException {
 //        Role role = roleDao.findById(id).get();
 //        roleDao.delete(role);
-        if(roleDao.findById(id).isPresent()){
-            roleDao.delete(roleDao.findById(id).get());
-            return new ResponseEntity<>("Successful deleted",HttpStatus.OK);
-        }
-        else {
+        if (roleRepository.findById(id).isPresent()) {
+            roleRepository.delete(roleRepository.findById(id).get());
+            return new ResponseEntity<>("Successful deleted", HttpStatus.OK);
+        } else {
             throw new ResourceNotFoundException("Role does not found");
         }
     }
@@ -51,11 +50,21 @@ public class RoleServiceImpl implements RoleService {
         try {
             Role r = new Role();
             r.setRole(role);
-            r = roleDao.save(r);
+            r = roleRepository.save(r);
             return roleMapper.toDtoResponse(r);
-        }catch (Exception e){
+        } catch (Exception e) {
             log.error("create(). Role isn`t created");
             throw new CreationException("Role isn`t created");
         }
     }
+
+    @Override
+    public Role getRoleByRole(String role) {
+        if (roleRepository.findFirstByRole(role).isPresent()) {
+            return roleRepository.findFirstByRole(role).get();
+        }
+        return null;
+    }
+
+
 }

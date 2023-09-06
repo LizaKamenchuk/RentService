@@ -4,7 +4,7 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.kamenchuk.dao.RoleDao;
+import org.kamenchuk.repository.RoleRepository;
 import org.kamenchuk.dto.roleDTO.RoleResponse;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.models.Role;
@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.class)
 class RoleServiceImplIntegrationTest extends PostgresContainer{
     @Autowired
-    private RoleDao roleDao;
+    private RoleRepository roleRepository;
     @Autowired
     private RoleServiceImpl roleService;
 
@@ -34,7 +34,7 @@ class RoleServiceImplIntegrationTest extends PostgresContainer{
         assertAll(() -> {
             assertNotNull(result);
             assertEquals(result.getRole(), roleName);
-            assertNotNull(roleDao.findFirstByRole(result.getRole()));
+            assertNotNull(roleRepository.findFirstByRole(result.getRole()));
         });
     }
 
@@ -42,7 +42,7 @@ class RoleServiceImplIntegrationTest extends PostgresContainer{
     @Test
     public void delete() throws ResourceNotFoundException {
         Integer id = 1;
-        assertNotNull(roleDao.getRoleById(id));
+        assertNotNull(roleRepository.getRoleById(id));
         roleService.delete(id);
     }
 

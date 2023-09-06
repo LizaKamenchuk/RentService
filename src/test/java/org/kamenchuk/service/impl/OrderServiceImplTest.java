@@ -2,10 +2,10 @@ package org.kamenchuk.service.impl;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.kamenchuk.dao.CarDao;
-import org.kamenchuk.dao.ModelDao;
-import org.kamenchuk.dao.OrdersDao;
-import org.kamenchuk.dao.UserDao;
+import org.kamenchuk.repository.CarRepository;
+import org.kamenchuk.repository.ModelRepository;
+import org.kamenchuk.repository.OrdersRepository;
+import org.kamenchuk.repository.UserRepository;
 import org.kamenchuk.dto.orderDTO.*;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.UpdatingException;
@@ -33,13 +33,13 @@ class OrderServiceImplTest {
     @Autowired
     private OrderServiceImpl orderService;
     @MockBean
-    private  OrdersDao ordersDao;
+    private OrdersRepository ordersRepository;
     @MockBean
-    private  UserDao userDao;
+    private UserRepository userRepository;
     @MockBean
-    private  ModelDao modelDao;
+    private ModelRepository modelRepository;
     @MockBean
-    private  CarDao carDao;
+    private CarRepository carRepository;
     @MockBean
     private  OrderMapper orderMapper;
     @Test
@@ -63,9 +63,9 @@ class OrderServiceImplTest {
                 .build();
         Order order = new Order();
         when(orderMapper.toOrder(request)).thenReturn(order);
-        when(userDao.findById(idUser)).thenReturn(Optional.of(user));
-        when(carDao.findById(request.getIdCar())).thenReturn(Optional.of(car));
-        when(ordersDao.save(order)).thenReturn(order);
+        when(userRepository.findById(idUser)).thenReturn(Optional.of(user));
+        when(carRepository.findById(request.getIdCar())).thenReturn(Optional.of(car));
+        when(ordersRepository.save(order)).thenReturn(order);
         when(orderMapper.toDto(order)).thenReturn(response);
         OrderCreateResponse result = orderService.create(idUser,request);
         assertAll(()->{
@@ -111,12 +111,12 @@ class OrderServiceImplTest {
                 .id(idAdmin)
                 .login("admin")
                 .build();
-        when(ordersDao.findById(request.getId())).thenReturn(Optional.ofNullable(order));
-        when(userDao.findById(idAdmin)).thenReturn(Optional.ofNullable(admin));
+        when(ordersRepository.findById(request.getId())).thenReturn(Optional.ofNullable(order));
+        when(userRepository.findById(idAdmin)).thenReturn(Optional.ofNullable(admin));
         order.setStatus(request.getStatus());
         order.setAdminsLogin(admin.getLogin());
         when(orderMapper.toOrderResponse(order)).thenReturn(response);
-        when(carDao.findById(car.getId())).thenReturn(Optional.of(car));
+        when(carRepository.findById(car.getId())).thenReturn(Optional.of(car));
         response.setPrice(1400);
         OrderResponse result = orderService.updateAdmin(request,idAdmin);
         assertAll(()->{
@@ -153,9 +153,9 @@ class OrderServiceImplTest {
                 .refuseReason(null)
                 .status(false)
                 .build();
-        when(ordersDao.findById(idOrder)).thenReturn(Optional.ofNullable(order));
-        when(carDao.findById(car.getId())).thenReturn(Optional.of(car));
-        when(ordersDao.save(order)).thenReturn(order);
+        when(ordersRepository.findById(idOrder)).thenReturn(Optional.ofNullable(order));
+        when(carRepository.findById(car.getId())).thenReturn(Optional.of(car));
+        when(ordersRepository.save(order)).thenReturn(order);
         when(orderMapper.toOrderResponse(order)).thenReturn(response);
         response.setPrice(1400);
         OrderResponse result = orderService.updateClient(request,idOrder);
@@ -190,7 +190,7 @@ class OrderServiceImplTest {
         List<Order> orders = new ArrayList<>();
         orders.add(order);
         List<OrderResponse> responses = new ArrayList<>();
-        when(ordersDao.findOrdersByClient_Id(idClient)).thenReturn(orders);
+        when(ordersRepository.findOrdersByClient_Id(idClient)).thenReturn(orders);
         when(orderMapper.toOrderResponse(order)).thenReturn(response);
         response.setPrice(1400);
         responses.add(response);
@@ -225,7 +225,7 @@ class OrderServiceImplTest {
         List<Order> orders = new ArrayList<>();
         orders.add(order);
         List<OrderResponse> responses = new ArrayList<>();
-        when(ordersDao.findAll()).thenReturn(orders);
+        when(ordersRepository.findAll()).thenReturn(orders);
         when(orderMapper.toOrderResponse(order)).thenReturn(response);
         response.setPrice(1400);
         responses.add(response);

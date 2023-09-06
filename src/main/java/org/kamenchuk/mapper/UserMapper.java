@@ -4,6 +4,7 @@ import org.kamenchuk.dto.userDTO.AllUsersDataResponse;
 import org.kamenchuk.dto.userDTO.UserCreateRequest;
 import org.kamenchuk.dto.userDTO.UserResponse;
 import org.kamenchuk.models.User;
+import org.kamenchuk.models.UserAuthResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -11,20 +12,23 @@ import org.mapstruct.Mapping;
 public interface UserMapper {
 
     @Mapping(target = "roleResponse.role", source = "role.role")
-    @Mapping(target = "idED",source = "extraUsersData.id")
+    @Mapping(target = "idED", source = "extraUsersData.id")
     UserResponse toDto(User entity);
 
     @Mapping(target = "role.role", source = "roleResponse.role")
-    @Mapping(target = "extraUsersData.id",source = "idED")
+    @Mapping(target = "extraUsersData.id", source = "idED")
     User toUser(UserResponse dto);
 
-    @Mapping(target = "extraUsersData.name",source = "name")
-    @Mapping(target = "extraUsersData.lastname",source = "lastname")
+    @Mapping(target = "extraUsersData.name", source = "name")
+    @Mapping(target = "extraUsersData.lastname", source = "lastname")
     User save(UserCreateRequest entity);
 
-    @Mapping(target = "roleResponse.role",source = "role.role")
-    @Mapping(target = "extraRequest",source = "extraUsersData")
+    @Mapping(target = "roleResponse.role", source = "role.role")
+    @Mapping(target = "extraRequest", source = "extraUsersData")
     AllUsersDataResponse toAllDto(User entity);
+
+    @Mapping(target = "role", source = "role.role")
+    UserAuthResponse toAuthDto(User entity);
 
 
 }

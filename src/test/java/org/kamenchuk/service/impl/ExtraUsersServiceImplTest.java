@@ -2,8 +2,8 @@ package org.kamenchuk.service.impl;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.kamenchuk.dao.ExtraUsersDao;
-import org.kamenchuk.dao.UserDao;
+import org.kamenchuk.repository.ExtraUsersRepository;
+import org.kamenchuk.repository.UserRepository;
 import org.kamenchuk.dto.extraUsersDataDTO.ExtraUserDataUpdateRequest;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.mapper.ExtraUsersDataMapper;
@@ -28,9 +28,9 @@ class ExtraUsersServiceImplTest {
     ExtraUsersServiceImpl extraUsersService;
 
     @MockBean
-    private ExtraUsersDao extraUsersDao;
+    private ExtraUsersRepository extraUsersRepository;
     @MockBean
-    private UserDao userDao;
+    private UserRepository userRepository;
     @MockBean
     private ExtraUsersDataMapper extraDataMapper;
 
@@ -39,7 +39,7 @@ class ExtraUsersServiceImplTest {
         Long id = 1L;
         ExtraUsersData extraUsersData = new ExtraUsersData();
         ExtraUserDataUpdateRequest response = new ExtraUserDataUpdateRequest();
-        when(extraUsersDao.findById(id)).thenReturn(Optional.of(extraUsersData));
+        when(extraUsersRepository.findById(id)).thenReturn(Optional.of(extraUsersData));
         when(extraDataMapper.toDto(extraUsersData)).thenReturn(response);
         ExtraUserDataUpdateRequest result = extraUsersService.getExtraDataById(id);
         assertAll(()->{
@@ -77,9 +77,9 @@ class ExtraUsersServiceImplTest {
                 .lastname(extraUsersData.getLastname())
                 .dateOfBirth(extraUsersData.getDateOfBirth())
                 .build();
-        when(userDao.findById(idUser)).thenReturn(Optional.ofNullable(user));
-        when(extraUsersDao.findById(idED)).thenReturn(Optional.of(extraUsersData));
-        when(extraUsersDao.save(extraUsersData)).thenReturn(extraUsersData);
+        when(userRepository.findById(idUser)).thenReturn(Optional.ofNullable(user));
+        when(extraUsersRepository.findById(idED)).thenReturn(Optional.of(extraUsersData));
+        when(extraUsersRepository.save(extraUsersData)).thenReturn(extraUsersData);
         when(extraDataMapper.toDto(extraUsersData)).thenReturn(response);
         ExtraUserDataUpdateRequest result = extraUsersService.updateExtraData(request,idUser);
         assertAll(()->{

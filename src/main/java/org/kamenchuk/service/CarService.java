@@ -7,7 +7,6 @@ import org.kamenchuk.dto.carDTO.PhotoResponse;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.exceptions.UpdatingException;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -32,7 +31,7 @@ public interface CarService {
      * @param request - CarCreateRequest entity
      * @return CarResponse
      */
-    CarResponse create(CarCreateRequest request, MultipartFile file) throws CreationException;
+    CarResponse create(CarCreateRequest request) throws CreationException;
 
     /**
      * Gets car by number

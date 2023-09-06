@@ -3,38 +3,47 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
+      <profile name="Annotation profile for Documents" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.26/lombok-1.18.26.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.5.5.Final/mapstruct-processor-1.5.5.Final.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.5.5.Final/mapstruct-1.5.5.Final.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.jar" />
+        </processorPath>
+        <module name="Documents" />
+        <module name="RentService.CarsPhotoLoader" />
+      </profile>
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.26/8f8cf0372abf564913e9796623aac4c8ea44025a/lombok-1.18.26.jar" />
         </processorPath>
-        <module name="RentService.CommonDtos.main" />
-      </profile>
-      <profile name="Gradle Imported" enabled="true">
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.26/lombok-1.18.26.jar" />
-        </processorPath>
-        <module name="RentService.GateWayModule.main" />
-        <module name="RentService.Authefication.main" />
-      </profile>
-      <profile name="Gradle Imported" enabled="true">
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.26/lombok-1.18.26.jar" />
-          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mapstruct/mapstruct-processor/1.4.2.Final/e55bd90d51cddd638c07d5bd89fc7535d4e3d069/mapstruct-processor-1.4.2.Final.jar" />
-        </processorPath>
-        <module name="RentService.main" />
+        <module name="CommonDtos.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="17">
+      <module name="Authefication.CommonDtos" target="11" />
+      <module name="Authefication.CommonDtos.main" target="11" />
+      <module name="Authefication.CommonDtos.test" target="11" />
       <module name="CarsPhotoLoader" target="11" />
+      <module name="DocumentModule" target="1.8" />
+      <module name="GateWayModule.CommonDtos" target="11" />
+      <module name="GateWayModule.CommonDtos.main" target="11" />
+      <module name="GateWayModule.CommonDtos.test" target="11" />
+      <module name="org.kamenchuk.RentService.CommonDtos.test" target="11" />
+      <module name="RentService.CommonDtos" target="11" />
+      <module name="RentService.CommonDtos.main" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Authentication" options="-parameters" />
       <module name="CarsPhotoLoader" options="-parameters" />
+      <module name="DocumentModule" options="" />
+      <module name="Documents" options="-parameters" />
       <module name="RentService.CarsPhotoLoader" options="-parameters" />
     </option>
   </component>

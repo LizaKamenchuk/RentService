@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Testcontainers
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class CarServiceImplIntegrationTest extends KafkaPostgresMongoContainer {
+class CarServiceImplIntegrationTest extends PostgresMongoContainer{
     @Autowired
     private CarService carService;
 
@@ -47,7 +47,7 @@ class CarServiceImplIntegrationTest extends KafkaPostgresMongoContainer {
                 .model("X5")
                 .mark("BMW")
                 .build();
-        CarResponse result = carService.create(request,file);
+        CarResponse result = carService.create(request);
         assertAll(()->{
             assertNotNull(result);
             assertEquals(result.getCarNumber(),request.getCarNumber());
@@ -83,7 +83,7 @@ class CarServiceImplIntegrationTest extends KafkaPostgresMongoContainer {
                 .model("X5")
                 .mark("BMW")
                 .build();
-        CarResponse result = carService.create(request, file);
+        CarResponse result = carService.create(request);
         carService.deleteByCarNumber(result.getCarNumber());
         assertThrows(ResourceNotFoundException.class, () -> carService.getCarByNumber(result.getCarNumber()));
     }

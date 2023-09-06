@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(value = "carPhotoClient", url = "http://localhost:8081/photo")
-public interface CarPhotoClient {
+@FeignClient(value = "carPhotoClient", url = "http://localhost:8082/photo")
+public interface FeignCarPhotoClient {
     @GetMapping(value="/getPhotos/{idCar}",produces = "application/json")
     List<PhotoResponse> getPhotos(@PathVariable Integer idCar);
 }
