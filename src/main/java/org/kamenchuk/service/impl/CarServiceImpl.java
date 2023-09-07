@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.kamenchuk.dto.carDTO.CarCreateRequest;
 import org.kamenchuk.dto.carDTO.CarResponse;
 import org.kamenchuk.dto.carDTO.CarUpdateRequest;
-import org.kamenchuk.dto.carDTO.PhotoResponse;
 import org.kamenchuk.dto.carDTO.model_markDTO.ModelCreateDto;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
@@ -136,18 +135,18 @@ public class CarServiceImpl implements CarService {
     @Override
     @Transactional(readOnly = true)
     public CarResponse getCarById(Integer idCar) throws ResourceNotFoundException {
-        List<PhotoResponse> photos = null;
-        try {
-            photos = feignCarPhotoClient.getPhotos(idCar);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        if (carRepository.findById(idCar).isPresent()) {
-            Car car = carRepository.findById(idCar).get();
-            CarResponse response = carMapper.toDto(car);
-            response.setPhotos(photos);
-            return response;
-        } else throw new ResourceNotFoundException("Car with this id does not exist");
+        return carRepository.findById(idCar)
+                .map(carMapper::toDto)
+                .map(carResponse -> {
+                    try {
+                        carResponse.setPhotos(feignCarPhotoClient.getPhotos(idCar));
+                    } catch (Exception e) {
+                        log.info("Problem in CarPhotoLoader Module");
+                    }
+                    return carResponse;
+                }).orElseThrow(() -> {
+                    throw new ResourceNotFoundException(String.format("Car with id %s does not exist", idCar));
+                });
     }
 
     private Car setUpdates(CarUpdateRequest request, Car car) {

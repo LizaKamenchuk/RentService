@@ -8,8 +8,6 @@ import org.kamenchuk.service.TransmissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 @Slf4j
 public class TransmissionServiceImpl implements TransmissionService {
@@ -35,10 +33,9 @@ public class TransmissionServiceImpl implements TransmissionService {
 
     @Override
     public Transmission findByTransmissionType(String transmissionType) {
-        Optional<Transmission> transmission = transmissionRepository.findByTransmissionType(transmissionType);
-        if (transmission.isEmpty()) {
+        return transmissionRepository.findByTransmissionType(transmissionType).orElseThrow(()->{
             log.info("Transmission type " + transmissionType + " does not exist");
             throw new ResourceNotFoundException("Transmission type " + transmissionType + " does not exist");
-        } else return transmission.get();
+        });
     }
 }

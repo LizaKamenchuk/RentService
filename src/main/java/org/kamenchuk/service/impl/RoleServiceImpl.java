@@ -59,11 +59,11 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public Role getRoleByRole(String role) {
-        if (roleRepository.findFirstByRole(role).isPresent()) {
-            return roleRepository.findFirstByRole(role).get();
-        }
-        return null;
+    public Role getRoleByRole(String role) throws ResourceNotFoundException {
+        return roleRepository.findFirstByRole(role).orElseThrow(()->{
+            throw new ResourceNotFoundException(String.format("Role %s does not exist",role));
+        });
+
     }
 
 

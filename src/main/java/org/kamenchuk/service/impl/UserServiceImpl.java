@@ -2,8 +2,6 @@ package org.kamenchuk.service.impl;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.kamenchuk.repository.RoleRepository;
-import org.kamenchuk.repository.UserRepository;
 import org.kamenchuk.dto.userDTO.UserCreateRequest;
 import org.kamenchuk.dto.userDTO.UserResponse;
 import org.kamenchuk.exceptions.CreationException;
@@ -11,9 +9,10 @@ import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.exceptions.UpdatingException;
 import org.kamenchuk.mapper.UserMapper;
 import org.kamenchuk.models.ExtraUsersData;
-import org.kamenchuk.models.Role;
 import org.kamenchuk.models.User;
 import org.kamenchuk.models.UserAuthResponse;
+import org.kamenchuk.repository.UserRepository;
+import org.kamenchuk.service.RoleService;
 import org.kamenchuk.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,17 +32,15 @@ import java.util.stream.Collectors;
 @Slf4j
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
-    private final RoleRepository roleRepository;
     private final UserMapper userMapper;
-    private final RoleServiceImpl roleService;
+    private final RoleService roleService;
 
     @Autowired
     public UserServiceImpl(
             UserRepository userRepository,
-            RoleRepository roleRepository,
-            UserMapper userMapper, RoleServiceImpl roleService) {
+            UserMapper userMapper,
+            RoleService roleService) {
         this.userRepository = userRepository;
-        this.roleRepository = roleRepository;
         this.userMapper = userMapper;
         this.roleService = roleService;
     }
@@ -59,7 +56,7 @@ public class UserServiceImpl implements UserService {
     @SneakyThrows
     @Override
     @Transactional(readOnly = true)
-    public UserResponse findById(Long id) {
+    public UserResponse findById(Long id) throws ResourceNotFoundException {
         return userRepository.findById(id)
                 .map(userMapper::toDto)
                 .orElseThrow(() -> {
@@ -103,6 +100,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public UserAuthResponse getUserByLogin(String login) {
         return userRepository.getUserByLogin(login)
                 .map(userMapper::toAuthDto)
@@ -113,30 +111,29 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public UserResponse changeUserRole(Long id, String role) {
-        Role newRole = roleService.getRoleByRole(role);
-        if(role.isEmpty()){
-            throw new ResourceNotFoundException("Role does not exist. Create first this role");
-        }else {
-            Optional<User> user = userRepository.findById(id);
-            user.ifPresent(value -> value.setRole(newRole));
-            return user
-                    .map(userMapper::toDto)
-                    .orElseThrow(() -> {
-                        log.info("changeUsersRole(). Role isn`t changed");
-                        return new ResourceNotFoundException("Role isn`t changed");
-                    });
-        }
+        return userRepository.findById(id)
+                .map(user -> {
+                    user.setRole(roleService.getRoleByRole(role));
+                    return user;
+                })
+                .map(userMapper::toDto)
+                .orElseThrow(() -> {
+                    log.info("changeUsersRole(). Role isn`t changed");
+                    return new ResourceNotFoundException("Role isn`t changed");
+                });
+
     }
 
     private User setUserRole(User user) {
         String usersRole = "USER";
-        if (roleRepository.findFirstByRole(usersRole).isEmpty()) {
-            throw new RuntimeException("Создате роль USER");
+        try {
+            user.setRole(roleService.getRoleByRole(usersRole));
+            return user;
+        } catch (ResourceNotFoundException exception) {
+            throw new ResourceNotFoundException(exception.getMessage() + ". Создате роль USER");
         }
-        Role role = roleRepository.findFirstByRole(usersRole).get();
-        user.setRole(role);
-        return user;
     }
 
     private User setUserED(User user) {
@@ -152,9 +149,5 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
-    private User setExtraData(ExtraUsersData extraUsersData, User user) {
-        user.setExtraUsersData(extraUsersData);
-        return user;
-    }
 }
 
