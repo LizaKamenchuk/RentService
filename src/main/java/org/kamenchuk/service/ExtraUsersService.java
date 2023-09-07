@@ -7,12 +7,14 @@ import org.kamenchuk.exceptions.UpdatingException;
 
 /**
  * Interface for work with ExtraUsersData
+ *
  * @author Lisa Kamechuk
  */
 public interface ExtraUsersService {
 
     /**
      * Gets extraUsersData by id
+     *
      * @param id - extraUsersData id
      * @return ExtraUserDataUpdateRequest
      */
@@ -20,9 +22,10 @@ public interface ExtraUsersService {
 
     /**
      * Updates extraUsersData
+     *
      * @param request - ExtraUserDataUpdateRequest entity
-     * @param idUser - extraUsersData id from DB
+     * @param idUser  - extraUsersData id from DB
      * @return ExtraUserDataUpdateRequest
      */
-    ExtraUserDataUpdateRequest updateExtraData(ExtraUserDataUpdateRequest request,Long idUser) throws UpdatingException;
+    ExtraUserDataUpdateRequest updateExtraData(ExtraUserDataUpdateRequest request, Long idUser) throws UpdatingException;
 }

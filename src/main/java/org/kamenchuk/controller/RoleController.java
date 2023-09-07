@@ -25,8 +25,8 @@ public class RoleController {
        return roleService.delete(id);
     }
 
-    @PostMapping("/admin/createRole/{role}")
-    public RoleResponse createRole(@PathVariable String role) throws CreationException {
+    @PostMapping("/admin/createRole")
+    public RoleResponse createRole(@RequestParam RoleResponse role) throws CreationException {
         return roleService.create(role);
     }
 }

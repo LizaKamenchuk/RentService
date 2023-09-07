@@ -66,5 +66,12 @@ public interface CarService {
      */
     CarResponse update(CarUpdateRequest request, Integer idCar) throws UpdatingException;
 
+    /**
+     * get car by id
+     *
+     * @param idCar
+     * @return CarResponse
+     * @throws ResourceNotFoundException
+     */
     CarResponse getCarById(Integer idCar) throws ResourceNotFoundException;
 }

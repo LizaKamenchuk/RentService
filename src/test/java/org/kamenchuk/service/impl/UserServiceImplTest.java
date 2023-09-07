@@ -104,7 +104,7 @@ class UserServiceTest {
         User user = getUser(getExtraUsersData());
         UserResponse response = getUserResponse();
         when(userMapper.save(createRequest)).thenReturn(user);
-        when(roleRepository.findFirstByRole(user.getRole().getRole())).thenReturn(Optional.ofNullable(user.getRole()));
+        when(roleRepository.findFirstByRole(new RoleResponse(user.getRole().getRole()))).thenReturn(Optional.ofNullable(user.getRole()));
         when(userRepository.save(user)).thenReturn(user);
         when(userMapper.toDto(user)).thenReturn(response);
 

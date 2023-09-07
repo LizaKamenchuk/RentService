@@ -74,7 +74,7 @@ class UserControllerIntegrationTest extends PostgresContainer {
     @Order(1)
     @Test
     void create() throws CreationException {
-        roleController.createRole("USER");
+        roleController.createRole(new RoleResponse("USER"));
         UserCreateRequest request = getUserCreateRequest();
         UserResponse response = getUserResponse();
         ResponseEntity<UserResponse> result = restTemplate.postForEntity(REQUEST_MAPPING + "/create", request, UserResponse.class);

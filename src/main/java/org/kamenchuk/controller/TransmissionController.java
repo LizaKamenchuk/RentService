@@ -1,5 +1,6 @@
 package org.kamenchuk.controller;
 
+import org.kamenchuk.dto.carDTO.extraDataCarDTO.TransmissionDto;
 import org.kamenchuk.models.Transmission;
 import org.kamenchuk.service.TransmissionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class TransmissionController {
     }
 
     @PostMapping("/save")
-    public String save(@RequestParam String transmissionType) {
+    public TransmissionDto save(@RequestParam TransmissionDto transmissionType) {
         return transmissionService.save(transmissionType);
     }
 
@@ -26,8 +27,8 @@ public class TransmissionController {
         transmissionService.deleteById(id);
     }
 
-    @GetMapping("/get/{transmissionType}")
-    public Transmission findByTransmissionType(@PathVariable String transmissionType) {
+    @GetMapping("/get")
+    public Transmission findByTransmissionType(@RequestParam TransmissionDto transmissionType) {
         return transmissionService.findByTransmissionType(transmissionType);
     }
 }

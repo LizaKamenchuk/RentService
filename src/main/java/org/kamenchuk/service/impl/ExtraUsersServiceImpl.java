@@ -16,7 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Class implements ExtraUsersService interface
- *
  * @author Liza Kamenchuk
  */
 @Service

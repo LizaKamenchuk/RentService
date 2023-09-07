@@ -1,5 +1,6 @@
 package org.kamenchuk.controller;
 
+import org.kamenchuk.dto.carDTO.extraDataCarDTO.CarClassDto;
 import org.kamenchuk.models.CarClass;
 import org.kamenchuk.service.CarClassService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class CarClassController {
     }
 
     @PostMapping("/save")
-    public String save(@RequestParam String carClassType){
+    public CarClassDto save(@RequestParam CarClassDto carClassType){
         return carClassService.save(carClassType);
     }
 
@@ -25,8 +26,8 @@ public class CarClassController {
         carClassService.deleteById(id);
     }
 
-    @GetMapping("/get/{carClassType}")
-    public CarClass findByCarClassType(@PathVariable String carClassType){
+    @GetMapping("/get")
+    public CarClass findByCarClassType(@RequestParam CarClassDto carClassType){
         return carClassService.findByCarClassType(carClassType);
     }
 

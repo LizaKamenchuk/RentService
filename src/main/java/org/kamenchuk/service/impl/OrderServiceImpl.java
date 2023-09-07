@@ -11,9 +11,7 @@ import org.kamenchuk.mapper.CarMapper;
 import org.kamenchuk.mapper.OrderMapper;
 import org.kamenchuk.mapper.UserMapper;
 import org.kamenchuk.models.Order;
-import org.kamenchuk.repository.CarRepository;
 import org.kamenchuk.repository.OrdersRepository;
-import org.kamenchuk.repository.UserRepository;
 import org.kamenchuk.service.CarService;
 import org.kamenchuk.service.OrderService;
 import org.kamenchuk.service.UserService;
@@ -45,13 +43,13 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     OrderServiceImpl(OrdersRepository ordersRepository,
-                     UserRepository userRepository,
                      OrderMapper orderMapper,
-                     CarRepository carRepository, CarService carService, UserService userService, UserMapper userMapper, CarMapper carMapper) {
+                     CarService carService,
+                     UserService userService,
+                     UserMapper userMapper,
+                     CarMapper carMapper) {
         this.ordersRepository = ordersRepository;
         this.userService = userService;
-//        this.carRepository = carRepository;
-//        this.userRepository = userRepository;
         this.orderMapper = orderMapper;
         this.carService = carService;
         this.userMapper = userMapper;
@@ -101,9 +99,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    public OrderResponse updateClient(OrderUpdateClientRequest request, Long idOrder) throws UpdatingException,ResourceNotFoundException {
+    public OrderResponse updateClient(OrderUpdateClientRequest request, Long idOrder) throws UpdatingException, ResourceNotFoundException {
         return ordersRepository.findById(idOrder)
-                .map(order -> setClientsUpdates(request,order))
+                .map(order -> setClientsUpdates(request, order))
                 .map(ordersRepository::save)
                 .map(orderMapper::toOrderResponse)
                 .map(orderResponse -> setPrice(orderResponse, request.getIdCar()))

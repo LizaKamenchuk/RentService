@@ -10,12 +10,14 @@ import java.util.List;
 
 /**
  * Interface OrderService for work with Orders
+ *
  * @author Lisa Kamechuk
  */
 public interface OrderService {
     /**
      * Creates order
-     * @param idUser - users id from DB
+     *
+     * @param idUser  - users id from DB
      * @param request - OrderCreateRequest entity
      * @return OrderCreateResponse
      */
@@ -23,12 +25,14 @@ public interface OrderService {
 
     /**
      * Deletes order bu id
+     *
      * @param id - orders id
      */
     void deleteById(Long id);
 
     /**
      * Methods for admin to update order
+     *
      * @param request - OrderUpdateAdminRequest entity
      * @param idAdmin - users id, with role is admin
      * @return OrderResponse
@@ -37,14 +41,16 @@ public interface OrderService {
 
     /**
      * Method for client to update order
+     *
      * @param request - OrderUpdateClientRequest entity
      * @param idOrder - orders id from DB
      * @return OrderResponse
      */
-    OrderResponse updateClient(OrderUpdateClientRequest request,Long idOrder) throws UpdatingException;
+    OrderResponse updateClient(OrderUpdateClientRequest request, Long idOrder) throws UpdatingException;
 
     /**
      * Gets orders by clients id
+     *
      * @param id - clients id
      * @return List<OrderResponse>
      */
@@ -52,6 +58,7 @@ public interface OrderService {
 
     /**
      * Gets all orders
+     *
      * @return List<OrderResponse>
      */
     List<OrderResponse> getAll();

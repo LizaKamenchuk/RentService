@@ -14,6 +14,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 /**
  * Class implements RoleService interface
  *
@@ -34,8 +36,6 @@ public class RoleServiceImpl implements RoleService {
     @Override
     @Transactional
     public ResponseEntity<String> delete(Integer id) throws ResourceNotFoundException {
-//        Role role = roleDao.findById(id).get();
-//        roleDao.delete(role);
         if (roleRepository.findById(id).isPresent()) {
             roleRepository.delete(roleRepository.findById(id).get());
             return new ResponseEntity<>("Successful deleted", HttpStatus.OK);
@@ -46,25 +46,23 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     @Transactional
-    public RoleResponse create(String role) throws CreationException {
-        try {
-            Role r = new Role();
-            r.setRole(role);
-            r = roleRepository.save(r);
-            return roleMapper.toDtoResponse(r);
-        } catch (Exception e) {
-            log.error("create(). Role isn`t created");
-            throw new CreationException("Role isn`t created");
-        }
+    public RoleResponse create(RoleResponse role) throws CreationException {
+        return Optional.ofNullable(role)
+                .map(roleMapper::toRoleFromResponse)
+                .map(roleRepository::save)
+                .map(roleMapper::toDtoResponse)
+                .orElseThrow(() -> {
+                    log.error("create(). Role isn`t created");
+                    throw new CreationException("Role isn`t created");
+                });
     }
 
     @Override
-    public Role getRoleByRole(String role) throws ResourceNotFoundException {
-        return roleRepository.findFirstByRole(role).orElseThrow(()->{
-            throw new ResourceNotFoundException(String.format("Role %s does not exist",role));
+    public Role getRoleByRole(RoleResponse role) throws ResourceNotFoundException {
+        return roleRepository.findFirstByRole(role)
+          .orElseThrow(() -> {
+            throw new ResourceNotFoundException(String.format("Role %s does not exist", role));
         });
 
     }
-
-
 }

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.kamenchuk.dto.extraUsersDataDTO.ExtraUserDataUpdateRequest;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
+import org.kamenchuk.exceptions.UpdatingException;
 import org.kamenchuk.service.ExtraUsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -34,7 +35,7 @@ class ExtraUsersDataControllerTest {
     }
 
     @Test
-    void update() {
+    void update() throws UpdatingException {
         Long id = 2L;
         ExtraUserDataUpdateRequest request = new ExtraUserDataUpdateRequest();
         ExtraUserDataUpdateRequest response = new ExtraUserDataUpdateRequest();

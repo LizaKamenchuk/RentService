@@ -1,5 +1,6 @@
 package org.kamenchuk.controller;
 
+import org.kamenchuk.dto.carDTO.extraDataCarDTO.FuelDto;
 import org.kamenchuk.models.Fuel;
 import org.kamenchuk.service.FuelService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class FuelController {
     }
 
     @PostMapping("/save")
-    public String save(@RequestParam String fuelType){
+    public FuelDto save(@RequestParam FuelDto fuelType){
         return fuelService.save(fuelType);
     }
 
@@ -26,8 +27,8 @@ public class FuelController {
         fuelService.deleteById(id);
     }
 
-    @GetMapping("/get/{fuelType}")
-    public Fuel findByFuelType(@PathVariable String fuelType){
+    @GetMapping("/get")
+    public Fuel findByFuelType(@RequestParam FuelDto fuelType){
         return fuelService.findByFuelType(fuelType);
     }
 }

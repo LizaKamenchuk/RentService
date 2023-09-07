@@ -1,9 +1,35 @@
 package org.kamenchuk.service;
 
+import org.kamenchuk.dto.carDTO.extraDataCarDTO.TransmissionDto;
+import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.models.Transmission;
 
+/**
+ * Interface TransmissionService for work with Transmission
+ *
+ * @author Lisa Kamenchuk
+ */
 public interface TransmissionService {
-     String save (String transmissionType);
-     void deleteById (Integer id);
-     Transmission findByTransmissionType(String transmissionType);
+    /**
+     * save new transmission type
+     *
+     * @param transmissionDto
+     * @return saved transmission type
+     */
+    TransmissionDto save(TransmissionDto transmissionDto) throws CreationException;
+
+    /**
+     * delete transmission by id
+     *
+     * @param id - transmissions id
+     */
+    void deleteById(Integer id);
+
+    /**
+     * get transmission by transmission type
+     *
+     * @param transmissionType
+     * @return transmission
+     */
+    Transmission findByTransmissionType(TransmissionDto transmissionType);
 }

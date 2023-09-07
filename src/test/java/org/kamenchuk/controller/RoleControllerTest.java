@@ -29,8 +29,8 @@ class RoleControllerTest {
 
     @Test
     void createRoleSuccess() throws CreationException {
-        String role = "SUPERADMIN";
-        RoleResponse response = new RoleResponse(role);
+        RoleResponse role = new RoleResponse("SUPERADMIN");
+        RoleResponse response = role;
         when(roleService.create(role)).thenReturn(response);
         RoleResponse result = roleController.createRole(role);
         assertAll(()->{

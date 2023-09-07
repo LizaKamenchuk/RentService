@@ -2,6 +2,7 @@ package org.kamenchuk.controller;
 
 import org.kamenchuk.dto.extraUsersDataDTO.ExtraUserDataUpdateRequest;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
+import org.kamenchuk.exceptions.UpdatingException;
 import org.kamenchuk.service.ExtraUsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +24,7 @@ public class ExtraUsersDataController {
     }
 
     @PatchMapping("/updateExtra")
-    public ExtraUserDataUpdateRequest update(@RequestBody ExtraUserDataUpdateRequest request,@RequestParam Long idED){
+    public ExtraUserDataUpdateRequest update(@RequestBody ExtraUserDataUpdateRequest request,@RequestParam Long idED) throws UpdatingException {
         return extraUsersService.updateExtraData(request,idED);
     }
 

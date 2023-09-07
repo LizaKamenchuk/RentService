@@ -1,5 +1,6 @@
 package org.kamenchuk.controller;
 
+import org.kamenchuk.dto.roleDTO.RoleResponse;
 import org.kamenchuk.dto.userDTO.UserCreateRequest;
 import org.kamenchuk.dto.userDTO.UserResponse;
 import org.kamenchuk.exceptions.CreationException;
@@ -55,7 +56,7 @@ public class UserController {
     }
 
     @PostMapping("/admin/changeUserRole/{id}")
-    public UserResponse changeUserRole(@PathVariable Long id,@RequestParam String role){
+    public UserResponse changeUserRole(@PathVariable Long id,@RequestParam RoleResponse role){
      return userService.changeUserRole(id,role);
     }
 }

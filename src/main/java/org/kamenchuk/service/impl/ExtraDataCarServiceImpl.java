@@ -1,6 +1,10 @@
 package org.kamenchuk.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
+import org.kamenchuk.dto.carDTO.extraDataCarDTO.CarClassDto;
+import org.kamenchuk.dto.carDTO.extraDataCarDTO.FuelDto;
+import org.kamenchuk.dto.carDTO.extraDataCarDTO.TransmissionDto;
+import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.models.CarClass;
 import org.kamenchuk.models.ExtraDataCar;
@@ -36,17 +40,21 @@ public class ExtraDataCarServiceImpl implements ExtraDataCarService {
     }
 
     @Override
-    public ExtraDataCar save(ExtraDataCar extraDataCar) {
-        Fuel fuel = fuelService.findByFuelType(
-                extraDataCar.getFuel().getFuelType());
-        CarClass carClass = carClassService.findByCarClassType(
-                extraDataCar.getCarClass().getClassType());
-        Transmission transmission = transmissionService.findByTransmissionType(
-                extraDataCar.getTransmission().getTransmissionType());
+    public ExtraDataCar save(ExtraDataCar extraDataCar) throws CreationException {
+        Fuel fuel = fuelService.findByFuelType(new FuelDto(
+                extraDataCar.getFuel().getFuelType()));
+        CarClass carClass = carClassService.findByCarClassType(new CarClassDto(
+                extraDataCar.getCarClass().getClassType()));
+        Transmission transmission = transmissionService.findByTransmissionType(new TransmissionDto(
+                extraDataCar.getTransmission().getTransmissionType()));
         extraDataCar.setCarClass(carClass);
         extraDataCar.setFuel(fuel);
         extraDataCar.setTransmission(transmission);
-        return extraDataCarRepository.save(extraDataCar);
+        return Optional.ofNullable(extraDataCar)
+                .map(extraDataCarRepository::save)
+                .orElseThrow(() -> {
+                    throw new CreationException("ExtraDataCar is not created");
+                });
     }
 
     @Override

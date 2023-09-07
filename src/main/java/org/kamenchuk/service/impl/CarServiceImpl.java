@@ -92,9 +92,6 @@ public class CarServiceImpl implements CarService {
     @Override
     @Transactional(readOnly = true)
     public CarResponse getCarByNumber(String carNumber) throws ResourceNotFoundException {
-        if (carNumber == null) {
-            return null;
-        }
         return carRepository.getCarByCarNumber(carNumber)
                 .map(carMapper::toDto)
                 .map(carResponse -> {

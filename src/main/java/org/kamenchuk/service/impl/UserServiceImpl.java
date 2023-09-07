@@ -2,6 +2,7 @@ package org.kamenchuk.service.impl;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.kamenchuk.dto.roleDTO.RoleResponse;
 import org.kamenchuk.dto.userDTO.UserCreateRequest;
 import org.kamenchuk.dto.userDTO.UserResponse;
 import org.kamenchuk.exceptions.CreationException;
@@ -112,7 +113,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public UserResponse changeUserRole(Long id, String role) {
+    public UserResponse changeUserRole(Long id, RoleResponse role) {
         return userRepository.findById(id)
                 .map(user -> {
                     user.setRole(roleService.getRoleByRole(role));
@@ -127,7 +128,7 @@ public class UserServiceImpl implements UserService {
     }
 
     private User setUserRole(User user) {
-        String usersRole = "USER";
+        RoleResponse usersRole = new RoleResponse("USER");
         try {
             user.setRole(roleService.getRoleByRole(usersRole));
             return user;

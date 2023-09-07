@@ -27,14 +27,14 @@ class RoleServiceImplIntegrationTest extends PostgresContainer{
     @Order(1)
     @Test
     void create() throws Exception {
-        String roleName = "ADMIN";
+        RoleResponse roleName = new RoleResponse("ADMIN");
         Role role = new Role();
-        role.setRole(roleName);
+        role.setRole(roleName.getRole());
         RoleResponse result = roleService.create(roleName);
         assertAll(() -> {
             assertNotNull(result);
             assertEquals(result.getRole(), roleName);
-            assertNotNull(roleRepository.findFirstByRole(result.getRole()));
+            assertNotNull(roleRepository.findFirstByRole(result));
         });
     }
 
