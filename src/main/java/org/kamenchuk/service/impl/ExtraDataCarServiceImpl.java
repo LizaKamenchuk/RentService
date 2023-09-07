@@ -55,7 +55,7 @@ public class ExtraDataCarServiceImpl implements ExtraDataCarService {
     }
 
     @Override
-    public ExtraDataCar getById(Integer id) {
+    public ExtraDataCar getById(Integer id) throws ResourceNotFoundException {
         Optional<ExtraDataCar> extraDataCar = extraDataCarRepository.findById(id);
         if (extraDataCar.isEmpty()) {
             log.info("Extra data with id " + id + "does not exist. ExtraDataCarServiceImpl-class, getById-method");

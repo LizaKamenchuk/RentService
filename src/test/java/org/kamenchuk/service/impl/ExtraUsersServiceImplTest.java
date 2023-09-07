@@ -2,6 +2,7 @@ package org.kamenchuk.service.impl;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.kamenchuk.exceptions.UpdatingException;
 import org.kamenchuk.repository.ExtraUsersRepository;
 import org.kamenchuk.repository.UserRepository;
 import org.kamenchuk.dto.extraUsersDataDTO.ExtraUserDataUpdateRequest;
@@ -49,7 +50,7 @@ class ExtraUsersServiceImplTest {
     }
 
     @Test
-    void updateExtraData() {
+    void updateExtraData() throws UpdatingException {
         Long idUser = 1L;
         Long idED = 1L;
         LocalDate start = LocalDate.of(2023, 8, 23);

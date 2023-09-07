@@ -1,6 +1,7 @@
 package org.kamenchuk.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
+import org.kamenchuk.exceptions.UpdatingException;
 import org.kamenchuk.repository.ExtraUsersRepository;
 import org.kamenchuk.repository.UserRepository;
 import org.kamenchuk.dto.extraUsersDataDTO.ExtraUserDataUpdateRequest;
@@ -26,7 +27,9 @@ public class ExtraUsersServiceImpl implements ExtraUsersService {
     private final ExtraUsersDataMapper extraDataMapper;
 
     @Autowired
-    ExtraUsersServiceImpl(ExtraUsersRepository extraUsersRepository, UserRepository userRepository, ExtraUsersDataMapper extraDataMapper) {
+    ExtraUsersServiceImpl(ExtraUsersRepository extraUsersRepository,
+                          UserRepository userRepository,
+                          ExtraUsersDataMapper extraDataMapper) {
         this.extraUsersRepository = extraUsersRepository;
         this.userRepository = userRepository;
         this.extraDataMapper = extraDataMapper;
@@ -47,18 +50,18 @@ public class ExtraUsersServiceImpl implements ExtraUsersService {
 
     @Override
     @Transactional
-    public ExtraUserDataUpdateRequest updateExtraData(ExtraUserDataUpdateRequest request, Long idUser) {
-        User u = userRepository.findById(idUser).get();
+    public ExtraUserDataUpdateRequest updateExtraData(ExtraUserDataUpdateRequest request, Long idUser) throws UpdatingException {
+        User u = userRepository.findById(idUser).orElseThrow(()->{
+            throw new ResourceNotFoundException(String.format("User with %s is not found",idUser));
+        });
         Long idED = u.getExtraUsersData().getId();
         return extraUsersRepository.findById(idED)
                 .map(user -> setChangedData(request, user))
                 .map(extraUsersRepository::save)
-                //TODO how to test map
-                .map(it->it)
                 .map(extraDataMapper::toDto)
                 .orElseThrow(() -> {
                     log.error("updateExtraData(). Updates are not save");
-                    return new RuntimeException("Updates are not save");
+                    return new UpdatingException("Updates are not save");
                 });
     }
 

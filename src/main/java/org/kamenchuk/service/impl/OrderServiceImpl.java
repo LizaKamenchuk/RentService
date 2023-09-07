@@ -1,10 +1,6 @@
 package org.kamenchuk.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
-import org.kamenchuk.repository.CarRepository;
-import org.kamenchuk.repository.ModelRepository;
-import org.kamenchuk.repository.OrdersRepository;
-import org.kamenchuk.repository.UserRepository;
 import org.kamenchuk.dto.orderDTO.*;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
@@ -13,6 +9,9 @@ import org.kamenchuk.mapper.OrderMapper;
 import org.kamenchuk.models.Car;
 import org.kamenchuk.models.Order;
 import org.kamenchuk.models.User;
+import org.kamenchuk.repository.CarRepository;
+import org.kamenchuk.repository.OrdersRepository;
+import org.kamenchuk.repository.UserRepository;
 import org.kamenchuk.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,7 +31,6 @@ import java.util.stream.Collectors;
 public class OrderServiceImpl implements OrderService {
     private final OrdersRepository ordersRepository;
     private final UserRepository userRepository;
-    private final ModelRepository modelRepository;
     private final CarRepository carRepository;
     private final OrderMapper orderMapper;
 
@@ -40,13 +38,11 @@ public class OrderServiceImpl implements OrderService {
     OrderServiceImpl(OrdersRepository ordersRepository,
                      UserRepository userRepository,
                      OrderMapper orderMapper,
-                     CarRepository carRepository,
-                     ModelRepository modelRepository) {
+                     CarRepository carRepository) {
         this.ordersRepository = ordersRepository;
         this.carRepository = carRepository;
         this.userRepository = userRepository;
         this.orderMapper = orderMapper;
-        this.modelRepository = modelRepository;
     }
 
     @Transactional

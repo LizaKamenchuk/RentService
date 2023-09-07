@@ -33,25 +33,19 @@ import java.util.stream.Collectors;
 @Service
 public class CarServiceImpl implements CarService {
     private final CarRepository carRepository;
-    //TODO create service
     private final ModelService modelService;
-    //TODO create service
-//    private final MarkRepository markRepository;
     private final CarMapper carMapper;
     private final FeignCarPhotoClient feignCarPhotoClient;
-
     private final ExtraDataCarService extraDataCarService;
 
     @Autowired
     CarServiceImpl(CarRepository carRepository,
                    ModelService modelService,
-//                   MarkRepository markRepository,
                    CarMapper carMapper,
                    FeignCarPhotoClient feignCarPhotoClient,
                    ExtraDataCarService extraDataCarService) {
         this.carRepository = carRepository;
         this.modelService = modelService;
-//        this.markRepository = markRepository;
         this.carMapper = carMapper;
         this.feignCarPhotoClient = feignCarPhotoClient;
         this.extraDataCarService = extraDataCarService;
@@ -59,13 +53,12 @@ public class CarServiceImpl implements CarService {
 
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<CarResponse> getAll() {
         return carRepository.findAll().stream()
                 .map(carMapper::toDto)
                 .collect(Collectors.toList());
     }
-
 
     @Override
     @Transactional
@@ -80,14 +73,13 @@ public class CarServiceImpl implements CarService {
                 .build());
         return Optional.of(request)
                 .map(carMapper::toCar)
-//                .map(car -> setModel(setModelForCreate(request.getModel(), request.getMark(), car), car))
                 .map(car -> {
-                    car.setModel(modelService.saveIfNotExists(new ModelCreateDto(request.getModel(),request.getMark())));
+                    car.setModel(modelService.saveIfNotExists(new ModelCreateDto(request.getModel(), request.getMark())));
                     return car;
                 })
-                .map(car->{
-                        car.setExtraDataCar(extraDataCar);
-                        return car;
+                .map(car -> {
+                    car.setExtraDataCar(extraDataCar);
+                    return car;
                 })
                 .map(carRepository::save)
                 .map(carMapper::toDto)
@@ -143,7 +135,7 @@ public class CarServiceImpl implements CarService {
 
     @Override
     @Transactional(readOnly = true)
-    public CarResponse getCarById(Integer idCar) throws UpdatingException {
+    public CarResponse getCarById(Integer idCar) throws ResourceNotFoundException {
         List<PhotoResponse> photos = null;
         try {
             photos = feignCarPhotoClient.getPhotos(idCar);
@@ -157,35 +149,6 @@ public class CarServiceImpl implements CarService {
             return response;
         } else throw new ResourceNotFoundException("Car with this id does not exist");
     }
-
-    private Car setModel(Model model, Car car) {
-        car.setModel(model);
-        return car;
-    }
-
-//    private Model setModelForCreate(String modelName, String markName, Car car) {
-//        Mark markNew = Mark.builder()
-//                .mark(markName)
-//                .build();
-//        Model model = Model.builder()
-//                .model(modelName)
-//                .build();
-//        if ((modelName == null || modelName.isEmpty()) || (markName == null || markName.isEmpty())) {
-//            model = car.getModel();
-//            markNew = model.getMark();
-//            model.setMark(markNew);
-//        } else {
-//            if (!modelRepository.existsModelByModelAndMark_Mark(modelName, markName)) {
-//                Mark mark = markRepository.existsMarkByMark(markName) ?
-//                        markRepository.findMarkByMark(markName).get() : markRepository.save(markNew);
-//                model.setMark(mark);
-//                modelRepository.save(model);
-//            } else {
-//                model = modelRepository.findModelByModelAndMark_Mark(modelName, markName).get();
-//            }
-//        }
-//        return model;
-//    }
 
     private Car setUpdates(CarUpdateRequest request, Car car) {
         return Car.builder()

@@ -2,6 +2,7 @@ package org.kamenchuk.service;
 
 import org.kamenchuk.dto.extraUsersDataDTO.ExtraUserDataUpdateRequest;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
+import org.kamenchuk.exceptions.UpdatingException;
 
 
 /**
@@ -23,5 +24,5 @@ public interface ExtraUsersService {
      * @param idUser - extraUsersData id from DB
      * @return ExtraUserDataUpdateRequest
      */
-    ExtraUserDataUpdateRequest updateExtraData(ExtraUserDataUpdateRequest request,Long idUser);
+    ExtraUserDataUpdateRequest updateExtraData(ExtraUserDataUpdateRequest request,Long idUser) throws UpdatingException;
 }

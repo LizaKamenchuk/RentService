@@ -9,6 +9,7 @@ import org.kamenchuk.dto.userDTO.UserCreateRequest;
 import org.kamenchuk.dto.userDTO.UserResponse;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
+import org.kamenchuk.exceptions.UpdatingException;
 import org.kamenchuk.service.RoleService;
 import org.kamenchuk.service.UserService;
 import org.kamenchuk.service.impl.ExtraUsersServiceImpl;
@@ -45,7 +46,7 @@ class ExtraUsersServiceImplIntegrationTest extends PostgresContainer {
 
     @Order(2)
     @Test
-    void updateExtraData()  {
+    void updateExtraData() throws UpdatingException {
         ExtraUserDataUpdateRequest request = ExtraUserDataUpdateRequest.builder()
                 .name("newName")
                 .lastname("newLastname")

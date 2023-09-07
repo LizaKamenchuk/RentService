@@ -1,5 +1,6 @@
 package org.kamenchuk.service;
 
+import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.models.CarClass;
 
 public interface CarClassService {
@@ -7,5 +8,5 @@ public interface CarClassService {
 
     void deleteById(Integer id);
 
-    CarClass findByCarClassType(String carClassType);
+    CarClass findByCarClassType(String carClassType) throws ResourceNotFoundException;
 }
