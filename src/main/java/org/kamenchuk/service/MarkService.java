@@ -17,7 +17,7 @@ public interface MarkService {
      * @param mark - mark name
      * @return boolean
      */
-    boolean existsMarkByMark(MarkDto mark);
+    boolean existsMarkByMark(String mark);
 
     /**
      * get mark by mark name
@@ -26,7 +26,7 @@ public interface MarkService {
      * @return mark
      * @throws ResourceNotFoundException
      */
-    Mark findMarkByMark(MarkDto mark) throws ResourceNotFoundException;
+    Mark findMarkByMark(String mark) throws ResourceNotFoundException;
 
     /**
      * save mark

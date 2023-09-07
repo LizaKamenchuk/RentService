@@ -8,7 +8,6 @@ import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.exceptions.UpdatingException;
 import org.kamenchuk.service.CarService;
-import org.kamenchuk.service.impl.CarServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +24,7 @@ public class CarController {
     private final CarService carService;
 
     @Autowired
-    CarController(CarServiceImpl carService) {
+    CarController(CarService carService) {
         this.carService = carService;
     }
 

@@ -49,14 +49,14 @@ public class ModelServiceImpl implements ModelService {
         if ((modelName == null || modelName.isEmpty()) || (markName == null || markName.isEmpty())) {
             throw new NotValidMethodParameters("Model and(or) mark names are empty");
         } else {
-            if (!modelRepository.existsModelByModelAndMark_Mark(new ModelCreateDto(modelName, markName))) {
-                Mark mark = markService.existsMarkByMark(new MarkDto(markName)) ?
-                        markService.findMarkByMark(new MarkDto(markName)) : markService.save(new MarkDto(markName));
+            if (!modelRepository.existsModelByModelAndMark_Mark(modelName, markName)) {
+                Mark mark = markService.existsMarkByMark(markName) ?
+                        markService.findMarkByMark(markName) : markService.save(new MarkDto(markName));
                 model.setMark(mark);
                 modelRepository.save(model);
             } else {
                 //Optional.get() обработано в if
-                model = modelRepository.findModelByModelAndMark_Mark(new ModelCreateDto(modelName, markName)).get();
+                model = modelRepository.findModelByModelAndMark_Mark(modelName, markName).get();
             }
         }
         return model;

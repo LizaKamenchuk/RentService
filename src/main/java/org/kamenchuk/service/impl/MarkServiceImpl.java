@@ -27,12 +27,12 @@ public class MarkServiceImpl implements MarkService {
     }
 
     @Override
-    public boolean existsMarkByMark(MarkDto mark) {
+    public boolean existsMarkByMark(String mark) {
         return markRepository.existsMarkByMark(mark);
     }
 
     @Override
-    public Mark findMarkByMark(MarkDto mark) throws ResourceNotFoundException {
+    public Mark findMarkByMark(String mark) throws ResourceNotFoundException {
         return markRepository.findMarkByMark(mark).orElseThrow(() -> {
             throw new ResourceNotFoundException(String.format("Mark %s does not exist", mark));
         });
