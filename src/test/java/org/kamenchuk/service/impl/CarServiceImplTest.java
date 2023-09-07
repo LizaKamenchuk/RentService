@@ -142,7 +142,7 @@ class CarServiceImplTest {
         when(carRepository.findById(idCar)).thenReturn(Optional.of(car));
         when(carMapper.toDto(car)).thenReturn(response);
         response.setPhotos(photos);
-        CarResponse result = carService.getCarById(idCar,photos);
+        CarResponse result = carService.getCarById(idCar);
         assertEquals(result,response);
     }
 }

@@ -47,7 +47,7 @@ class CarControllerTest {
         List<PhotoResponse> photos = new ArrayList<>();
         CarResponse response = new CarResponse();
         when(feignCarPhotoClient.getPhotos(idCar)).thenReturn(photos);
-        when(service.getCarById(idCar,photos)).thenReturn(response);
+        when(service.getCarById(idCar)).thenReturn(response);
         CarResponse result = controller.getCarById(idCar);
         assertEquals(result,response);
 

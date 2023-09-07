@@ -7,7 +7,6 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.kamenchuk.dto.carDTO.CarCreateRequest;
 import org.kamenchuk.dto.carDTO.CarResponse;
 import org.kamenchuk.dto.carDTO.CarUpdateRequest;
-import org.kamenchuk.dto.carDTO.PhotoResponse;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.exceptions.UpdatingException;
@@ -105,8 +104,7 @@ class CarServiceImplIntegrationTest extends PostgresMongoContainer{
     @Test
     void getCarById() throws UpdatingException {
         Integer idCar = 1;
-        List<PhotoResponse> photos = null;
-        CarResponse result = carService.getCarById(idCar,photos);
+        CarResponse result = carService.getCarById(idCar);
         assertEquals(result.getCarNumber(),"1212KK");
     }
 }

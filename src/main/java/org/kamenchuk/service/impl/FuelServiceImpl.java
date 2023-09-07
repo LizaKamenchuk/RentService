@@ -1,6 +1,7 @@
 package org.kamenchuk.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
+import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.models.Fuel;
 import org.kamenchuk.repository.FuelRepository;
 import org.kamenchuk.service.FuelService;
@@ -32,12 +33,9 @@ public class FuelServiceImpl implements FuelService {
     }
 
     @Override
-    public Fuel findByFuelType(String fuelType) {
-//        Optional<Fuel> fuel = fuelRepository.findByFuelType(fuelType);
-//        if (fuel.isEmpty()) {
-//            log.info("Fuel type " + fuelType + " does not exist");
-//            throw new ResourceNotFoundException("Fuel type " + fuelType + " does not exist");
-//        } else return fuel.get();
-        return null;
+    public Fuel findByFuelType(String fuelType) throws ResourceNotFoundException {
+        return fuelRepository.findFuelByFuelType(fuelType).orElseThrow(()->{
+            throw new ResourceNotFoundException(String.format("Fuel %s does not exist",fuelType));
+        });
     }
 }
