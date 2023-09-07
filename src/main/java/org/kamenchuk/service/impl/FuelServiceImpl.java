@@ -1,14 +1,11 @@
 package org.kamenchuk.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
-import org.kamenchuk.exceptions.ResourceNotFoundException;
-import org.kamenchuk.repository.FuelRepository;
 import org.kamenchuk.models.Fuel;
+import org.kamenchuk.repository.FuelRepository;
 import org.kamenchuk.service.FuelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 @Slf4j
@@ -36,10 +33,11 @@ public class FuelServiceImpl implements FuelService {
 
     @Override
     public Fuel findByFuelType(String fuelType) {
-        Optional<Fuel> fuel = fuelRepository.findByFuelType(fuelType);
-        if (fuel.isEmpty()) {
-            log.info("Fuel type " + fuelType + " does not exist");
-            throw new ResourceNotFoundException("Fuel type " + fuelType + " does not exist");
-        } else return fuel.get();
+//        Optional<Fuel> fuel = fuelRepository.findByFuelType(fuelType);
+//        if (fuel.isEmpty()) {
+//            log.info("Fuel type " + fuelType + " does not exist");
+//            throw new ResourceNotFoundException("Fuel type " + fuelType + " does not exist");
+//        } else return fuel.get();
+        return null;
     }
 }

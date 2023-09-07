@@ -37,12 +37,12 @@ public class ExtraDataCarServiceImpl implements ExtraDataCarService {
 
     @Override
     public ExtraDataCar save(ExtraDataCar extraDataCar) {
-        Transmission transmission = transmissionService.findByTransmissionType(
-                extraDataCar.getTransmission().getTransmissionType());
-        CarClass carClass = carClassService.findByCarClassType(
-                extraDataCar.getCarClass().getClassType());
         Fuel fuel = fuelService.findByFuelType(
                 extraDataCar.getFuel().getFuelType());
+        CarClass carClass = carClassService.findByCarClassType(
+                extraDataCar.getCarClass().getClassType());
+        Transmission transmission = transmissionService.findByTransmissionType(
+                extraDataCar.getTransmission().getTransmissionType());
         extraDataCar.setCarClass(carClass);
         extraDataCar.setFuel(fuel);
         extraDataCar.setTransmission(transmission);

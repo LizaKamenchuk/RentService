@@ -17,7 +17,7 @@ public class FuelController {
     }
 
     @PostMapping("/save")
-    public String save(@RequestBody String fuelType){
+    public String save(@RequestParam String fuelType){
         return fuelService.save(fuelType);
     }
 

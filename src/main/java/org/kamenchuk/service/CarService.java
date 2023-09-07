@@ -3,7 +3,6 @@ package org.kamenchuk.service;
 import org.kamenchuk.dto.carDTO.CarCreateRequest;
 import org.kamenchuk.dto.carDTO.CarResponse;
 import org.kamenchuk.dto.carDTO.CarUpdateRequest;
-import org.kamenchuk.dto.carDTO.PhotoResponse;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.exceptions.UpdatingException;
@@ -67,5 +66,5 @@ public interface CarService {
      */
     CarResponse update(CarUpdateRequest request, Integer idCar) throws UpdatingException;
 
-    CarResponse getCarById(Integer idCar, List<PhotoResponse> photos) throws UpdatingException;
+    CarResponse getCarById(Integer idCar) throws UpdatingException;
 }

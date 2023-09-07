@@ -2,6 +2,6 @@ databaseChangeLog:
   - includeAll:
       path: db/changelog/version1/initial
   - include:
-       file: db/changelog/changes/change_car_limitation_location.sql
+       file: db/changelog/changes/change_fields_inEDC_to_validated.sql
 
 

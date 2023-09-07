@@ -135,7 +135,13 @@ public class CarServiceImpl implements CarService {
 
     @Override
     @Transactional(readOnly = true)
-    public CarResponse getCarById(Integer idCar, List<PhotoResponse> photos) throws UpdatingException {
+    public CarResponse getCarById(Integer idCar) throws UpdatingException {
+        List<PhotoResponse> photos = null;
+        try {
+            photos = feignCarPhotoClient.getPhotos(idCar);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         if (carRepository.findById(idCar).isPresent()) {
             Car car = carRepository.findById(idCar).get();
             CarResponse response = carMapper.toDto(car);

@@ -17,7 +17,7 @@ public class TransmissionController {
     }
 
     @PostMapping("/save")
-    public String save(@RequestBody String transmissionType) {
+    public String save(@RequestParam String transmissionType) {
         return transmissionService.save(transmissionType);
     }
 

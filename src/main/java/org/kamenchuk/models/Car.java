@@ -32,7 +32,7 @@ public class Car {
     @JoinColumn(name = "id_model",referencedColumnName = "id")
     private Model model;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_extra_data_car", referencedColumnName = "id")
     private ExtraDataCar extraDataCar;
 

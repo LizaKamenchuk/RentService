@@ -41,7 +41,8 @@ public class CarClassServiceImpl implements CarClassService {
         Optional<CarClass> carClass = carClassRepository.findByClassType(carClassType);
         if (carClass.isEmpty()) {
             log.info("Car class type " + carClassType + " does not exist");
-            throw new ResourceNotFoundException("Car class type " + carClassType + " does not exist");
+//            throw new ResourceNotFoundException("Car class type " + carClassType + " does not exist");
+            throw new ResourceNotFoundException(String.format("Car class type %s does not exist", carClassType));
         } else return carClass.get();
     }
 }

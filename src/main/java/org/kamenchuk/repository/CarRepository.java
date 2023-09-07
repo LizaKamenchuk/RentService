@@ -11,6 +11,6 @@ import java.util.Optional;
 public interface CarRepository extends JpaRepository<Car, Integer> {
     Optional<Car> getCarByCarNumber(String carNumber);
     void deleteCarByCarNumber(String carNumber);
-    @NotNull Optional<Car> findById(Integer integer);
+    Optional<Car> findById(@NotNull Integer integer);
 
 }

@@ -4,11 +4,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.kamenchuk.dto.carDTO.CarCreateRequest;
 import org.kamenchuk.dto.carDTO.CarResponse;
 import org.kamenchuk.dto.carDTO.CarUpdateRequest;
-import org.kamenchuk.dto.carDTO.PhotoResponse;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.exceptions.UpdatingException;
-import org.kamenchuk.feignClient.FeignCarPhotoClient;
 import org.kamenchuk.service.CarService;
 import org.kamenchuk.service.impl.CarServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,26 +24,10 @@ import java.util.List;
 public class CarController {
     private final CarService carService;
 
-    private final FeignCarPhotoClient feignCarPhotoClient;
-
-
     @Autowired
-    CarController(CarServiceImpl carService,
-                  FeignCarPhotoClient feignCarPhotoClient) {
+    CarController(CarServiceImpl carService) {
         this.carService = carService;
-        this.feignCarPhotoClient = feignCarPhotoClient;
     }
-
-//    @GetMapping(value = "/CarPhotoWebClient", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-//    public static Flux<PhotoResponse> getPhotos(Integer idCar) {
-//        Flux<PhotoResponse> photoFlux = WebClient.create()
-//                .get()
-//                .uri("http://localhost:8081/photo/getPhotos/" + idCar.toString())
-//                .retrieve()
-//                .bodyToFlux(PhotoResponse.class);
-//        photoFlux.subscribe(photo -> log.info(photo.toString()));
-//        return photoFlux;
-//    }
 
     @GetMapping(value = "/getAll")
     public List<CarResponse> getAll() {
@@ -54,12 +36,7 @@ public class CarController {
 
     @GetMapping(value = "getCarById/{idCar}")
     public CarResponse getCarById(@PathVariable Integer idCar) throws UpdatingException {
-        List<PhotoResponse> photos = feignCarPhotoClient.getPhotos(idCar);
-
-        System.out.println("Feign: ");
-        photos.forEach(System.out::println);
-
-        return carService.getCarById(idCar,photos);
+        return carService.getCarById(idCar);
     }
 
     @GetMapping(value = "/getByCarNumber/{carNumber}")
