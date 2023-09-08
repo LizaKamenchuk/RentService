@@ -63,5 +63,7 @@ public interface OrderService {
      */
     List<OrderResponse> getAll();
 
+    OrderDocumentDto getOrderDocumentDtoById(Long id);
+
 
 }

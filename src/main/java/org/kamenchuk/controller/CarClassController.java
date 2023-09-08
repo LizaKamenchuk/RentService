@@ -1,6 +1,6 @@
 package org.kamenchuk.controller;
 
-import org.kamenchuk.dto.extraDataCarDTO.CarClassDto;
+import org.kamenchuk.dto.carDTO.extraDataCarDTO.CarClassDto;
 import org.kamenchuk.models.CarClass;
 import org.kamenchuk.service.CarClassService;
 import org.springframework.beans.factory.annotation.Autowired;

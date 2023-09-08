@@ -1,6 +1,6 @@
 package org.kamenchuk.controller;
 
-import org.kamenchuk.dto.extraDataCarDTO.FuelDto;
+import org.kamenchuk.dto.carDTO.extraDataCarDTO.FuelDto;
 import org.kamenchuk.models.Fuel;
 import org.kamenchuk.service.FuelService;
 import org.springframework.beans.factory.annotation.Autowired;

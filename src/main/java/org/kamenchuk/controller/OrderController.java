@@ -41,13 +41,18 @@ public class OrderController {
         return orderService.updateClient(request,idOrder);
     }
 
-    @GetMapping(value = "/getOrderByClientId/{id}")
-    public List<OrderResponse> getByClientsId(Long idClient) {
+    @GetMapping(value = "/getOrderByClientId/{idClient}")
+    public List<OrderResponse> getByClientsId(@PathVariable Long idClient) {
         return orderService.getByClientId(idClient);
     }
 
     @GetMapping(value = "/admin/getAll")
     public List<OrderResponse> getAll() {
         return orderService.getAll();
+    }
+
+    @GetMapping(value = "/getOrderForDocument/{id}")
+    public OrderDocumentDto getOrderForDocument(@PathVariable Long id){
+        return orderService.getOrderDocumentDtoById(id);
     }
 }

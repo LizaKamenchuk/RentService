@@ -127,6 +127,19 @@ public class OrderServiceImpl implements OrderService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public OrderDocumentDto getOrderDocumentDtoById(Long id) {
+        Optional<Order> order = ordersRepository.findById(id);
+        OrderDocumentDto orderDocumentDto = new OrderDocumentDto();
+        orderDocumentDto.setFinishDate(order.get().getFinishDate());
+        orderDocumentDto.setStartDate(order.get().getStartDate());
+        orderDocumentDto.setCarDocumentDto(carService.getCarByIdForDocument(order.get().getCar().getId()));
+        orderDocumentDto.setAdminDocumentDto(userService.getAdminByLoginForDocument(order.get().getAdminsLogin()));
+        orderDocumentDto.setUserDocumentDto(userService.getUserByIdForDocument(order.get().getClient().getId()));
+        return orderDocumentDto;
+
+    }
+
     private Order setUserStatusCar(Long idUser, Order order, OrderCreateRequest request) throws ResourceNotFoundException {
         Integer carId = request.getIdCar();
         UserResponse user = userService.findById(idUser);

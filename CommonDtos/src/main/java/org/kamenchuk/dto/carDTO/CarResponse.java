@@ -16,7 +16,6 @@ public class CarResponse {
     private String carNumber;
     private String mark;
     private String model;
-    private String limitations;
     private Integer price;
     private List<PhotoResponse> photos;
 }

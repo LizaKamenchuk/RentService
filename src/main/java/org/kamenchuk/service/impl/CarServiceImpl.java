@@ -2,6 +2,7 @@ package org.kamenchuk.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
 import org.kamenchuk.dto.carDTO.CarCreateRequest;
+import org.kamenchuk.dto.carDTO.CarDocumentDto;
 import org.kamenchuk.dto.carDTO.CarResponse;
 import org.kamenchuk.dto.carDTO.CarUpdateRequest;
 import org.kamenchuk.dto.carDTO.model_markDTO.ModelCreateDto;
@@ -144,6 +145,18 @@ public class CarServiceImpl implements CarService {
                 }).orElseThrow(() -> {
                     throw new ResourceNotFoundException(String.format("Car with id %s does not exist", idCar));
                 });
+    }
+
+    @Override
+    public CarDocumentDto getCarByIdForDocument(Integer idCar) {
+         return carRepository.findById(idCar)
+                 .map(carMapper::toCarDocumentDto)
+                 .orElseThrow(()->{
+                     throw new ResourceNotFoundException(String.format("Car with id %s does not exist", idCar));
+                 });
+//       extraDataCarService.getById(car.get().getExtraDataCar().getId());
+
+
     }
 
     private Car setUpdates(CarUpdateRequest request, Car car) {

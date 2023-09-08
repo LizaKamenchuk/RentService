@@ -3,7 +3,9 @@ package org.kamenchuk.service.impl;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.kamenchuk.dto.roleDTO.RoleResponse;
+import org.kamenchuk.dto.userDTO.AdminDocumentDto;
 import org.kamenchuk.dto.userDTO.UserCreateRequest;
+import org.kamenchuk.dto.userDTO.UserDocumentDto;
 import org.kamenchuk.dto.userDTO.UserResponse;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
@@ -125,6 +127,24 @@ public class UserServiceImpl implements UserService {
                     return new ResourceNotFoundException("Role isn`t changed");
                 });
 
+    }
+
+    @Override
+    public AdminDocumentDto getAdminByLoginForDocument(String login) {
+        return userRepository.getUserByLogin(login)
+                .map(userMapper::toAdminDto)
+                .orElseThrow(()->{
+                    throw new ResourceNotFoundException(String.format("Admin with login %s does not exist",login));
+                });
+    }
+
+    @Override
+    public UserDocumentDto getUserByIdForDocument(Long id) {
+        return userRepository.findById(id)
+                .map(userMapper::toUserDocumentDto)
+                .orElseThrow(()->{
+                    throw new ResourceNotFoundException(String.format("User with id %s does not exist",id));
+                });
     }
 
     private User setUserRole(User user) {

@@ -1,7 +1,9 @@
 package org.kamenchuk.service;
 
 import org.kamenchuk.dto.roleDTO.RoleResponse;
+import org.kamenchuk.dto.userDTO.AdminDocumentDto;
 import org.kamenchuk.dto.userDTO.UserCreateRequest;
+import org.kamenchuk.dto.userDTO.UserDocumentDto;
 import org.kamenchuk.dto.userDTO.UserResponse;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.UpdatingException;
@@ -72,4 +74,6 @@ public interface UserService {
      */
     UserResponse changeUserRole(Long id, RoleResponse role);
 
+    AdminDocumentDto getAdminByLoginForDocument(String login);
+    UserDocumentDto getUserByIdForDocument(Long id);
 }

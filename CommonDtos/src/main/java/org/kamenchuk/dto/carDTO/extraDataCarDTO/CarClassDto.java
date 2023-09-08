@@ -1,4 +1,4 @@
-package org.kamenchuk.dto.extraDataCarDTO;
+package org.kamenchuk.dto.carDTO.extraDataCarDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class FuelDto {
-    private String fuelType;
+public class CarClassDto {
+    private String carClassType;
 }

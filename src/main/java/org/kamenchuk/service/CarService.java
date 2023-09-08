@@ -1,6 +1,7 @@
 package org.kamenchuk.service;
 
 import org.kamenchuk.dto.carDTO.CarCreateRequest;
+import org.kamenchuk.dto.carDTO.CarDocumentDto;
 import org.kamenchuk.dto.carDTO.CarResponse;
 import org.kamenchuk.dto.carDTO.CarUpdateRequest;
 import org.kamenchuk.exceptions.CreationException;
@@ -74,4 +75,6 @@ public interface CarService {
      * @throws ResourceNotFoundException
      */
     CarResponse getCarById(Integer idCar) throws ResourceNotFoundException;
+
+    CarDocumentDto getCarByIdForDocument(Integer idCar);
 }

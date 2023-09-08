@@ -1,6 +1,6 @@
 package org.kamenchuk.controller;
 
-import org.kamenchuk.dto.extraDataCarDTO.TransmissionDto;
+import org.kamenchuk.dto.carDTO.extraDataCarDTO.TransmissionDto;
 import org.kamenchuk.models.Transmission;
 import org.kamenchuk.service.TransmissionService;
 import org.springframework.beans.factory.annotation.Autowired;

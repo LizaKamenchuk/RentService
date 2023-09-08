@@ -1,6 +1,6 @@
 package org.kamenchuk.service;
 
-import org.kamenchuk.dto.extraDataCarDTO.FuelDto;
+import org.kamenchuk.dto.carDTO.extraDataCarDTO.FuelDto;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.models.Fuel;

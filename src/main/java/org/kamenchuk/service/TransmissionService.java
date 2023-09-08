@@ -1,6 +1,6 @@
 package org.kamenchuk.service;
 
-import org.kamenchuk.dto.extraDataCarDTO.TransmissionDto;
+import org.kamenchuk.dto.carDTO.extraDataCarDTO.TransmissionDto;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.models.Transmission;
 

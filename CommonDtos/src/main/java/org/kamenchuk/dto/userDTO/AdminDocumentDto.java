@@ -1,4 +1,4 @@
-package org.kamenchuk.dto.extraDataCarDTO;
+package org.kamenchuk.dto.userDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class TransmissionDto {
-    private String transmissionType;
+public class AdminDocumentDto {
+    private String name;
+    private String lastname;
 }

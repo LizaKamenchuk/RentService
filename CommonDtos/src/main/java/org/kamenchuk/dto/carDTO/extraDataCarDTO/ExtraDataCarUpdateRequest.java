@@ -1,4 +1,4 @@
-package org.kamenchuk.dto.extraDataCarDTO;
+package org.kamenchuk.dto.carDTO.extraDataCarDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -9,46 +9,46 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" name="Changes" comment="redact Services 4">
-      <change afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/extraDataCarDTO/ExtraDataCarUpdateRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/rent_service.r3-6VA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/887db659-9e38-4b19-b585-8f91359583eb/storage_v2/_src_/database/rent_service.r3-6VA/schema/public.abK9xQ.meta" afterDir="false" />
+    <list default="true" id="ea21c305-a58f-4fdd-ba91-fc4577f9b06f" name="Changes" comment="add update method for ExtraDataCar">
+      <change afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/carDTO/CarDocumentDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/orderDTO/OrderDocumentDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/userDTO/AdminDocumentDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/userDTO/UserDocumentDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CommonDtos/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/carDTO/extraDataCarDTO/CarClassDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/extraDataCarDTO/CarClassDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/carDTO/extraDataCarDTO/FuelDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/extraDataCarDTO/FuelDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/carDTO/extraDataCarDTO/TransmissionDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/extraDataCarDTO/TransmissionDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/carDTO/CarCreateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/carDTO/CarCreateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/carDTO/CarResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/carDTO/CarResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/carDTO/CarUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/carDTO/CarUpdateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/extraDataCarDTO/CarClassDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/carDTO/extraDataCarDTO/CarClassDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/extraDataCarDTO/ExtraDataCarCreateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/carDTO/extraDataCarDTO/ExtraDataCarCreateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/extraDataCarDTO/ExtraDataCarUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/carDTO/extraDataCarDTO/ExtraDataCarUpdateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/extraDataCarDTO/FuelDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/carDTO/extraDataCarDTO/FuelDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/extraDataCarDTO/TransmissionDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonDtos/src/main/java/org/kamenchuk/dto/carDTO/extraDataCarDTO/TransmissionDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/CarClassController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/CarClassController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/ExtraDataCarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/ExtraDataCarController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/FuelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/FuelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/OrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/TransmissionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/controller/TransmissionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/exceptions/UpdatingException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/exceptions/UpdatingException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/mapper/CarClassMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/mapper/CarClassMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/mapper/CarMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/mapper/CarMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/mapper/ExtraDataCarMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/mapper/ExtraDataCarMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/mapper/FuelMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/mapper/FuelMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/mapper/TransmissionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/mapper/TransmissionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/repository/CarClassRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/repository/CarClassRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/repository/FuelRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/repository/FuelRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/repository/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/repository/RoleRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/repository/TransmissionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/repository/TransmissionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/mapper/UserMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/CarClassService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/CarClassService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/CarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/CarService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/ExtraDataCarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/ExtraDataCarService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/FuelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/FuelService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/RoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/OrderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/TransmissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/TransmissionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarClassServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarClassServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/ExtraDataCarServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/ExtraDataCarServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/FuelServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/FuelServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/RoleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/OrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/TransmissionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/TransmissionServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/RoleServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/RoleServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/UserServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/UserServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/integration/ExtraUsersServiceImplIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/integration/ExtraUsersServiceImplIntegrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/integration/RoleServiceImplIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/kamenchuk/service/impl/integration/RoleServiceImplIntegrationTest.java" afterDir="false" />
     </list>
     <list id="da30dbad-d88c-4968-aaa8-a566c9f99ec1" name="ChangesForTests" comment="ChangesForTests" />
     <option name="SHOW_DIALOG" value="false" />
@@ -107,12 +107,7 @@
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="CommonDtos" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="CommonDtos" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="RentService" type="f1a62948:ProjectNode" />
               </path>
             </expand>
             <select />
@@ -612,11 +607,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.RentService [build]" />
-        <item itemvalue="Gradle.RentService [clean]" />
         <item itemvalue="Gradle.CommonDtos [publishToMavenLocal]" />
         <item itemvalue="Gradle.CommonDtos [build]" />
         <item itemvalue="Gradle.CommonDtos [clean]" />
+        <item itemvalue="Gradle.RentService [build]" />
+        <item itemvalue="Gradle.RentService [clean]" />
       </list>
     </recent_temporary>
   </component>
@@ -790,7 +785,7 @@
       <workItem from="1693997379161" duration="5087000" />
       <workItem from="1694005365430" duration="9392000" />
       <workItem from="1694067600822" duration="26344000" />
-      <workItem from="1694153311824" duration="13428000" />
+      <workItem from="1694153311824" duration="19102000" />
     </task>
     <task id="LOCAL-00001" summary="RentService">
       <created>1674217605430</created>
@@ -995,7 +990,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694094995169</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="add update method for ExtraDataCar">
+      <created>1694167314710</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1694167314710</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1096,7 +1098,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="implements all Controllers with logic" />
     <MESSAGE value="implements Test for UserController and UserServiceImpl" />
     <MESSAGE value="implements Controller Advice" />
     <MESSAGE value="ChangesForTests" />
@@ -1121,7 +1122,8 @@
     <MESSAGE value="redact Services 2" />
     <MESSAGE value="redact Services 3" />
     <MESSAGE value="redact Services 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="redact Services 4" />
+    <MESSAGE value="add update method for ExtraDataCar" />
+    <option name="LAST_COMMIT_MESSAGE" value="add update method for ExtraDataCar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1316,6 +1318,26 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/FuelServiceImpl.java</url>
           <line>54</line>
           <option name="timeStamp" value="322" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>151</line>
+          <option name="timeStamp" value="326" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>152</line>
+          <option name="timeStamp" value="327" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>153</line>
+          <option name="timeStamp" value="328" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/kamenchuk/service/impl/CarServiceImpl.java</url>
+          <line>154</line>
+          <option name="timeStamp" value="329" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

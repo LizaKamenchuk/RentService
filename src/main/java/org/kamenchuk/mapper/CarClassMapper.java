@@ -1,6 +1,6 @@
 package org.kamenchuk.mapper;
 
-import org.kamenchuk.dto.extraDataCarDTO.CarClassDto;
+import org.kamenchuk.dto.carDTO.extraDataCarDTO.CarClassDto;
 import org.kamenchuk.models.CarClass;
 import org.mapstruct.Mapper;
 

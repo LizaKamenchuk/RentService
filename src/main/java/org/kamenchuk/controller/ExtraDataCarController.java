@@ -1,6 +1,6 @@
 package org.kamenchuk.controller;
 
-import org.kamenchuk.dto.extraDataCarDTO.ExtraDataCarUpdateRequest;
+import org.kamenchuk.dto.carDTO.extraDataCarDTO.ExtraDataCarUpdateRequest;
 import org.kamenchuk.models.ExtraDataCar;
 import org.kamenchuk.service.ExtraDataCarService;
 import org.springframework.beans.factory.annotation.Autowired;

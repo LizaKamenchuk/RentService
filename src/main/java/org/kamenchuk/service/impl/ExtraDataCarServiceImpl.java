@@ -1,7 +1,7 @@
 package org.kamenchuk.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
-import org.kamenchuk.dto.extraDataCarDTO.ExtraDataCarUpdateRequest;
+import org.kamenchuk.dto.carDTO.extraDataCarDTO.ExtraDataCarUpdateRequest;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.exceptions.UpdatingException;

@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.NotNull;
-import org.kamenchuk.dto.extraDataCarDTO.ExtraDataCarCreateRequest;
+import org.kamenchuk.dto.carDTO.extraDataCarDTO.ExtraDataCarCreateRequest;
 
 @Data
 @NoArgsConstructor

@@ -1,8 +1,6 @@
 package org.kamenchuk.mapper;
 
-import org.kamenchuk.dto.userDTO.AllUsersDataResponse;
-import org.kamenchuk.dto.userDTO.UserCreateRequest;
-import org.kamenchuk.dto.userDTO.UserResponse;
+import org.kamenchuk.dto.userDTO.*;
 import org.kamenchuk.models.User;
 import org.kamenchuk.models.UserAuthResponse;
 import org.mapstruct.Mapper;
@@ -30,5 +28,13 @@ public interface UserMapper {
     @Mapping(target = "role", source = "role.role")
     UserAuthResponse toAuthDto(User entity);
 
+    @Mapping(target = "name",source = "extraUsersData.name")
+    @Mapping(target = "lastname",source = "extraUsersData.lastname")
+    AdminDocumentDto toAdminDto(User entity);
+    @Mapping(target = "lastname",source = "extraUsersData.lastname")
+    @Mapping(target = "name",source = "extraUsersData.name")
+    @Mapping(target = "drivingLicense",source = "extraUsersData.drivingLicense")
+    @Mapping(target = "idPassport",source = "extraUsersData.idPassport")
+    UserDocumentDto toUserDocumentDto(User user);
 
 }
