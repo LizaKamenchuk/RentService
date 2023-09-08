@@ -1,6 +1,6 @@
 package org.kamenchuk.service;
 
-import org.kamenchuk.dto.carDTO.extraDataCarDTO.CarClassDto;
+import org.kamenchuk.dto.extraDataCarDTO.CarClassDto;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.models.CarClass;
@@ -14,7 +14,7 @@ public interface CarClassService {
     /**
      * save carClassType
      *
-     * @param carClassDto
+     * @param carClassType
      * @return saved carClassType
      */
     CarClassDto save(CarClassDto carClassType) throws CreationException;
@@ -33,5 +33,7 @@ public interface CarClassService {
      * @return CarClass
      * @throws ResourceNotFoundException
      */
-    CarClass findByCarClassType(CarClassDto carClassType) throws ResourceNotFoundException;
+    CarClass findByCarClassTypeOrFail(String carClassType) throws ResourceNotFoundException;
+
+    CarClass findByCarClassType(String carClassType);
 }

@@ -1,5 +1,6 @@
 package org.kamenchuk.controller;
 
+import org.kamenchuk.dto.extraDataCarDTO.ExtraDataCarUpdateRequest;
 import org.kamenchuk.models.ExtraDataCar;
 import org.kamenchuk.service.ExtraDataCarService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,4 +31,10 @@ public class ExtraDataCarController {
     public ExtraDataCar getById(@PathVariable Integer id){
         return extraDataCarService.getById(id);
     }
+
+    @PostMapping("/update/{id}")
+    public ExtraDataCar update(@PathVariable Integer id, @RequestBody ExtraDataCarUpdateRequest updateRequest){
+        return extraDataCarService.update(id,updateRequest);
+    }
+
 }

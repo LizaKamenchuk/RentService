@@ -1,6 +1,6 @@
 package org.kamenchuk.service;
 
-import org.kamenchuk.dto.carDTO.extraDataCarDTO.TransmissionDto;
+import org.kamenchuk.dto.extraDataCarDTO.TransmissionDto;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.models.Transmission;
 
@@ -31,5 +31,6 @@ public interface TransmissionService {
      * @param transmissionType
      * @return transmission
      */
-    Transmission findByTransmissionType(TransmissionDto transmissionType);
+    Transmission findByTransmissionTypeOrFail(String transmissionType);
+   Transmission findByTransmissionType(String transmissionType);
 }

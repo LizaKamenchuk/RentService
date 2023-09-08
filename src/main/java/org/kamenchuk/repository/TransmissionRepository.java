@@ -1,7 +1,6 @@
 package org.kamenchuk.repository;
 
 import org.jetbrains.annotations.NotNull;
-import org.kamenchuk.dto.carDTO.extraDataCarDTO.TransmissionDto;
 import org.kamenchuk.models.Transmission;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -12,5 +11,5 @@ import java.util.Optional;
 public interface TransmissionRepository extends JpaRepository<Transmission, Integer> {
     void deleteById(@NotNull Integer integer);
 
-    Optional<Transmission> findByTransmissionType(@NotNull TransmissionDto transmissionType);
+    Optional<Transmission> findByTransmissionType(@NotNull String transmissionType);
 }

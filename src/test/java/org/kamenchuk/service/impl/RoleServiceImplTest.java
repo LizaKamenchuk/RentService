@@ -18,7 +18,6 @@ import static org.mockito.Mockito.when;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = {RoleServiceImpl.class})
 class RoleServiceImplTest {
-
     @Autowired
     private RoleServiceImpl roleService;
 
@@ -40,7 +39,7 @@ class RoleServiceImplTest {
                 .build();
         when(roleRepository.save(newRole)).thenReturn(idRole);
         when(roleMapper.toDtoResponse(idRole)).thenReturn(response);
-        RoleResponse result = roleService.create(role);
+        RoleResponse result = roleService.create(new RoleResponse(role));
         assertAll(()->{
             assertNotNull(result);
             assertEquals(result,response);

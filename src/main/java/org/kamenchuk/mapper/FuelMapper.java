@@ -1,6 +1,6 @@
 package org.kamenchuk.mapper;
 
-import org.kamenchuk.dto.carDTO.extraDataCarDTO.FuelDto;
+import org.kamenchuk.dto.extraDataCarDTO.FuelDto;
 import org.kamenchuk.models.Fuel;
 import org.mapstruct.Mapper;
 

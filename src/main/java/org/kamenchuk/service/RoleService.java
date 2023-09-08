@@ -35,7 +35,7 @@ public interface RoleService {
      * @param role
      * @return role
      */
-    Role getRoleByRole(RoleResponse role);
+    Role getRoleByRole(String role);
 
 
 }

@@ -1,7 +1,7 @@
 package org.kamenchuk.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
-import org.kamenchuk.dto.carDTO.extraDataCarDTO.FuelDto;
+import org.kamenchuk.dto.extraDataCarDTO.FuelDto;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.mapper.FuelMapper;
@@ -44,9 +44,15 @@ public class FuelServiceImpl implements FuelService {
     }
 
     @Override
-    public Fuel findByFuelType(FuelDto fuelType) throws ResourceNotFoundException {
+    public Fuel findByFuelTypeOrFail(String fuelType) throws ResourceNotFoundException {
         return fuelRepository.findFuelByFuelType(fuelType).orElseThrow(() -> {
             throw new ResourceNotFoundException(String.format("Fuel %s does not exist", fuelType));
         });
     }
+
+    @Override
+    public Fuel findByFuelType(String fuelType) {
+        return fuelRepository.findFuelByFuelType(fuelType).orElse(null);
+    }
+
 }

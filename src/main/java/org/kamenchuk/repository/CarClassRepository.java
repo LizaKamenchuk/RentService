@@ -1,7 +1,6 @@
 package org.kamenchuk.repository;
 
 import org.jetbrains.annotations.NotNull;
-import org.kamenchuk.dto.carDTO.extraDataCarDTO.CarClassDto;
 import org.kamenchuk.models.CarClass;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -12,5 +11,5 @@ import java.util.Optional;
 public interface CarClassRepository extends JpaRepository<CarClass, Integer> {
     void deleteById(@NotNull Integer integer);
 
-    Optional<CarClass> findByClassType(@NotNull CarClassDto carClassType);
+    Optional<CarClass> findByClassType(@NotNull String carClassType);
 }

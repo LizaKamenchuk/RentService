@@ -1,7 +1,7 @@
 package org.kamenchuk.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
-import org.kamenchuk.dto.carDTO.extraDataCarDTO.CarClassDto;
+import org.kamenchuk.dto.extraDataCarDTO.CarClassDto;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.mapper.CarClassMapper;
@@ -47,10 +47,16 @@ public class CarClassServiceImpl implements CarClassService {
     }
 
     @Override
-    public CarClass findByCarClassType(CarClassDto carClassType) throws ResourceNotFoundException {
+    public CarClass findByCarClassType(String carClassType) {
+        return carClassRepository.findByClassType(carClassType).orElse(null);
+    }
+
+    public CarClass findByCarClassTypeOrFail(String carClassType) throws ResourceNotFoundException {
         return carClassRepository.findByClassType(carClassType).orElseThrow(() -> {
             log.info("Car class type " + carClassType + " does not exist");
             throw new ResourceNotFoundException(String.format("Car class type %s does not exist", carClassType));
         });
     }
+
+
 }

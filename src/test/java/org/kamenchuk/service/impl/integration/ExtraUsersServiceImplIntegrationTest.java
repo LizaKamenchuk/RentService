@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.kamenchuk.dto.extraUsersDataDTO.ExtraUserDataUpdateRequest;
+import org.kamenchuk.dto.roleDTO.RoleResponse;
 import org.kamenchuk.dto.userDTO.UserCreateRequest;
 import org.kamenchuk.dto.userDTO.UserResponse;
 import org.kamenchuk.exceptions.CreationException;
@@ -34,7 +35,7 @@ class ExtraUsersServiceImplIntegrationTest extends PostgresContainer {
     @Order(1)
     @Test
     void getExtraDataById() throws CreationException, ResourceNotFoundException {
-        roleService.create("USER");
+        roleService.create(new RoleResponse("USER"));
         UserCreateRequest request = new UserCreateRequest("login1", "password", "name", "lastname");
         UserResponse userResponse = userService.createUser(request);
         ExtraUserDataUpdateRequest response = service.getExtraDataById(userResponse.getIdED());

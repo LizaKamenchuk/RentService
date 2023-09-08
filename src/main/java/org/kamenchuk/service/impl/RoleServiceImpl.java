@@ -58,7 +58,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public Role getRoleByRole(RoleResponse role) throws ResourceNotFoundException {
+    public Role getRoleByRole(String role) throws ResourceNotFoundException {
         return roleRepository.findFirstByRole(role)
           .orElseThrow(() -> {
             throw new ResourceNotFoundException(String.format("Role %s does not exist", role));

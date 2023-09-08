@@ -116,7 +116,7 @@ public class UserServiceImpl implements UserService {
     public UserResponse changeUserRole(Long id, RoleResponse role) {
         return userRepository.findById(id)
                 .map(user -> {
-                    user.setRole(roleService.getRoleByRole(role));
+                    user.setRole(roleService.getRoleByRole(role.getRole()));
                     return user;
                 })
                 .map(userMapper::toDto)
@@ -128,9 +128,8 @@ public class UserServiceImpl implements UserService {
     }
 
     private User setUserRole(User user) {
-        RoleResponse usersRole = new RoleResponse("USER");
         try {
-            user.setRole(roleService.getRoleByRole(usersRole));
+            user.setRole(roleService.getRoleByRole("USER"));
             return user;
         } catch (ResourceNotFoundException exception) {
             throw new ResourceNotFoundException(exception.getMessage() + ". Создате роль USER");

@@ -1,7 +1,7 @@
 package org.kamenchuk.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
-import org.kamenchuk.dto.carDTO.extraDataCarDTO.TransmissionDto;
+import org.kamenchuk.dto.extraDataCarDTO.TransmissionDto;
 import org.kamenchuk.exceptions.CreationException;
 import org.kamenchuk.exceptions.ResourceNotFoundException;
 import org.kamenchuk.mapper.TransmissionMapper;
@@ -42,11 +42,15 @@ public class TransmissionServiceImpl implements TransmissionService {
         transmissionRepository.deleteById(id);
     }
 
-    @Override
-    public Transmission findByTransmissionType(TransmissionDto transmissionType) {
+    public Transmission findByTransmissionTypeOrFail(String transmissionType) {
         return transmissionRepository.findByTransmissionType(transmissionType).orElseThrow(() -> {
             log.info("Transmission type " + transmissionType + " does not exist");
             throw new ResourceNotFoundException("Transmission type " + transmissionType + " does not exist");
         });
+    }
+
+    @Override
+    public Transmission findByTransmissionType(String transmissionType) {
+        return transmissionRepository.findByTransmissionType(transmissionType).orElse(null);
     }
 }
